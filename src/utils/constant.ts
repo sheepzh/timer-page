@@ -1,0 +1,8 @@
+export const CROWDIN_HOMEPAGE = ''
+export const SOURCE_CODE_PAGE = ''
+export const CHROME_HOMEPAGE = ''
+export const EDGE_HOMEPAGE = ''
+export const FIREFOX_HOMEPAGE = ''
+export const START_ROUTE = ''
+export const APP_PAGE_ROUTE = ''
+export const PSL_HOMEPAGE = 'https://publicsuffix.org/'
