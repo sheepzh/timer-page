@@ -6,18 +6,12 @@
  */
 
 import { defineComponent } from 'vue'
-import Article from './common/Article'
-import { BACKUP_ROUTE, VIRTUAL_ROUTE } from '@/router/constants'
 import { t } from '@/i18n'
 import List from './common/List'
 
 export default defineComponent(() => {
     return () => (
-        <Article
-            title={msg => msg.limit.title}
-            previous={{ route: VIRTUAL_ROUTE, title: msg => msg.virtual.title }}
-            next={{ route: BACKUP_ROUTE, title: msg => msg.backup.title }}
-        >
+        <>
             <p>{t(msg => msg.limit.p1)}</p>
             <h2>{t(msg => msg.limit.step.title)}</h2>
             <List
@@ -34,6 +28,6 @@ export default defineComponent(() => {
                     msg => msg.limit.step.check,
                 ]}
             />
-        </Article>
+        </>
     )
 })

@@ -6,49 +6,57 @@
  */
 
 import type { RouteRecordRaw } from "vue-router"
-import { createRouter, createWebHistory } from "vue-router"
+import { DOC_ROUTE, HOME_ROUTE } from "./constants"
+import { t } from "@/i18n"
 
+export type MyRoute = RouteRecordRaw & {
+    title?: string
+    children?: MyRoute[]
+}
 
-export const routes: RouteRecordRaw[] = [{
+export const routes: MyRoute[] = [{
     path: '/',
-    redirect: "index",
+    redirect: HOME_ROUTE,
 }, {
-    path: "/index",
+    path: HOME_ROUTE,
     component: () => import('@/pages/Home')
 }, {
-    path: "/guide",
-    component: () => import('@/pages/Guide'),
+    path: DOC_ROUTE,
+    component: () => import('@/pages/Doc'),
     children: [{
-        path: "start",
-        component: () => import('@/pages/Guide/components/Start'),
+        path: "/doc/start",
+        component: () => import('@/pages/Doc/components/Start'),
+        title: t(msg => msg.start.title),
     }, {
-        path: "privacy",
-        component: () => import('@/pages/Guide/components/Privacy')
+        path: "/doc/privacy",
+        component: () => import('@/pages/Doc/components/Privacy'),
+        title: t(msg => msg.privacy.title),
     }, {
-        path: "usage",
-        redirect: "management",
+        path: "/doc/usage",
+        redirect: "/doc/usage/management",
+        title: t(msg => msg.layout.menu.usage),
         children: [
             {
-                path: "management",
-                component: () => import('@/pages/Guide/components/App'),
+                path: "/doc/usage/management",
+                component: () => import('@/pages/Doc/components/App'),
+                title: t(msg => msg.app.title),
             }, {
-                path: "merge",
-                component: () => import('@/pages/Guide/components/Merge'),
+                path: "/doc/usage/merge",
+                component: () => import('@/pages/Doc/components/Merge'),
+                title: t(msg => msg.merge.title),
             }, {
-                path: "virtual",
-                component: () => import('@/pages/Guide/components/Virtual'),
+                path: "/doc/usage/virtual",
+                component: () => import('@/pages/Doc/components/Virtual'),
+                title: t(msg => msg.virtual.title),
             }, {
-                path: "limit",
-                component: () => import('@/pages/Guide/components/Limit'),
+                path: "/doc/usage/limit",
+                component: () => import('@/pages/Doc/components/Limit'),
+                title: t(msg => msg.limit.title),
             }, {
-                path: "backup",
-                component: () => import('@/pages/Guide/components/Backup'),
+                path: "/doc/usage/backup",
+                component: () => import('@/pages/Doc/components/Backup'),
+                title: t(msg => msg.backup.title),
             }
         ]
     }]
 }]
-
-export const router = createRouter({
-    history: createWebHistory(),
-    routes,
-})

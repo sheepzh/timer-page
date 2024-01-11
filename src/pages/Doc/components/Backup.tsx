@@ -6,8 +6,6 @@
  */
 
 import { defineComponent, h } from 'vue'
-import Article from './common/Article'
-import { LIMIT_ROUTE } from '@/router/constants'
 import { t } from '@/i18n'
 import { ElButton } from 'element-plus'
 import { UploadFilled } from '@element-plus/icons-vue'
@@ -16,10 +14,7 @@ import Alert from './common/Alert'
 
 export default defineComponent(() => {
     return () => (
-        <Article
-            title={msg => msg.limit.title}
-            previous={{ route: LIMIT_ROUTE, title: msg => msg.backup.title }}
-        >
+        <>
             <p>
                 {t(msg => msg.backup.p1, {
                     link: '', // link('https://gist.github.com')
@@ -70,6 +65,6 @@ export default defineComponent(() => {
                 ]}
             />
             <Alert type="warning">{t(msg => msg.backup.query.tip)}</Alert>
-        </Article>
+        </>
     )
 })

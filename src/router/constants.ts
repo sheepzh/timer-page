@@ -6,11 +6,5 @@
  */
 
 export const HOME_ROUTE = '/index'
-export const START_ROUTE = '/start'
-export const PRIVACY_ROUTE = '/privacy'
-export const USAGE_ROUTE = '/usage'
-export const APP_PAGE_ROUTE = '/usage/management'
-export const MERGE_ROUTE = '/usage/merge'
-export const VIRTUAL_ROUTE = '/usage/virtual'
-export const LIMIT_ROUTE = '/usage/limit'
-export const BACKUP_ROUTE = '/usage/backup'
+export const DOC_ROUTE = '/doc'
+export const START_ROUTE = '/doc/start'

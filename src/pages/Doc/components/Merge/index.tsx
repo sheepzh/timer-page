@@ -6,8 +6,6 @@
  */
 
 import { defineComponent, h } from 'vue'
-import Article from '../common/Article'
-import { APP_PAGE_ROUTE, VIRTUAL_ROUTE } from '@/router/constants'
 import { SiteExampleTable, SourceTable, TargetTable } from './tables'
 import { t } from '@/i18n'
 import { tN } from '@/i18n/i18n-vue'
@@ -16,11 +14,7 @@ import './merge.sass'
 
 const _default = defineComponent(() => {
     return () => (
-        <Article
-            title={msg => msg.merge.title}
-            previous={{ route: APP_PAGE_ROUTE, title: msg => msg.app.title }}
-            next={{ route: VIRTUAL_ROUTE, title: msg => msg.virtual.title }}
-        >
+        <>
             <p>
                 {tN(msg => msg.merge.p1, {
                     demo1: <i>www.github.com</i>,
@@ -46,7 +40,7 @@ const _default = defineComponent(() => {
             <TargetTable />
             <p>{t(msg => msg.merge.target.p2)}</p>
             <SiteExampleTable />
-        </Article>
+        </>
     )
 })
 

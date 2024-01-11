@@ -1,15 +1,14 @@
 import 'element-plus/theme-chalk/index.css'
 import './styles/index.sass'
 
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import Layout from './Layout'
-import { router } from './router'
+import { routes } from './router'
 
-
-const main = () => {
-    const app = createApp(Layout)
-    app.use(router)
-    app.mount('#app')
-}
-
-main()
+export const createApp = ViteSSG(
+    Layout,
+    { routes },
+    ({ }) => {
+        // install plugins etc.
+    },
+)

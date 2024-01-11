@@ -7,13 +7,11 @@
 
 import { defineComponent } from 'vue'
 import Alert from '../common/Alert'
-import Article from '../common/Article'
 import { ElIcon, ElTable, ElTableColumn } from 'element-plus'
 import type { PrivacyMessage, Scope } from '@/i18n/messages/privacy'
 import { t } from '@/i18n'
 import { CircleCheck, Warning } from '@element-plus/icons-vue'
 import './privacy.sass'
-import { START_ROUTE, APP_PAGE_ROUTE } from '@/router/constants'
 
 type ScopeRow = keyof PrivacyMessage['scope']['rows']
 
@@ -21,11 +19,7 @@ const ALL_ROWS: ScopeRow[] = ['website', 'tab', 'clipboard']
 
 const _default = defineComponent(() => {
     return () => (
-        <Article
-            title={msg => msg.privacy.title}
-            previous={{ route: START_ROUTE, title: msg => msg.start.title }}
-            next={{ route: APP_PAGE_ROUTE, title: msg => msg.app.title }}
-        >
+        <>
             <Alert type="warning">{t(msg => msg.privacy.alert)}</Alert>
             <h2>{t(msg => msg.privacy.scope.title)}</h2>
             <ElTable
@@ -69,7 +63,7 @@ const _default = defineComponent(() => {
             <p>{t(msg => msg.privacy.storage.p1)}</p>
             <p>{t(msg => msg.privacy.storage.p2)}</p>
             <Alert type="info">{t(msg => msg.privacy.storage.p3)}</Alert>
-        </Article>
+        </>
     )
 })
 

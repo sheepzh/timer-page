@@ -8,7 +8,7 @@
 import { ElContainer, ElHeader } from 'element-plus'
 import { defineComponent } from 'vue'
 import Header from './header'
-import { RouterView, useRoute } from 'vue-router'
+import { RouterView } from 'vue-router'
 
 const _default = defineComponent(() => {
     return () => (
