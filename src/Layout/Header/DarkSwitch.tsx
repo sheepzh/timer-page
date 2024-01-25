@@ -7,8 +7,7 @@
 
 import type { Ref } from "vue"
 
-import { defineComponent, ref, h, onMounted } from "vue"
-
+import { defineComponent, ref, onMounted } from "vue"
 import { ElSwitch } from "element-plus"
 import { Moon, Sunrise } from "@element-plus/icons-vue"
 import { toggle, initDarkMode } from "@/utils/dark-mode"
@@ -20,15 +19,15 @@ const _default = defineComponent(() => {
         value.value = newVal
         toggle(newVal)
     }
-    return () => h(ElSwitch, {
-        modelValue: value.value,
-        inactiveIcon: Sunrise,
-        activeIcon: Moon,
-        inlinePrompt: true,
-        onChange(newVal: boolean | string | number) {
-            handleChange(newVal as boolean)
-        },
-    })
+    return () => (
+        <ElSwitch
+            modelValue={value.value}
+            inactiveIcon={<Sunrise />}
+            activeIcon={<Moon />}
+            inlinePrompt
+            onChange={(val: boolean | string | number) => handleChange(val as boolean)}
+        />
+    )
 })
 
 export default _default

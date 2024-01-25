@@ -23,6 +23,7 @@ export const routes: MyRoute[] = [{
 }, {
     path: DOC_ROUTE,
     component: () => import('@/pages/Doc'),
+    redirect: "/doc/start",
     children: [{
         path: "/doc/start",
         component: () => import('@/pages/Doc/components/Start'),

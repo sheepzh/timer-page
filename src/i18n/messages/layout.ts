@@ -12,6 +12,8 @@ export type LayoutMessage = {
     header: {
         sourceCode: string
         email: string
+        doc: string
+        about: string
     }
     menu: {
         usage: string

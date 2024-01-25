@@ -32,14 +32,18 @@ $localeIconSize: 19px
             font-size: 20px
             color: var(--el-text-color-primary)
     .header-right
+        display: flex
+        align-items: center
         .el-switch__inner
-            svg path
-                fill: var(--el-color-white)
-        svg
-            width: $iconSize
-            height: $iconSize
-            path
-                fill: var(--el-text-color-regular)
+            svg
+                path
+                    fill: var(--el-color-white)
+        .icon-link, .locale-button
+            svg
+                width: $iconSize
+                height: $iconSize
+                path
+                    fill: var(--el-text-color-regular)
         .el-switch
             --el-switch-off-color: var(--el-color-primary)
             // = [light-theme] --el-text-color-regular

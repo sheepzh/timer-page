@@ -2,7 +2,9 @@
     "zh_CN": {
         "header": {
             "sourceCode": "查看源代码",
-            "email": "联系作者"
+            "email": "联系作者",
+            "doc": "文档",
+            "about": "关于"
         },
         "menu": {
             "usage": "高级用法"
@@ -20,7 +22,9 @@
     "en": {
         "header": {
             "sourceCode": "View source code",
-            "email": "Contact author"
+            "email": "Contact author",
+            "doc": "Docs",
+            "about": "About"
         },
         "menu": {
             "usage": "Advanced usages"

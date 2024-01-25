@@ -1,5 +1,5 @@
-export const CROWDIN_HOMEPAGE = ''
-export const SOURCE_CODE_PAGE = ''
+export const CROWDIN_HOMEPAGE = 'https://crowdin.com/project/timer-chrome-edge-firefox'
+export const SOURCE_CODE_PAGE = 'https://github.com/sheepzh/timer'
 export const CHROME_HOMEPAGE = ''
 export const EDGE_HOMEPAGE = ''
 export const FIREFOX_HOMEPAGE = ''
