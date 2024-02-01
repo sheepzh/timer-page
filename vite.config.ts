@@ -8,10 +8,6 @@ import svgLoader from "vite-svg-loader"
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue({
-      include: /\.md/,
-    }),
-    vueJsx(),
     svgLoader(),
   ],
   resolve: {
@@ -19,5 +15,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  assetsInclude: ['**/*.md'],
 })
