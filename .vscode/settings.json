@@ -1,9 +1,16 @@
 {
     "cSpell.words": [
+        "frontmatter",
         "Hengyang",
         "nightwatch",
         "Openeds",
-        "sheepzh"
+        "sheepzh",
+        "vitepress",
+        "vueuse"
     ],
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "octref.vetur"
+    ]
 }

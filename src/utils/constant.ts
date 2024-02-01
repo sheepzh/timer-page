@@ -1,8 +1,0 @@
-export const CROWDIN_HOMEPAGE = 'https://crowdin.com/project/timer-chrome-edge-firefox'
-export const SOURCE_CODE_PAGE = 'https://github.com/sheepzh/timer'
-export const CHROME_HOMEPAGE = ''
-export const EDGE_HOMEPAGE = ''
-export const FIREFOX_HOMEPAGE = ''
-export const START_ROUTE = ''
-export const APP_PAGE_ROUTE = ''
-export const PSL_HOMEPAGE = 'https://publicsuffix.org/'

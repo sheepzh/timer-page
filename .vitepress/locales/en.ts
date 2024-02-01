@@ -3,27 +3,27 @@ import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: "Download",
-            link: "/download"
+            text: "Installation",
+            link: "/en/install"
         },
         {
             text: "Guide",
-            link: "/guide/start",
+            link: "/en/guide/start",
         },
         {
             text: "Sponsor",
-            link: "/sponsor"
+            link: "/en/sponsor"
         },
         {
             text: "About",
             items: [
                 {
                     text: "Author",
-                    link: "/about/author"
+                    link: "/en/about/author"
                 },
                 {
                     text: "Release log",
-                    link: "/about/release"
+                    link: "/en/about/release"
                 },
                 {
                     text: "Support us",
@@ -43,11 +43,11 @@ function nav(): DefaultTheme.NavItem[] {
                     items: [
                         {
                             text: "Privacy",
-                            link: "/legal/privacy"
+                            link: "/en/legal/privacy"
                         },
                         {
                             text: "License",
-                            link: "/legal/license"
+                            link: "/en/legal/license"
                         }
                     ]
                 }
@@ -58,27 +58,26 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/guide": [
+        "/en/guide": [
             {
-                text: 'Get started',
-                link: '/guide/start',
-                items: [],
+                text: 'Get Started',
+                link: '/en/guide/start',
             },
             {
-                text: 'Basic usages',
+                text: 'Basic Usages',
                 collapsed: false,
                 items: [
                     {
-                        text: 'Dimensions of statistic',
-                        link: '/guide/basic/stat'
+                        text: 'Statistics',
+                        link: '/en/guide/basic/stat'
                     },
                     {
-                        text: 'Merge data of related sites',
-                        link: '/guide/basic/merge',
+                        text: 'Analysis',
+                        link: '/en/guide/basic/analysis',
                     },
                     {
-                        text: 'Limited to visit sites',
-                        link: '/guide/basic/limit',
+                        text: 'Control',
+                        link: '/en/guide/basic/limit',
                     }
                 ]
             }, {
@@ -87,11 +86,11 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 items: [
                     {
                         text: 'Site whitelist',
-                        link: '/guide/advanced/whitelist'
+                        link: '/en/guide/advanced/whitelist'
                     },
                     {
                         text: 'Track any URLs',
-                        link: '/guide/advanced/virtual'
+                        link: '/en/guide/advanced/virtual'
                     }
                 ]
             }, {
@@ -100,13 +99,13 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 items: [
                     {
                         text: "With gist",
-                        link: '/sync/gist'
+                        link: '/en/sync/gist'
                     }, {
                         text: "With Obsibian",
-                        link: '/sync/obsibian'
+                        link: '/en/sync/obsibian'
                     }, {
                         text: "Query multi-terminal data",
-                        link: '/sync/query'
+                        link: '/en/sync/query'
                     }
                 ]
             }
