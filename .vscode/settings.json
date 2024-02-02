@@ -6,7 +6,8 @@
         "Openeds",
         "sheepzh",
         "vitepress",
-        "vueuse"
+        "vueuse",
+        "Webtime"
     ],
     "editor.formatOnSave": true,
     "recommendations": [

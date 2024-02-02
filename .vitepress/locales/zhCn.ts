@@ -3,26 +3,26 @@ import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: "Installation",
-            link: "/en/install"
+            text: "插件安装",
+            link: "/zhCn/install"
         },
         {
-            text: "Guide",
-            link: "/en/guide/start",
+            text: "使用指引",
+            link: "/zhCn/guide/start",
         },
         {
-            text: "Sponsor",
-            link: "/en/sponsor"
+            text: "捐赠",
+            link: "/zhCn/sponsor"
         },
         {
-            text: "About",
+            text: "关于",
             items: [
                 {
-                    text: "Release log",
+                    text: "发布日志",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
-                    text: "Support us",
+                    text: "支持我们",
                     items: [
                         {
                             text: "Submit issues",
@@ -35,14 +35,14 @@ function nav(): DefaultTheme.NavItem[] {
                     ]
                 },
                 {
-                    text: "Legal",
+                    text: "法律信息",
                     items: [
                         {
-                            text: "Privacy",
-                            link: "/en/privacy"
+                            text: "隐私声明",
+                            link: "/zhCn/privacy"
                         },
                         {
-                            text: "License",
+                            text: "开源协议",
                             link: "https://github.com/sheepzh/timer/blob/main/LICENSE"
                         }
                     ]
@@ -54,38 +54,38 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/en/guide": [
+        "/zhCn/guide": [
             {
-                text: 'Get Started',
-                link: '/en/guide/start',
+                text: '快速开始',
+                link: '/zhCn/guide/start',
             },
             {
-                text: 'Basic Usages',
+                text: '基础功能',
                 collapsed: false,
                 items: [
                     {
-                        text: 'Tracking',
-                        link: '/en/guide/basic/stat'
+                        text: '追踪时间',
+                        link: '/zhCn/guide/basic/stat'
                     },
                     {
-                        text: 'Analysis',
-                        link: '/en/guide/basic/analysis',
+                        text: '分析报表',
+                        link: '/zhCn/guide/basic/analysis',
                     },
                     {
-                        text: 'Control',
-                        link: '/en/guide/basic/limit',
+                        text: '控制时间',
+                        link: '/zhCn/guide/basic/limit',
                     }
                 ]
             }, {
-                text: 'Data transmission',
-                link: '/en/guide/data'
+                text: '数据迁移',
+                link: '/zhCn/guide/data'
             }
         ]
     }
 }
 
-export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Time Tracker",
+export const zhCnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
+    title: "网费很贵",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

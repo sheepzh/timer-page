@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { enConfig } from "./locales/en"
+import { zhCnConfig } from "./locales/zhCn"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,8 +23,14 @@ export default defineConfig({
     en: {
       label: "English",
       lang: "en",
-      link: "/en/index",
+      link: "/en/",
       ...enConfig,
-    }
+    },
+    zhCn: {
+      label: "简体中文",
+      lang: "zhCn",
+      link: "/zhCn/",
+      ...zhCnConfig,
+    },
   },
 })
