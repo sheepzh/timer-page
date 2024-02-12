@@ -1,21 +1,21 @@
 ---
-title: Analysis
+title: 习惯分析
 ---
 
 # {{$frontmatter.title}}
 
-In addition to basic records, you can also see analytical reports on the backend page, including habit reports and site reports.
+根据基础的统计条目，你也可以在后台页中查看更多的分析报告，包括习惯分析和具体的网站分析。
 
-## Habit report
+## 习惯分析
 
-The habit report consists of two parts.
+习惯分析报告包括两部分。
 
--   Website usage habits. This part shows your most visited content.
--   Time period habits. This part shows your busiest times and longest idle periods.
+-   网站使用习惯。这部分显示你最喜欢访问的内容。
+-   时间段分析。这部分显示你每天中最繁忙和空闲的时间段。
 
-## Site report
+## 网站分析
 
-Likewise, the site report also consists of two parts.
+同样，网站分析报告也由两部分构成。
 
--   Summary. This part shows overview data for the selected site.
--   Trends. This part shows the historical trend of viewing time and number of visits per day for the selected website.
+-   总览信息。这部分显示所选网站的总览信息。
+-   趋势信息。这部分显示所选网站浏览时间的访问次数的历史趋势。

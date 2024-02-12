@@ -1,27 +1,27 @@
 ---
-title: Privacy statement
+title: 隐私声明
 ---
 
 # {{$frontmatter.title}}
 
 ::: info
-In order to provide you with complete services, this extension will necessarily collect some of your personal data during use, see the following privacy statement for details.
+为了向您提供完整的服务，该扩展在使用过程中会必要地收集您的一些个人数据，详情见以下隐私声明。
 :::
 
-## What data is collected?
+## 哪些数据会被收集？
 
-| Content                  | Usage                                                                                                           | Required                                        |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Website browsing history | Used to count browsing time and visits                                                                          | Yes                                             |
-| Tab information          | Used to automatically obtain the name and icon of the website, and improve user experience when displaying data | Only if this function is enabled in the options |
-| Clipboard content        | When setting the daily time limit rule, for the convenience of operation, the URL in the clipboard will be read | Only if user agreed                             |
+| 内容           | 用途                                                 | 是否必需                               |
+| -------------- | ---------------------------------------------------- | -------------------------------------- |
+| 网站访问记录   | 用于统计浏览时长和访问次数                           | 是                                     |
+| 浏览器标签信息 | 用于自动获取网站的名称和图标，展示数据时提升用户体验 | 只有在选项里开启自动获取功能后才会收集 |
+| 剪切板内容     | 在设置时限规则时，为了操作方便，会读取剪切板内 URL   | 需要用户手动同意                       |
 
-## How to do with this data?
+## 如何处理这些数据？
 
-We guarantee that all data collected by this extension will only be saved in your browser's local storage and will never be distributed elsewhere.
+我们保证该扩展收集的所有数据只会保存在您的浏览器本地存储中，绝不会将他们分发到其他地方。
 
-You can however use the tools provided by the extension to export or import your data in JSON or CSV file format. The extension also supports you to use GitHub Gist, etc., third-party services you trust enough to back up your data.
+不过您可以使用扩展提供的工具，以 JSON 或者 CSV 的文件格式，导出或者导入您的数据。扩展也支持您使用 GitHub Gist 等，您足以信任的第三方服务，备份您的数据。
 
 ::: tip
-We only help you collect data, but the right of disposal must be yours.
+我们只帮助您收集数据，但处置权一定在您。
 :::

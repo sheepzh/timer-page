@@ -1,29 +1,29 @@
 ---
-title: Get Started
+title: 快速开始
 ---
 
 # {{$frontmatter.title}}
 
-You can quickly start using this extension in just 3 easy steps.
+只需简单三步，就可以快速开始使用这个扩展。
 
-## 1. Pin the icon
+## 1. 固定扩展的图标
 
-Firstly, to use this extension more conveniently, you'd better pin it. It's not the same in different browsers to do this, the following figure shows how in Chrome.
+首先，为了更方便地使用这个扩展，您需要将图标固定到工具栏上。不同浏览器的操作方式不同，下图显示了在 Chrome 中的做法。
 
 <div style="display: flex; justify-content: center;">
     <img src="/assets/pin.png" width=400 />
 </div>
 
-## 2. Browse any website
+## 2. 浏览任何网站
 
-Then, browse any website, and you will see that the time is beating on the icon, just like this <img src="/assets/beating.gif" style="display: inline-block;height: 24px;"/>.
+然后您可以点开任何网站，扩展图标上会展示该网站的当日浏览时间，就像这样 <img src="/assets/beating.gif" style="display: inline-block;height: 24px;"/>。
 
-## 3. Read data in the popup page
+## 3. 在弹出页中查看数据
 
-Finally, click the icon to open the popup page, and you can read the data visualized with pie chart, of today, this week or this month.
+最后，点击扩展的图标，您可以在弹出的页面里看到今天、本周以及本月的饼状图数据。
 
-And you can access all features by clicking on the link at the bottom of this page.
+并且您可以通过点击弹出页下方的按钮，来使用插件的全部功能。
 
 ::: tip
-You have learned the basic usage, try it!!
+恭喜您已经学会了基本用法，赶紧试试！！
 :::

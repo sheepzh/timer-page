@@ -15,10 +15,10 @@ hero:
           link: ./guide/start
 
 features:
-    - title: Feature A
+    - title: Tracking
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature B
+    - title: Analysis
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature C
+    - title: Control
       details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---

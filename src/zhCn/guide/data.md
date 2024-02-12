@@ -1,34 +1,34 @@
 ---
-title: Data transmission
+title: 数据迁移
 ---
 
 # {{$frontmatter.title}}
 
-This extension only stores your data in local with `chrome.storage.local` API provided by the browser, and never sends your data anywhere.
+该插件只会使用浏览器提供的 API 将您的数据保存在本地，不会将它分发到任何位置。
 
-But it supports tools to help you transmits your data.
+但是插件也提供了工具帮助您转移数据。
 
-## Export and import
+## 导出和导入
 
-You can export the data to a `.json` file on the backend page and then import it in other browsers. It should be noted that this operation is more suitable if you are just starting to use a new device or new browser.
+你可以在后台页将数据导出到一个 .json 文件中，然后在其他的浏览器中导入。该方法更适用于您开始使用新的浏览器或者设备的情况。
 
-Also You can import data exported from other similar extensions, and decide to override or append to local data.
+当然，您也可以导入同类型的其他浏览器插件导出的数据。比如：
 
-| Other extension           | File format       | Remark                             |
-| ------------------------- | ----------------- | ---------------------------------- |
-| Webtime Tracker           | `.csv` or `.json` |                                    |
-| Web Activity Time Tracker | `.csv`            |                                    |
-| History Trends Unlimited  | `.tsc`            | Only contains data for visit count |
+| 其他浏览器插件            | 文件格式            | 备注             |
+| ------------------------- | ------------------- | ---------------- |
+| Webtime Tracker           | `.csv` 或者 `.json` |                  |
+| Web Activity Time Tracker | `.csv`              |                  |
+| History Trends Unlimited  | `.tsc`              | 只能导入访问次数 |
 
-## Sync data across clients
+## 跨端同步数据
 
-This extension does not support services that store data remotely.
+该插件不会提供数据远端存储服务。
 
-Instead, it provides tools to help you sync data into third-party services you trust.
+不过，它提供了一些工具，以支持您将数据同步到一些您信赖的第三方服务中。
 
-| Third-party service | Prerequisites                                                                                                                  |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Github Gist         | Github access token granting Gist permissions                                                                                  |
-| Obsidian            | Obsidian client with plugin [Local REST API for Obsidian](https://github.com/coddingtonbear/obsidian-local-rest-api) installed |
+| 第三方服务  | 先决条件                                                                                                             |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| Github Gist | 一个至少包含 Gist 权限的 Github access token                                                                         |
+| Obsidian    | Obsidian 客户端，并安装插件 [Local REST API for Obsidian](https://github.com/coddingtonbear/obsidian-local-rest-api) |
 
-If the token is set correctly, you can query the data of other clients on the record page.
+如果您的 token 设置正确的话，你也可以在报表页中查询其他端同步的数据。

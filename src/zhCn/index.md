@@ -3,22 +3,22 @@
 layout: home
 
 hero:
-    name: 'Time Tracker'
+    name: '网费很贵'
     text: ''
-    tagline: The BEST web time tracking tool
+    tagline: 最好用的上网时间记录工具
     actions:
         - theme: brand
-          text: Install
+          text: 插件安装
           link: ./install
         - theme: alt
-          text: Get started
+          text: 使用手册
           link: ./guide/start
 
 features:
-    - title: Feature A
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature B
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - title: Feature C
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    - title: 时间追踪
+      details: 追踪您每天花在每个网站上的浏览时长，提供多方位的数据查询。
+    - title: 习惯分析
+      details: 根据追踪数据自动分析用户在每个网站上，以及不同时段的浏览习惯。
+    - title: 行为控制
+      details: 针对分析结果，为指定网站设置每日时长限制和禁止访问时间段，提高工作学习效率。
 ---

@@ -11,14 +11,12 @@ export default defineConfig({
   themeConfig: {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/sheepzh/timer' },
-      { icon: "mastodon", link: 'https://mastodon.online/@sheepysheep' }
     ],
     search: {
       provider: 'local',
     },
     logo: "/assets/logo.png"
   },
-
   locales: {
     en: {
       label: "English",

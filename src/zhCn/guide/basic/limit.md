@@ -1,32 +1,32 @@
 ---
-title: Control
+title: 行为控制
 ---
 
 # {{$frontmatter.title}}
 
-Once you realize how much time you spend on useless websites through the above analysis report. Maybe, you need to control the time.
+通过上述的分析报告，如果您意识到自己花费了太多时间在浏览无用的网页时，你也许会想要控制访问时间。
 
-This extension supports you to limit your behavior on any website.
+该插件也支持限制您在任何网站上过度的浏览时长。
 
-## Create limit rules
+## 创建限制规则
 
-Firstly, you need create rules on the backend page.
+首先，您需要在后台页里创建对应的限制规则。
 
-Each rule contains several parts, as shown in the following table.
+每条规则包括以下几个部分。
 
-| Part                | Description                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Restricted URL      | The URL that needs to be restricted. Expressions are supported. Such as `https://www.github.com`, `*://www.google.com/** ` |
-| Daily limit         | Maximum time per day, zero means no limit.                                                                                 |
-| Limit per visit     | Maximum time per visit, zero means no limit.                                                                               |
-| Not allowed periods | The time periods during which access to the target URL is always restricted.                                               |
+| 规则部分         | 描述                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------ |
+| URL              | 需要被限制的 URL，支持使用表达式。比如 `https://www.github.com`、`*://www.google.com/**`。 |
+| 每日限制时长     | 每天的最长浏览时间，0 表示不限制。                                                         |
+| 每次访问限制时长 | 每次访问的最长浏览时间，0 表示不限制。                                                     |
+| 受限时间段       | 在该时间段内，所有该 URL 的访问都会被拦截                                                  |
 
-## Restricted
+## 网站拦截
 
-If you meet the restrictions of any rule, the pages you are visiting will be covered with a mask that prevents you from browsing.
+如果您在访问页面时，触发了任何限制规则，相关的页面将会出现遮罩页面，以防止继续浏览。
 
-To continue, you must go to the rules page and disable or modify this rule. If the unlock operation is set in the option, verification or password is also required.
+如果想要继续的话，你可以在后台页禁用或者编辑命中的规则。如果您在选项中设置了解锁动作，您还需要输入验证码或密码。
 
 ::: warning
-Disgusting Verification Code is really hard and disgusting, it may take you too much time to unlock it!
+恶心级别的验证码是真的很恶心，它会花费您很多时间来解锁。请谨慎设置。
 :::

@@ -11,10 +11,6 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/zhCn/guide/start",
         },
         {
-            text: "捐赠",
-            link: "/zhCn/sponsor"
-        },
-        {
             text: "关于",
             items: [
                 {
@@ -25,11 +21,11 @@ function nav(): DefaultTheme.NavItem[] {
                     text: "支持我们",
                     items: [
                         {
-                            text: "Submit issues",
+                            text: "提交反馈",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
-                            text: "Help translate",
+                            text: "帮助翻译",
                             link: "https://crowdin.com/project/timer-chrome-edge-firefox",
                         }
                     ]
@@ -64,15 +60,15 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 collapsed: false,
                 items: [
                     {
-                        text: '追踪时间',
+                        text: '时间追踪',
                         link: '/zhCn/guide/basic/stat'
                     },
                     {
-                        text: '分析报表',
+                        text: '习惯分析',
                         link: '/zhCn/guide/basic/analysis',
                     },
                     {
-                        text: '控制时间',
+                        text: '行为控制',
                         link: '/zhCn/guide/basic/limit',
                     }
                 ]
@@ -89,5 +85,5 @@ export const zhCnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),
-    }
+    },
 }

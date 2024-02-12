@@ -51,7 +51,10 @@ The following table is some merge examples after setting the above rules togethe
 | b.c.photos.google.com | `**.*.google.com >>> Keep Level 3`                                      | photos.google.com         |
 | pass.hust.edu.cn      |                                                                         | hust.edu.cn **(2)**       |
 
-Remarks:
+::: tip
 
-1. When multiple rules are hit, the source part takes precedence for a specific domain name
-2. Merge to the before level of [Public Suffix List](https://publicsuffix.org/) when no rules are hit
+(1) When multiple rules are hit, the source part takes precedence for a specific domain name
+
+(2) Merge to the before level of [Public Suffix List](https://publicsuffix.org/) when no rules are hit
+
+:::

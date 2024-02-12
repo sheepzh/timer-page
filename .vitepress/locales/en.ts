@@ -11,10 +11,6 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/en/guide/start",
         },
         {
-            text: "Sponsor",
-            link: "/en/sponsor"
-        },
-        {
             text: "About",
             items: [
                 {
