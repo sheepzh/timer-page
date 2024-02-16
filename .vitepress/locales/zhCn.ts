@@ -4,11 +4,11 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: "插件安装",
-            link: "/zhCn/install"
+            link: "/zh_CN/install"
         },
         {
             text: "使用指引",
-            link: "/zhCn/guide/start",
+            link: "/zh_CN/guide/start",
         },
         {
             text: "关于",
@@ -35,7 +35,7 @@ function nav(): DefaultTheme.NavItem[] {
                     items: [
                         {
                             text: "隐私声明",
-                            link: "/zhCn/privacy"
+                            link: "/zh_CN/privacy"
                         },
                         {
                             text: "开源协议",
@@ -50,10 +50,10 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/zhCn/guide": [
+        "/zh_CN/guide": [
             {
                 text: '快速开始',
-                link: '/zhCn/guide/start',
+                link: '/zh_CN/guide/start',
             },
             {
                 text: '基础功能',
@@ -61,20 +61,20 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 items: [
                     {
                         text: '时间追踪',
-                        link: '/zhCn/guide/basic/stat'
+                        link: '/zh_CN/guide/basic/stat'
                     },
                     {
                         text: '习惯分析',
-                        link: '/zhCn/guide/basic/analysis',
+                        link: '/zh_CN/guide/basic/analysis',
                     },
                     {
                         text: '行为控制',
-                        link: '/zhCn/guide/basic/limit',
+                        link: '/zh_CN/guide/basic/limit',
                     }
                 ]
             }, {
                 text: '数据迁移',
-                link: '/zhCn/guide/data'
+                link: '/zh_CN/guide/data'
             }
         ]
     }

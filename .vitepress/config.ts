@@ -24,10 +24,10 @@ export default defineConfig({
       link: "/en/",
       ...enConfig,
     },
-    zhCn: {
+    zh_CN: {
       label: "简体中文",
-      lang: "zhCn",
-      link: "/zhCn/",
+      lang: "zh_CN",
+      link: "/zh_CN/",
       ...zhCnConfig,
     },
   },
