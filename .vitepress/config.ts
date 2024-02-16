@@ -8,14 +8,14 @@ export default defineConfig({
   srcDir: "src",
   outDir: "./dist",
   cleanUrls: true,
+  head: [
+    ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }]
+  ],
   themeConfig: {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/sheepzh/timer' },
     ],
-    search: {
-      provider: 'local',
-    },
-    logo: "/assets/logo.png"
+    logo: "/images/logo.png",
   },
   locales: {
     en: {

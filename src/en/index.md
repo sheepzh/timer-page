@@ -16,9 +16,9 @@ hero:
 
 features:
     - title: Tracking
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      details: Track the time you spend browsing various websites every day and provide multi-faceted data query.
     - title: Analysis
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      details: Automatically analyze your browsing habits on each website and at different times based on tracking data.
     - title: Control
-      details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      details: Based on the analysis results, Set daily time limits and prohibited access periods for designated websites to improve work and study efficiency.
 ---

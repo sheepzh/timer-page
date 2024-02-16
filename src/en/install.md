@@ -2,7 +2,7 @@
 title: Installation
 ---
 
-# {{ $frontmatter.title }}
+# {{$frontmatter.title}}
 
 ## From web store
 

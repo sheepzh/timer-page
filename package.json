@@ -1,16 +1,12 @@
 {
-  "name": "vue-project",
+  "name": "timer-page",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite-ssg build",
-    "preview": "vite-ssg preview",
-    "type-check": "vue-tsc --build --force",
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "dependencies": {
     "@vueuse/core": "^10.7.2",

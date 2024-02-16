@@ -11,12 +11,12 @@ You can quickly start using this extension in just 3 easy steps.
 Firstly, to use this extension more conveniently, you'd better pin it. It's not the same in different browsers to do this, the following figure shows how in Chrome.
 
 <div style="display: flex; justify-content: center;">
-    <img src="/assets/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 />
 </div>
 
 ## 2. Browse any website
 
-Then, browse any website, and you will see that the time is beating on the icon, just like this <img src="/assets/beating.gif" style="display: inline-block;height: 24px;"/>.
+Then, browse any website, and you will see that the time is beating on the icon, just like this <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
 
 ## 3. Read data in the popup page
 

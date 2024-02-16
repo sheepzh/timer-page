@@ -82,8 +82,15 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const zhCnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "网费很贵",
+    description: "最好用的上网时间统计工具",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),
+        lastUpdated: {
+            text: "最后更新时间",
+        },
+        outline: {
+            label: "大纲",
+        },
     },
 }
