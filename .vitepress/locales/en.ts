@@ -7,7 +7,7 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/en/install"
         },
         {
-            text: "Guide",
+            text: "User Manual",
             link: "/en/guide/start",
         },
         {

@@ -7,7 +7,7 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/zh_CN/install"
         },
         {
-            text: "使用指引",
+            text: "使用手册",
             link: "/zh_CN/guide/start",
         },
         {

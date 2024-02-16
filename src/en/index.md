@@ -11,7 +11,7 @@ hero:
           text: Install
           link: ./install
         - theme: alt
-          text: Get started
+          text: User Manual
           link: ./guide/start
 
 features:
