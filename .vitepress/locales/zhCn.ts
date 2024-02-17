@@ -92,5 +92,10 @@ export const zhCnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         outline: {
             label: "大纲",
         },
+        docFooter: {
+            next: "下一节",
+            prev: "上一节",
+        },
+        sidebarMenuLabel: "菜单",
     },
 }
