@@ -18,7 +18,7 @@ function nav(): DefaultTheme.NavItem[] {
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
-                    text: "發布歷史",
+                    text: "支援我們",
                     items: [
                         {
                             text: "提交回饋",
@@ -80,7 +80,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
     }
 }
 
-export const zhCnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
+export const zhTwConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "網費很貴",
     description: "最好用的上網追蹤工具",
     themeConfig: {

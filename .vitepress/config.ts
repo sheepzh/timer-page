@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { enConfig } from "./locales/en"
 import { zhCnConfig } from "./locales/zhCn"
+import { zhTwConfig } from "./locales/zhTw"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -30,6 +31,12 @@ export default defineConfig({
       lang: "zh_CN",
       link: "/zh_CN/",
       ...zhCnConfig,
+    },
+    zh_TW: {
+      label: "正體中文",
+      lang: "zh_TW",
+      link: "/zh_TW/",
+      ...zhTwConfig
     },
   },
 })
