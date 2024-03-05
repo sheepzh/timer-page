@@ -14,7 +14,6 @@ In order to provide you with complete services, this extension will necessarily 
 | ------------------------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | Website browsing history | Used to count browsing time and visits                                                                          | Yes                                             |
 | Tab information          | Used to automatically obtain the name and icon of the website, and improve user experience when displaying data | Only if this function is enabled in the options |
-| Clipboard content        | When setting the daily time limit rule, for the convenience of operation, the URL in the clipboard will be read | Only if user agreed                             |
 
 ## How to do with this data?
 
