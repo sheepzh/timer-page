@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import Link from "./components/Link.vue"
 import LinkGrid from "./components/LinkGrid.vue"
 import InstallGrid from "./components/InstallGrid.vue"
+import { inject } from "@vercel/analytics"
 import './style.css'
 import './icon.css'
 
@@ -15,7 +16,8 @@ export default {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     })
   },
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp({ app, router }) {
+    inject()
     app.component("Link", Link)
     app.component("LinkGrid", LinkGrid)
     app.component("InstallGrid", InstallGrid)
