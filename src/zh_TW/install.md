@@ -21,18 +21,12 @@ title: 程式安裝
 ### 安裝環境
 
 -   Git
--   Node.js >= 18
+-   Node.js >= 20
 
 ### 原始碼下載
 
 ```sh
 git clone https://github.com/sheepzh/timer.git
-```
-
-如果你的瀏覽器不支援 [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)，你需要切換到分支 `mv2`。
-
-```sh [switch branch for mv2]
-git fetch -a & git checkout origin/mv2
 ```
 
 ### 依賴安裝
@@ -47,4 +41,12 @@ npm install
 npm run build
 ```
 
-編譯之後，根據你的分支，一個名為 `timer-[version].zip` 或 `timer-[version].mv3.zip` 的輸出檔會出現在資料夾 `[PROJECT_ROOT]/market_packages/` 之下。然後你可以解壓縮它，並安裝到您的瀏覽器之中。
+編譯之後，根據你的分支，一個名為 `timer-[version].mv3.zip` 的輸出檔會出現在資料夾 `[PROJECT_ROOT]/market_packages/` 之下。然後你可以解壓縮它，並安裝到您的瀏覽器之中。
+
+如果你的瀏覽器是 Firefox 或其他不支援 [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3) 的瀏覽器，你需要使用以下指令來完成編譯。
+
+```sh
+npm run build:firefox
+```
+
+同樣的，會出現一個名為 `timer-[version].firefox.zip` 的輸出檔。

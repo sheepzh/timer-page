@@ -21,18 +21,12 @@ This section only applies to chromium based browsers. If you want to install it 
 ### Prerequisites
 
 -   Git.
--   Node.js version 18 or higher.
+-   Node.js version 20 or higher.
 
 ### Code download
 
 ```sh
 git clone https://github.com/sheepzh/timer.git
-```
-
-If your browser does not support [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), you need to switch to the `mv2` branch.
-
-```sh [switch branch for mv2]
-git fetch -a & git checkout origin/mv2
 ```
 
 ### Dependencies installation
@@ -47,4 +41,12 @@ npm install
 npm run build
 ```
 
-After compilation, one file named `timer-[version].zip` or `timer-[version].mv3.zip`, depending on your branch, will be output under the folder `[PROJECT_ROOT]/market_packages/`. Then you can unpack it and load into your browser.
+After compilation, a file named `timer-[version].mv3.zip` will be output under the folder `[PROJECT_ROOT]/market_packages/`. Then you can unpack it and load into your browser.
+
+For firefox, and other browsers not supporting [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), you need to use this command for compilation.
+
+```sh
+npm run build:firefox
+```
+
+Also, a file named `timer-[version].firefox.zip` will be output.
