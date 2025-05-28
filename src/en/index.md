@@ -4,7 +4,7 @@ layout: home
 
 hero:
     name: 'Time Tracker'
-    text: ''
+    text: Web Habit Builder
     tagline: The BEST web time tracking tool
     actions:
         - theme: brand

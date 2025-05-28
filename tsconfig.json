@@ -1,19 +1,10 @@
 {
-  "files": [],
-  "compilerOptions": {
-    "jsx": "preserve",
-    "strict": true,
-    "strictNullChecks": false
-  },
-  "include": [
-    "./typings/*.d.ts"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+    "compilerOptions": {
+        "jsx": "preserve",
+        "strict": true,
+        "strictNullChecks": false
     },
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ]
+    "include": [
+        "./typings/*.d.ts"
+    ],
 }

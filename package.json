@@ -1,40 +1,39 @@
 {
-  "name": "timer-page",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^1.2.2",
-    "@vueuse/core": "^10.9.0",
-    "element-plus": "^2.6.1",
-    "vite-svg-loader": "^5.1.0",
-    "vue": "^3.4.21"
-  },
-  "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
-    "@types/node": "^20.11.27",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "@vue/tsconfig": "^0.5.1",
-    "node-sass": "^9.0.0",
-    "npm-run-all2": "^6.1.2",
-    "sass": "^1.72.0",
-    "typescript": "~5.4.2",
-    "vite": "^5.1.6",
-    "vitepress": "^1.0.0-rc.45",
-    "vue-router": "^4.3.0",
-    "vue-tsc": "^2.0.6"
-  },
-  "author": {
-    "name": "Hengyang Zhang",
-    "email": "returnzhy1996@outlook.com"
-  },
-  "engines": {
-    "node": ">=18"
-  }
+    "name": "timer-page",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vitepress dev",
+        "build": "vitepress build",
+        "preview": "vitepress preview"
+    },
+    "dependencies": {
+        "@vercel/analytics": "^1.5.0",
+        "@vueuse/core": "^13.3.0",
+        "element-plus": "^2.9.11",
+        "vite-svg-loader": "^5.1.0"
+    },
+    "devDependencies": {
+        "@tsconfig/node18": "^18.2.4",
+        "@types/node": "^22.15.23",
+        "@vitejs/plugin-vue": "^5.2.4",
+        "@vitejs/plugin-vue-jsx": "^4.2.0",
+        "@vue/tsconfig": "^0.7.0",
+        "npm-run-all2": "^8.0.4",
+        "sass": "^1.89.0",
+        "typescript": "5.8.3",
+        "vite": "^6.3.5",
+        "vitepress": "^2.0.0-alpha.5",
+        "vue": "^3.5.15",
+        "vue-router": "^4.5.1",
+        "vue-tsc": "^2.2.10"
+    },
+    "author": {
+        "name": "Hengyang Zhang",
+        "email": "returnzhy1996@outlook.com"
+    },
+    "engines": {
+        "node": ">=18"
+    }
 }

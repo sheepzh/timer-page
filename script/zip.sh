@@ -6,10 +6,12 @@ FOLDER=$(
 )
 TARGET_PATH="${FOLDER}/ppp"
 
-tar -zcvf ${TARGET_PATH} \
+COPYFILE_DISABLE=1 tar -zcvf ${TARGET_PATH} \
     --exclude=dist/ \
-    --exclude=.git/objects \
+    --exclude=.git/ \
     --exclude=node_modules \
+    --exclude=.vitepress/cache/ \
     --exclude=*.tsbuildinfo/ \
+    --exclude=package-lock.json \
     --exclude=ppp \
     ./
