@@ -21,9 +21,5 @@ export default {
         app.component("Link", Link)
         app.component("LinkGrid", LinkGrid)
         app.component("InstallGrid", InstallGrid)
-        const path = router?.route?.path
-        if (!path || path === "en" || path === "/") {
-            router.go("/en/")
-        }
     },
 } satisfies Theme
