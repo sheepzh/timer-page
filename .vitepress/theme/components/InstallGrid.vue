@@ -2,9 +2,6 @@
     <LinkGrid :items="installChannels" />
 </template>
 <script setup>
-import { useUrlSearchParams } from '@vueuse/core'
-import { onMounted } from 'vue'
-
 const installChannels = [
     {
         id: 'chrome',

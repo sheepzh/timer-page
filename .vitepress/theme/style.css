@@ -102,6 +102,51 @@
   --vp-home-hero-image-filter: blur(44px);
 }
 
+.VPHomeHero {
+  text-align: center;
+}
+
+.VPHomeHero h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.VPHomeHero h1 .name,
+.VPHomeHero h1 .text {
+  text-align: center;
+  white-space: normal;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+
+  .VPHomeHero h1 .name,
+  .VPHomeHero h1 .text {
+    white-space: nowrap;
+    flex-shrink: 0;
+    word-wrap: normal;
+    word-break: normal;
+  }
+}
+
+.VPHomeHero p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.VPHomeHero .actions {
+  text-align: center;
+  justify-content: center;
+}
+
 @media (min-width: 640px) {
   :root {
     --vp-home-hero-image-filter: blur(56px);
@@ -130,7 +175,7 @@
  * -------------------------------------------------------------------------- */
 
 .DocSearch {
-  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+  --docsearch-primary-color: var(--vp-c-brand-1);
 }
 
 

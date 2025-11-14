@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-    name: 'Time Tracker'
+    name: 'Time Tracker for Browser'
     text: Web Habit Builder
     tagline: The BEST web time tracking tool
     actions:
@@ -11,7 +11,7 @@ hero:
           text: Install
           link: ./install
         - theme: alt
-          text: User Manual
+          text: Guide
           link: ./guide/start
 
 features:
@@ -22,3 +22,6 @@ features:
     - title: Control
       details: Based on the analysis results, Set daily time limits and prohibited access periods for designated websites to improve work and study efficiency.
 ---
+
+<RatingModule title="Browser Ratings"/>
+<Testimonials />

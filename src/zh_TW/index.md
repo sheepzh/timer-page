@@ -11,7 +11,7 @@ hero:
           text: 程式安裝
           link: ./install
         - theme: alt
-          text: 使用手冊
+          text: 使用指南
           link: ./guide/start
 
 features:
@@ -21,4 +21,8 @@ features:
       details: 根據追蹤數據自動分析你在每個網站上，以及不同時段的瀏覽習慣。
     - title: 行為控制
       details: 針對分析結果，為指定網站設定每日時間限制和禁止存取時間段，提高工作學習效率。
+
 ---
+
+<RatingModule  title="瀏覽器評分"/>
+<Testimonials />

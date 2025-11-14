@@ -11,7 +11,7 @@ hero:
           text: 插件安装
           link: ./install
         - theme: alt
-          text: 使用手册
+          text: 使用指南
           link: ./guide/start
 
 features:
@@ -21,4 +21,8 @@ features:
       details: 根据追踪数据自动分析你在每个网站上，以及不同时段的浏览习惯。
     - title: 行为控制
       details: 针对分析结果，为指定网站设置每日时长限制和禁止访问时间段，提高工作学习效率。
+
 ---
+
+<RatingModule title="浏览器评分"/>
+<Testimonials />

@@ -14,4 +14,5 @@ COPYFILE_DISABLE=1 tar -zcvf ${TARGET_PATH} \
     --exclude=*.tsbuildinfo/ \
     --exclude=package-lock.json \
     --exclude=ppp \
+    --exclude='*/._*' \
     ./

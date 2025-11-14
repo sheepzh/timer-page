@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { withBase } from 'vitepress'
-import { VNode } from 'vue'
-
 defineProps<{
     items: Integration[]
 }>()
 
 interface Integration {
-    icon: VNode
+    icon: string
     name: string
     link: string
     target?: string
@@ -17,24 +15,10 @@ interface Integration {
 
 <template>
     <div class="flex flex-wrap gap-4 slide-enter">
-        <a
-            v-for="item of items"
-            :key="item.name"
-            :href="item.link"
-            :target="item.target"
-            :title="withBase(item.link)"
-            class="Link w-30 h-30 text-center text-inherit flex flex-col items-center justify-center"
-        >
-            <div
-                v-if="item.icon.startsWith('i')"
-                :class="`${item.icon} grid-icon`"
-                class="w-10 h-10 mb2"
-            />
-            <img
-                v-else
-                :src="withBase(item.icon)"
-                class="w-10 h-10 mb-2 no-zoom"
-            />
+        <a v-for="item of items" :key="item.name" :href="item.link" :target="item.target" :title="withBase(item.link)"
+            class="Link w-30 h-30 text-center text-inherit flex flex-col items-center justify-center">
+            <div v-if="item.icon.startsWith('i')" :class="`${item.icon} grid-icon`" class="w-10 h-10 mb2" />
+            <img v-else :src="withBase(item.icon)" class="w-10 h-10 mb-2 no-zoom" />
             <span class="text-sm">{{ item.name }}</span>
             <span class="text-xs opacity-50">{{ item.secondary }}</span>
         </a>
