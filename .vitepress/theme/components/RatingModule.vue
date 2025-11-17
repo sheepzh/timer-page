@@ -78,25 +78,32 @@ const formatCount = (count: number): string => {
 }
 
 const structuredData = computed(() => {
-    const applications = props.ratings.map(rating => ({
-        '@type': 'SoftwareApplication',
-        'name': `Time Tracker for ${rating.browser}`,
-        'applicationCategory': 'BrowserExtension',
-        'operatingSystem': rating.browser,
-        'offers': {
-            '@type': 'Offer',
-            'price': '0',
-            'priceCurrency': 'USD',
-        },
-        'aggregateRating': {
-            '@type': 'AggregateRating',
-            'ratingValue': rating.rating.toString(),
-            'bestRating': '5',
-            'worstRating': '1',
-            'ratingCount': rating.count.toString(),
-        },
-        'url': rating.link,
-    }))
+    const applications = props.ratings.map(rating => {
+        const appName = `Time Tracker for ${rating.browser}`
+        return {
+            '@type': 'SoftwareApplication',
+            'name': appName,
+            'applicationCategory': 'BrowserExtension',
+            'operatingSystem': rating.browser,
+            'offers': {
+                '@type': 'Offer',
+                'price': '0',
+                'priceCurrency': 'USD',
+            },
+            'aggregateRating': {
+                '@type': 'AggregateRating',
+                'itemReviewed': {
+                    '@type': 'SoftwareApplication',
+                    'name': appName,
+                },
+                'ratingValue': rating.rating.toString(),
+                'bestRating': '5',
+                'worstRating': '1',
+                'ratingCount': rating.count.toString(),
+            },
+            'url': rating.link,
+        }
+    })
 
     return JSON.stringify({
         '@context': 'https://schema.org',
