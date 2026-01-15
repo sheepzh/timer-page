@@ -4,41 +4,41 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: "Installation",
-            link: "/en/install"
+            link: "/fr/install"
         },
         {
             text: "Guide",
-            link: "/en/guide/start",
+            link: "/fr/guide/start",
         },
         {
-            text: "About",
+            text: "À propos",
             items: [
                 {
-                    text: "Release log",
+                    text: "Journal des versions",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
-                    text: "Support us",
+                    text: "Nous soutenir",
                     items: [
                         {
-                            text: "Submit issues",
+                            text: "Soumettre des problèmes",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
-                            text: "Help translate",
+                            text: "Aider à traduire",
                             link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
                 },
                 {
-                    text: "Legal",
+                    text: "Légal",
                     items: [
                         {
-                            text: "Privacy",
-                            link: "/en/privacy"
+                            text: "Confidentialité",
+                            link: "/fr/privacy"
                         },
                         {
-                            text: "License",
+                            text: "Licence",
                             link: "https://github.com/sheepzh/timer/blob/main/LICENSE"
                         }
                     ]
@@ -50,39 +50,39 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/en/guide": [
+        "/fr/guide": [
             {
-                text: 'Get Started',
-                link: '/en/guide/start',
+                text: 'Commencer',
+                link: '/fr/guide/start',
             },
             {
-                text: 'Basic Usages',
+                text: 'Usages de base',
                 collapsed: false,
                 items: [
                     {
-                        text: 'Tracking',
-                        link: '/en/guide/basic/stat'
+                        text: 'Suivi',
+                        link: '/fr/guide/basic/stat'
                     },
                     {
-                        text: 'Analysis',
-                        link: '/en/guide/basic/analysis',
+                        text: 'Analyse',
+                        link: '/fr/guide/basic/analysis',
                     },
                     {
-                        text: 'Control',
-                        link: '/en/guide/basic/limit',
+                        text: 'Contrôle',
+                        link: '/fr/guide/basic/limit',
                     }
                 ]
             }, {
-                text: 'Data transmission',
-                link: '/en/guide/data'
+                text: 'Transmission de données',
+                link: '/fr/guide/data'
             }
         ]
     }
 }
 
-export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Time Tracker",
-    description: "The BEST web time tracking tool",
+export const frConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
+    title: "Suivi du temps Web",
+    description: "Le MEILLEUR outil de suivi du temps sur le web",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

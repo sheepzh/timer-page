@@ -3,42 +3,42 @@ import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: "Installation",
-            link: "/en/install"
+            text: "インストール",
+            link: "/ja/install"
         },
         {
-            text: "Guide",
-            link: "/en/guide/start",
+            text: "ガイド",
+            link: "/ja/guide/start",
         },
         {
-            text: "About",
+            text: "について",
             items: [
                 {
-                    text: "Release log",
+                    text: "リリースログ",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
-                    text: "Support us",
+                    text: "サポート",
                     items: [
                         {
-                            text: "Submit issues",
+                            text: "問題を報告",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
-                            text: "Help translate",
+                            text: "翻訳に協力",
                             link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
                 },
                 {
-                    text: "Legal",
+                    text: "法的情報",
                     items: [
                         {
-                            text: "Privacy",
-                            link: "/en/privacy"
+                            text: "プライバシー",
+                            link: "/ja/privacy"
                         },
                         {
-                            text: "License",
+                            text: "ライセンス",
                             link: "https://github.com/sheepzh/timer/blob/main/LICENSE"
                         }
                     ]
@@ -50,39 +50,39 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/en/guide": [
+        "/ja/guide": [
             {
-                text: 'Get Started',
-                link: '/en/guide/start',
+                text: 'はじめに',
+                link: '/ja/guide/start',
             },
             {
-                text: 'Basic Usages',
+                text: '基本的な使い方',
                 collapsed: false,
                 items: [
                     {
-                        text: 'Tracking',
-                        link: '/en/guide/basic/stat'
+                        text: '追跡',
+                        link: '/ja/guide/basic/stat'
                     },
                     {
-                        text: 'Analysis',
-                        link: '/en/guide/basic/analysis',
+                        text: '分析',
+                        link: '/ja/guide/basic/analysis',
                     },
                     {
-                        text: 'Control',
-                        link: '/en/guide/basic/limit',
+                        text: 'コントロール',
+                        link: '/ja/guide/basic/limit',
                     }
                 ]
             }, {
-                text: 'Data transmission',
-                link: '/en/guide/data'
+                text: 'データ転送',
+                link: '/ja/guide/data'
             }
         ]
     }
 }
 
-export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Time Tracker",
-    description: "The BEST web time tracking tool",
+export const jaConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
+    title: "タイムトラッカー",
+    description: "最高のウェブ時間追跡ツール",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

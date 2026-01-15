@@ -2,6 +2,12 @@ import { defineConfig } from 'vitepress'
 import { enConfig } from "./locales/en"
 import { zhCnConfig } from "./locales/zhCn"
 import { zhTwConfig } from "./locales/zhTw"
+import { deConfig } from "./locales/de"
+import { frConfig } from "./locales/fr"
+import { esConfig } from "./locales/es"
+import { ptConfig } from "./locales/pt"
+import { jaConfig } from "./locales/ja"
+import { ruConfig } from "./locales/ru"
 
 const DESCRIPTION: string[] = [
     "Webtime Tracker",
@@ -80,7 +86,7 @@ export default defineConfig({
     ],
     transformHead: ctx => {
         const pagePath = ctx.page
-        if (pagePath === 'en/index.md' || pagePath === 'zh_CN/index.md' || pagePath === 'zh_TW/index.md') {
+        if (/^\/([^\/]+)\/index(\.md)?$/.test(pagePath)) {
             return [
                 ['script', { type: 'application/ld+json' }, generateStructuredData()],
             ]
@@ -111,6 +117,42 @@ export default defineConfig({
             lang: "zh_TW",
             link: "/zh_TW/",
             ...zhTwConfig
+        },
+        fr: {
+            label: "Français",
+            lang: "fr",
+            link: "/fr/",
+            ...frConfig,
+        },
+        es: {
+            label: "Español",
+            lang: "es",
+            link: "/es/",
+            ...esConfig,
+        },
+        pt: {
+            label: "Português",
+            lang: "pt",
+            link: "/pt/",
+            ...ptConfig,
+        },
+        ja: {
+            label: "日本語",
+            lang: "ja",
+            link: "/ja/",
+            ...jaConfig,
+        },
+        de: {
+            label: "Deutsch",
+            lang: "de",
+            link: "/de/",
+            ...deConfig,
+        },
+        ru: {
+            label: "Русский",
+            lang: "ru",
+            link: "/ru/",
+            ...ruConfig,
         },
     },
 })

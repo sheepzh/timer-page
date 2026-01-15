@@ -26,7 +26,7 @@ function nav(): DefaultTheme.NavItem[] {
                         },
                         {
                             text: "幫助翻譯",
-                            link: "https://crowdin.com/project/timer-chrome-edge-firefox",
+                            link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
                 },
@@ -82,7 +82,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const zhTwConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "網費很貴",
-    description: "最好用的上網追蹤工具",
+    description: "最好用的上網時間統計工具",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

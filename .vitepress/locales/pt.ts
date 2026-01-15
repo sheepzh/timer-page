@@ -3,29 +3,29 @@ import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: "Installation",
-            link: "/en/install"
+            text: "Instalação",
+            link: "/pt/install"
         },
         {
-            text: "Guide",
-            link: "/en/guide/start",
+            text: "Guia",
+            link: "/pt/guide/start",
         },
         {
-            text: "About",
+            text: "Sobre",
             items: [
                 {
-                    text: "Release log",
+                    text: "Registro de versões",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
-                    text: "Support us",
+                    text: "Apoie-nos",
                     items: [
                         {
-                            text: "Submit issues",
+                            text: "Enviar problemas",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
-                            text: "Help translate",
+                            text: "Ajude a traduzir",
                             link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
@@ -34,11 +34,11 @@ function nav(): DefaultTheme.NavItem[] {
                     text: "Legal",
                     items: [
                         {
-                            text: "Privacy",
-                            link: "/en/privacy"
+                            text: "Privacidade",
+                            link: "/pt/privacy"
                         },
                         {
-                            text: "License",
+                            text: "Licença",
                             link: "https://github.com/sheepzh/timer/blob/main/LICENSE"
                         }
                     ]
@@ -50,39 +50,39 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/en/guide": [
+        "/pt/guide": [
             {
-                text: 'Get Started',
-                link: '/en/guide/start',
+                text: 'Começar',
+                link: '/pt/guide/start',
             },
             {
-                text: 'Basic Usages',
+                text: 'Usos básicos',
                 collapsed: false,
                 items: [
                     {
-                        text: 'Tracking',
-                        link: '/en/guide/basic/stat'
+                        text: 'Rastreamento',
+                        link: '/pt/guide/basic/stat'
                     },
                     {
-                        text: 'Analysis',
-                        link: '/en/guide/basic/analysis',
+                        text: 'Análise',
+                        link: '/pt/guide/basic/analysis',
                     },
                     {
-                        text: 'Control',
-                        link: '/en/guide/basic/limit',
+                        text: 'Controle',
+                        link: '/pt/guide/basic/limit',
                     }
                 ]
             }, {
-                text: 'Data transmission',
-                link: '/en/guide/data'
+                text: 'Transmissão de dados',
+                link: '/pt/guide/data'
             }
         ]
     }
 }
 
-export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Time Tracker",
-    description: "The BEST web time tracking tool",
+export const ptConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
+    title: "Rastreador de Tempo",
+    description: "A MELHOR ferramenta de rastreamento de tempo na web",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

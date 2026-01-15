@@ -26,7 +26,7 @@ function nav(): DefaultTheme.NavItem[] {
                         },
                         {
                             text: "帮助翻译",
-                            link: "https://crowdin.com/project/timer-chrome-edge-firefox",
+                            link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
                 },
