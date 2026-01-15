@@ -5,7 +5,7 @@ import { zhTwConfig } from "./locales/zhTw"
 import { deConfig } from "./locales/de"
 import { frConfig } from "./locales/fr"
 import { esConfig } from "./locales/es"
-import { ptConfig } from "./locales/pt"
+import { ptConfig } from "./locales/pt_PT"
 import { jaConfig } from "./locales/ja"
 import { ruConfig } from "./locales/ru"
 
@@ -130,10 +130,10 @@ export default defineConfig({
             link: "/es/",
             ...esConfig,
         },
-        pt: {
+        pt_PT: {
             label: "Português",
-            lang: "pt",
-            link: "/pt/",
+            lang: "pt_PT",
+            link: "/pt_PT/",
             ...ptConfig,
         },
         ja: {

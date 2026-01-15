@@ -4,11 +4,11 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: "Instalação",
-            link: "/pt/install"
+            link: "/pt_PT/install"
         },
         {
             text: "Guia",
-            link: "/pt/guide/start",
+            link: "/pt_PT/guide/start",
         },
         {
             text: "Sobre",
@@ -35,7 +35,7 @@ function nav(): DefaultTheme.NavItem[] {
                     items: [
                         {
                             text: "Privacidade",
-                            link: "/pt/privacy"
+                            link: "/pt_PT/privacy"
                         },
                         {
                             text: "Licença",
@@ -50,10 +50,10 @@ function nav(): DefaultTheme.NavItem[] {
 
 function sidebar(): DefaultTheme.SidebarMulti {
     return {
-        "/pt/guide": [
+        "/pt_PT/guide": [
             {
                 text: 'Começar',
-                link: '/pt/guide/start',
+                link: '/pt_PT/guide/start',
             },
             {
                 text: 'Usos básicos',
@@ -61,20 +61,20 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 items: [
                     {
                         text: 'Rastreamento',
-                        link: '/pt/guide/basic/stat'
+                        link: '/pt_PT/guide/basic/stat'
                     },
                     {
                         text: 'Análise',
-                        link: '/pt/guide/basic/analysis',
+                        link: '/pt_PT/guide/basic/analysis',
                     },
                     {
                         text: 'Controle',
-                        link: '/pt/guide/basic/limit',
+                        link: '/pt_PT/guide/basic/limit',
                     }
                 ]
             }, {
                 text: 'Transmissão de dados',
-                link: '/pt/guide/data'
+                link: '/pt_PT/guide/data'
             }
         ]
     }
