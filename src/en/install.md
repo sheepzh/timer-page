@@ -41,7 +41,7 @@ npm install
 npm run build
 ```
 
-After compilation, a file named `timer-[version].mv3.zip` will be output under the folder `[PROJECT_ROOT]/market_packages/`. Then you can unpack it and load into your browser.
+After compilation, a file named `target.zip` will be output under the folder `[PROJECT_ROOT]/market_packages/`. Then you can unpack it and load into your browser.
 
 For firefox, and other browsers not supporting [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), you need to use this command for compilation.
 
@@ -49,4 +49,4 @@ For firefox, and other browsers not supporting [Manifest V3](https://developer.c
 npm run build:firefox
 ```
 
-Also, a file named `timer-[version].firefox.zip` will be output.
+Also, a file named `target.firefox.zip` will be output.

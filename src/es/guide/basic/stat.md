@@ -34,12 +34,27 @@ La parte de origen puede ser un nombre de dominio específico o una expresión A
 
 La parte de destino puede ser un nombre de dominio específico, un número entero positivo o dejarse en blanco. Se presentarán uno por uno junto con la parte de origen en la tabla a continuación.
 
-| Parte de origen   | Parte de destino | Aspecto                           | Observación                                                                                      |
-| ----------------- | ---------------- | --------------------------------- | ------------------------------------------------------------------------------------------------ |
-| www.google.com.*  | google.com       | `www.google.com.* >>> google.com` | Los sitios que coincidan con `www.google.com.*` se fusionarán en el `google.com` específico      |
-| www.google.com.hk |                  | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` no se fusionará debido a la parte de destino en blanco                       |
-| \*\*.github.com   | 2                | `**.github.com >>> Merged(2)`     | Los sitios que coincidan con `**.github.com` se fusionarán por los 2 primeros niveles de dominio |
+| Parte de origen          | Parte de destino | Aspecto                           | Observación                                                                                      |
+| ------------------------ | ---------------- | --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| www.google.com.*         | google.com       | `www.google.com.* >>> google.com` | Los sitios que coincidan con `www.google.com.*` se fusionarán en el `google.com` específico      |
+| www.google.com.hk        |                  | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` no se fusionará debido a la parte de destino en blanco                       |
+| \*\*\.\*\.google.com      | 3                | `**.*.google.com >>> Keep Level 3` | Los sitios que coincidan con `**.*.google.com` se fusionarán en los últimos 3 niveles de dominio |
+
+La siguiente tabla muestra algunos ejemplos de fusión después de establecer las reglas anteriores juntas.
+
+| Sitio original           | Reglas que coinciden                                                               | Sitio fusionado y observación    |
+| ------------------------ | ----------------------------------------------------------------------------------- | -------------------------------- |
+| www.google.com.au        | `www.google.com.* >>> google.com`                                                 | google.com                        |
+| www.google.com.pt        | `www.google.com.* >>> google.com`                                                 | google.com                        |
+| www.google.com.hk        | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> Not Merge`           | www.google.com.hk **(1)**        |
+| es.news.google.com       | `**.*.google.com >>> Keep Level 3`                                                 | news.google.com                   |
+| b.c.photos.google.com    | `**.*.google.com >>> Keep Level 3`                                                 | photos.google.com                 |
+| pass.hust.edu.cn         |                                                                                    | hust.edu.cn **(2)**               |
 
 ::: tip
-Los ejemplos anteriores son suficientes para satisfacer tus necesidades en la mayoría de los casos. Para obtener más detalles, consulta [la documentación completa](https://github.com/sheepzh/timer#merger-rule).
+
+(1) Cuando múltiples reglas coinciden, la parte de origen con un nombre de dominio específico tiene prioridad
+
+(2) Cuando no hay reglas que coincidan, se fusiona al nivel anterior de la [Public Suffix List](https://publicsuffix.org/)
+
 :::

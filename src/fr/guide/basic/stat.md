@@ -34,12 +34,27 @@ La partie source peut être un nom de domaine spécifique ou une expression Ant.
 
 La partie cible peut être un nom de domaine spécifique, un entier positif ou être laissée vide. Ils seront présentés un par un en conjonction avec la partie source dans le tableau ci-dessous.
 
-| Partie source     | Partie cible | Apparence                         | Remarque                                                                                         |
-| ----------------- | ------------ | --------------------------------- | ------------------------------------------------------------------------------------------------ |
-| www.google.com.*  | google.com   | `www.google.com.* >>> google.com` | Les sites correspondant à `www.google.com.*` seront fusionnés dans le `google.com` spécifique    |
-| www.google.com.hk |              | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` ne sera pas fusionné en raison de la partie cible vide                       |
-| \*\*.github.com   | 2            | `**.github.com >>> Merged(2)`     | Les sites correspondant à `**.github.com` seront fusionnés par les 2 premiers niveaux de domaine |
+| Partie source            | Partie cible | Apparence                         | Remarque                                                                                         |
+| ------------------------ | ------------ | --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| www.google.com.*         | google.com   | `www.google.com.* >>> google.com` | Les sites correspondant à `www.google.com.*` seront fusionnés dans le `google.com` spécifique    |
+| www.google.com.hk        |              | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` ne sera pas fusionné en raison de la partie cible vide                       |
+| \*\*\.\*\.google.com     | 3            | `**.*.google.com >>> Keep Level 3` | Les sites correspondant à `**.*.google.com` seront fusionnés dans les 3 derniers niveaux de domaine |
+
+Le tableau suivant présente quelques exemples de fusion après avoir défini les règles ci-dessus ensemble.
+
+| Site original            | Règles correspondantes                                                               | Site fusionné et remarque    |
+| ------------------------ | ----------------------------------------------------------------------------------- | ---------------------------- |
+| www.google.com.au        | `www.google.com.* >>> google.com`                                                 | google.com                    |
+| www.google.com.pt        | `www.google.com.* >>> google.com`                                                 | google.com                    |
+| www.google.com.hk        | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> Not Merge`           | www.google.com.hk **(1)**    |
+| es.news.google.com       | `**.*.google.com >>> Keep Level 3`                                                 | news.google.com              |
+| b.c.photos.google.com    | `**.*.google.com >>> Keep Level 3`                                                 | photos.google.com            |
+| pass.hust.edu.cn         |                                                                                    | hust.edu.cn **(2)**           |
 
 ::: tip
-Les exemples ci-dessus sont suffisants pour répondre à vos besoins dans la plupart des cas. Pour plus de détails, veuillez consulter [la documentation complète](https://github.com/sheepzh/timer#merger-rule).
+
+(1) Lorsque plusieurs règles correspondent, la partie source avec un nom de domaine spécifique a la priorité
+
+(2) Lorsqu'aucune règle ne correspond, fusion au niveau précédent de la [Public Suffix List](https://publicsuffix.org/)
+
 :::

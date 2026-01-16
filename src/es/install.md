@@ -29,17 +29,24 @@ Esta sección solo se aplica a navegadores basados en Chromium. Si deseas instal
 git clone https://github.com/sheepzh/timer.git
 ```
 
-### Compilación
+### Instalación de dependencias
 
 ```sh
-cd timer
 npm install
-npm run build:prod
 ```
 
-### Instalación
+### Compilación y salida
 
-1. Abre la página de extensiones en tu navegador.
-2. Activa el modo de desarrollador.
-3. Haz clic en el botón "Cargar extensión sin empaquetar".
-4. Selecciona la carpeta `dist/` del código compilado.
+```sh
+npm run build
+```
+
+Después de la compilación, se generará un archivo llamado `target.zip` en la carpeta `[PROJECT_ROOT]/market_packages/`. Luego puedes descomprimirlo y cargarlo en tu navegador.
+
+Para Firefox y otros navegadores que no admiten [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), necesitas usar este comando para la compilación.
+
+```sh
+npm run build:firefox
+```
+
+También se generará un archivo llamado `target.firefox.zip`.

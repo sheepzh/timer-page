@@ -34,12 +34,27 @@ Der Quellteil kann ein bestimmter Domainname oder ein Ant-Ausdruck sein. Unten s
 
 Der Zielteil kann ein bestimmter Domainname, eine positive ganze Zahl oder leer gelassen werden. Sie werden nacheinander in Verbindung mit dem Quellteil in der folgenden Tabelle vorgestellt.
 
-| Quellteil         | Zielteil   | Aussehen                          | Bemerkung                                                                                            |
-| ----------------- | ---------- | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| www.google.com.*  | google.com | `www.google.com.* >>> google.com` | Websites, die `www.google.com.*` entsprechen, werden in das spezifische `google.com` zusammengeführt |
-| www.google.com.hk |            | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` wird aufgrund des leeren Zielteils nicht zusammengeführt                         |
-| \*\*.github.com   | 2          | `**.github.com >>> Merged(2)`     | Websites, die `**.github.com` entsprechen, werden nach den ersten 2 Domain-Ebenen zusammengeführt    |
+| Quellteil              | Zielteil   | Aussehen                          | Bemerkung                                                                                            |
+| ---------------------- | ---------- | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| www.google.com.*       | google.com | `www.google.com.* >>> google.com` | Websites, die `www.google.com.*` entsprechen, werden in das spezifische `google.com` zusammengeführt |
+| www.google.com.hk      |            | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` wird aufgrund des leeren Zielteils nicht zusammengeführt                         |
+| \*\*\.\*\.google.com    | 3          | `**.*.google.com >>> Keep Level 3` | Websites, die `**.*.google.com` entsprechen, werden in die letzten 3 Domain-Ebenen zusammengeführt   |
+
+Die folgende Tabelle zeigt einige Zusammenführungsbeispiele nach dem gleichzeitigen Festlegen der obigen Regeln.
+
+| Ursprüngliche Website      | Treffende Regeln                                                               | Zusammengeführte Website und Bemerkung |
+| -------------------------- | ------------------------------------------------------------------------------- | ------------------------------------- |
+| www.google.com.au          | `www.google.com.* >>> google.com`                                             | google.com                             |
+| www.google.com.pt          | `www.google.com.* >>> google.com`                                             | google.com                             |
+| www.google.com.hk          | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> Not Merge`        | www.google.com.hk **(1)**             |
+| es.news.google.com         | `**.*.google.com >>> Keep Level 3`                                              | news.google.com                        |
+| b.c.photos.google.com      | `**.*.google.com >>> Keep Level 3`                                              | photos.google.com                      |
+| pass.hust.edu.cn           |                                                                                 | hust.edu.cn **(2)**                    |
 
 ::: tip
-Die obigen Beispiele reichen aus, um Ihre Bedürfnisse in den meisten Fällen zu erfüllen. Weitere Details finden Sie in der [vollständigen Dokumentation](https://github.com/sheepzh/timer#merger-rule).
+
+(1) Wenn mehrere Regeln zutreffen, hat der Quellteil mit einem spezifischen Domainnamen Vorrang
+
+(2) Wenn keine Regeln zutreffen, wird auf die vorherige Ebene der [Public Suffix List](https://publicsuffix.org/) zusammengeführt
+
 :::

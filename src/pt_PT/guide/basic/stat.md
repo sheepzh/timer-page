@@ -34,12 +34,27 @@ A parte de origem pode ser um nome de domínio específico ou uma expressão Ant
 
 A parte de destino pode ser um nome de domínio específico, um número inteiro positivo ou ser deixada em branco. Eles serão apresentados um por um em conjunto com a parte de origem na tabela abaixo.
 
-| Parte de origem   | Parte de destino | Aparência                         | Observação                                                                                  |
-| ----------------- | ---------------- | --------------------------------- | ------------------------------------------------------------------------------------------- |
-| www.google.com.*  | google.com       | `www.google.com.* >>> google.com` | Sites correspondentes a `www.google.com.*` serão mesclados no `google.com` específico       |
-| www.google.com.hk |                  | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` não será mesclado devido à parte de destino em branco                   |
-| \*\*.github.com   | 2                | `**.github.com >>> Merged(2)`     | Sites correspondentes a `**.github.com` serão mesclados pelos 2 primeiros níveis de domínio |
+| Parte de origem          | Parte de destino | Aparência                         | Observação                                                                                  |
+| ------------------------ | ---------------- | --------------------------------- | ------------------------------------------------------------------------------------------- |
+| www.google.com.*         | google.com       | `www.google.com.* >>> google.com` | Sites correspondentes a `www.google.com.*` serão mesclados no `google.com` específico       |
+| www.google.com.hk        |                  | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` não será mesclado devido à parte de destino em branco                   |
+| \*\*\.\*\.google.com     | 3                | `**.*.google.com >>> Keep Level 3` | Sites correspondentes a `**.*.google.com` serão mesclados nos últimos 3 níveis de domínio  |
+
+A tabela a seguir mostra alguns exemplos de mesclagem após definir as regras acima juntas.
+
+| Site original            | Regras correspondentes                                                               | Site mesclado e observação    |
+| ------------------------ | ------------------------------------------------------------------------------------- | ----------------------------- |
+| www.google.com.au        | `www.google.com.* >>> google.com`                                                   | google.com                    |
+| www.google.com.pt        | `www.google.com.* >>> google.com`                                                   | google.com                    |
+| www.google.com.hk        | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> Not Merge`           | www.google.com.hk **(1)**     |
+| es.news.google.com       | `**.*.google.com >>> Keep Level 3`                                                   | news.google.com               |
+| b.c.photos.google.com    | `**.*.google.com >>> Keep Level 3`                                                   | photos.google.com             |
+| pass.hust.edu.cn         |                                                                                      | hust.edu.cn **(2)**           |
 
 ::: tip
-Os exemplos acima são suficientes para atender às suas necessidades na maioria dos casos. Para mais detalhes, consulte [a documentação completa](https://github.com/sheepzh/timer#merger-rule).
+
+(1) Quando múltiplas regras correspondem, a parte de origem com um nome de domínio específico tem prioridade
+
+(2) Quando nenhuma regra corresponde, mescla para o nível anterior da [Public Suffix List](https://publicsuffix.org/)
+
 :::

@@ -29,17 +29,24 @@ title: インストール
 git clone https://github.com/sheepzh/timer.git
 ```
 
-### コンパイル
+### 依存関係のインストール
 
 ```sh
-cd timer
 npm install
-npm run build:prod
 ```
 
-### インストール
+### ビルドと出力
 
-1. ブラウザで拡張機能ページを開きます。
-2. 開発者モードを有効にします。
-3. 「パッケージ化されていない拡張機能を読み込む」ボタンをクリックします。
-4. コンパイルされたコードの`dist/`フォルダを選択します。
+```sh
+npm run build
+```
+
+コンパイル後、`target.zip`という名前のファイルが`[PROJECT_ROOT]/market_packages/`フォルダの下に出力されます。その後、解凍してブラウザに読み込むことができます。
+
+Firefoxや[Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)をサポートしていない他のブラウザの場合、コンパイルにはこのコマンドを使用する必要があります。
+
+```sh
+npm run build:firefox
+```
+
+同様に、`target.firefox.zip`という名前のファイルが出力されます。

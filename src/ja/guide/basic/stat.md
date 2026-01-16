@@ -34,12 +34,27 @@ title: 追跡
 
 ターゲット部分は、特定のドメイン名、正の整数、または空白のままにすることができます。以下の表でソース部分と組み合わせて、1つずつ紹介します。
 
-| ソース部分        | ターゲット部分 | 外観                              | 備考                                                                         |
-| ----------------- | -------------- | --------------------------------- | ---------------------------------------------------------------------------- |
-| www.google.com.*  | google.com     | `www.google.com.* >>> google.com` | `www.google.com.*`にヒットするサイトは、特定の`google.com`にマージされます   |
-| www.google.com.hk |                | `www.google.com.hk >>> Not Merge` | ターゲット部分が空白のため、`www.google.com.hk`はマージされません            |
-| \*\*.github.com   | 2              | `**.github.com >>> Merged(2)`     | `**.github.com`にヒットするサイトは、最初の2レベルのドメインでマージされます |
+| ソース部分             | ターゲット部分 | 外観                              | 備考                                                                         |
+| --------------------- | -------------- | --------------------------------- | ---------------------------------------------------------------------------- |
+| www.google.com.*      | google.com     | `www.google.com.* >>> google.com` | `www.google.com.*`にヒットするサイトは、特定の`google.com`にマージされます   |
+| www.google.com.hk     |                | `www.google.com.hk >>> Not Merge` | ターゲット部分が空白のため、`www.google.com.hk`はマージされません            |
+| \*\*\.\*\.google.com  | 3              | `**.*.google.com >>> Keep Level 3` | `**.*.google.com`にヒットするサイトは、最後の3レベルのドメインでマージされます |
+
+以下の表は、上記のルールを同時に設定した後のマージ例です。
+
+| 元のサイト              | ヒットするルール                                                               | マージ後のサイトと備考    |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------- |
+| www.google.com.au      | `www.google.com.* >>> google.com`                                             | google.com                |
+| www.google.com.pt      | `www.google.com.* >>> google.com`                                             | google.com                |
+| www.google.com.hk      | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> Not Merge`      | www.google.com.hk **(1)** |
+| es.news.google.com     | `**.*.google.com >>> Keep Level 3`                                             | news.google.com           |
+| b.c.photos.google.com  | `**.*.google.com >>> Keep Level 3`                                             | photos.google.com         |
+| pass.hust.edu.cn       |                                                                                | hust.edu.cn **(2)**        |
 
 ::: tip
-上記の例は、ほとんどの場合、ニーズを満たすのに十分です。詳細については、[完全なドキュメント](https://github.com/sheepzh/timer#merger-rule)を参照してください。
+
+(1) 複数のルールがヒットする場合、ソース部分が特定のドメイン名のものが優先されます
+
+(2) ルールがヒットしない場合、[Public Suffix List](https://publicsuffix.org/)の前のレベルにマージされます
+
 :::

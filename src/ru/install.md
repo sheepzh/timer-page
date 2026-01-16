@@ -29,17 +29,24 @@ title: Установка
 git clone https://github.com/sheepzh/timer.git
 ```
 
-### Компиляция
+### Установка зависимостей
 
 ```sh
-cd timer
 npm install
-npm run build:prod
 ```
 
-### Установка
+### Компиляция и вывод
 
-1. Откройте страницу расширений в вашем браузере.
-2. Включите режим разработчика.
-3. Нажмите кнопку "Загрузить распакованное расширение".
-4. Выберите папку `dist/` скомпилированного кода.
+```sh
+npm run build
+```
+
+После компиляции файл с именем `target.zip` будет выведен в папку `[PROJECT_ROOT]/market_packages/`. Затем вы можете распаковать его и загрузить в браузер.
+
+Для Firefox и других браузеров, не поддерживающих [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), вам нужно использовать эту команду для компиляции.
+
+```sh
+npm run build:firefox
+```
+
+Также будет выведен файл с именем `target.firefox.zip`.

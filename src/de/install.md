@@ -29,17 +29,24 @@ Dieser Abschnitt gilt nur für Chromium-basierte Browser. Wenn Sie es für Safar
 git clone https://github.com/sheepzh/timer.git
 ```
 
-### Kompilierung
+### Abhängigkeiten installieren
 
 ```sh
-cd timer
 npm install
-npm run build:prod
 ```
 
-### Installation
+### Kompilierung & Ausgabe
 
-1. Öffnen Sie die Erweiterungsseite in Ihrem Browser.
-2. Aktivieren Sie den Entwicklermodus.
-3. Klicken Sie auf die Schaltfläche "Entpackte Erweiterung laden".
-4. Wählen Sie den Ordner `dist/` des kompilierten Codes aus.
+```sh
+npm run build
+```
+
+Nach der Kompilierung wird eine Datei namens `target.zip` im Ordner `[PROJECT_ROOT]/market_packages/` ausgegeben. Dann können Sie sie entpacken und in Ihren Browser laden.
+
+Für Firefox und andere Browser, die [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3) nicht unterstützen, müssen Sie diesen Befehl für die Kompilierung verwenden.
+
+```sh
+npm run build:firefox
+```
+
+Auch hier wird eine Datei namens `target.firefox.zip` ausgegeben.

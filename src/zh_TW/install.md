@@ -41,7 +41,7 @@ npm install
 npm run build
 ```
 
-編譯之後，根據你的分支，一個名為 `timer-[version].mv3.zip` 的輸出檔會出現在資料夾 `[PROJECT_ROOT]/market_packages/` 之下。然後你可以解壓縮它，並安裝到您的瀏覽器之中。
+編譯之後，根據你的分支，一個名為 `target.zip` 的輸出檔會出現在資料夾 `[PROJECT_ROOT]/market_packages/` 之下。然後你可以解壓縮它，並安裝到您的瀏覽器之中。
 
 如果你的瀏覽器是 Firefox 或其他不支援 [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3) 的瀏覽器，你需要使用以下指令來完成編譯。
 
@@ -49,4 +49,4 @@ npm run build
 npm run build:firefox
 ```
 
-同樣的，會出現一個名為 `timer-[version].firefox.zip` 的輸出檔。
+同樣的，會出現一個名為 `target.firefox.zip` 的輸出檔。
