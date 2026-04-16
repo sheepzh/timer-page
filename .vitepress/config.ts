@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import type { HeadConfig } from 'vitepress'
 import { enConfig } from "./locales/en"
 import { zhCnConfig } from "./locales/zhCn"
 import { zhTwConfig } from "./locales/zhTw"
@@ -8,6 +9,12 @@ import { esConfig } from "./locales/es"
 import { ptConfig } from "./locales/pt_PT"
 import { jaConfig } from "./locales/ja"
 import { ruConfig } from "./locales/ru"
+import { STORE_RATINGS } from "./shared/ratings"
+
+const PRODUCTION_HOME = "https://www.wfhg.cc/en/"
+const SITE_URL = new URL(PRODUCTION_HOME).origin.replace(/\/+$/, "")
+const DEFAULT_LOCALE_PATH = "/en/"
+const SITE_NAME = "Time Tracker"
 
 const DESCRIPTION: string[] = [
     "Webtime Tracker",
@@ -19,83 +26,159 @@ const DESCRIPTION: string[] = [
     "Edge",
 ]
 
-const ratings = [
-    {
-        browser: 'Chrome',
-        rating: 4.8,
-        count: 500,
-        link: 'https://chrome.google.com/webstore/detail/%E7%BD%91%E8%B4%B5%E5%BE%88%E8%B4%B5-%E4%B8%8A%E7%BD%91%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/dkdhhcbjijekmneelocdllcldcpmekmm',
-    },
-    {
-        browser: 'Firefox',
-        rating: 4.7,
-        count: 300,
-        link: 'https://addons.mozilla.org/firefox/addon/besttimetracker',
-    },
-    {
-        browser: 'Edge',
-        rating: 4.9,
-        count: 200,
-        link: 'https://microsoftedge.microsoft.com/addons/detail/timer-the-web-time-is-e/fepjgblalcnepokjblgbgmapmlkgfahc',
-    },
+const localePaths = [
+    DEFAULT_LOCALE_PATH,
+    "/zh_CN/",
+    "/zh_TW/",
+    "/fr/",
+    "/es/",
+    "/pt_PT/",
+    "/ja/",
+    "/de/",
+    "/ru/",
 ]
 
-function generateStructuredData() {
-    const applications = ratings.map(rating => {
-        const appName = `Time Tracker for ${rating.browser}`
-        return {
-            '@type': 'SoftwareApplication',
-            'name': appName,
-            'applicationCategory': 'BrowserExtension',
-            'operatingSystem': rating.browser,
-            'offers': {
-                '@type': 'Offer',
-                'price': '0',
-                'priceCurrency': 'USD',
-            },
-            'aggregateRating': {
-                '@type': 'AggregateRating',
-                'itemReviewed': {
-                    '@type': 'SoftwareApplication',
-                    'name': appName,
-                },
-                'ratingValue': rating.rating.toString(),
-                'bestRating': '5',
-                'worstRating': '1',
-                'ratingCount': rating.count.toString(),
-            },
-            'url': rating.link,
-        }
-    })
+const localeHrefLangMap: Record<string, string> = {
+    "/en/": "en",
+    "/zh_CN/": "zh-CN",
+    "/zh_TW/": "zh-TW",
+    "/fr/": "fr",
+    "/es/": "es",
+    "/pt_PT/": "pt-PT",
+    "/ja/": "ja",
+    "/de/": "de",
+    "/ru/": "ru",
+}
 
-    return JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': applications,
+function toAbsoluteUrl(path: string): string {
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`
+    return `${SITE_URL}${normalizedPath}`
+}
+
+function normalizePagePath(pagePath: string): string {
+    const noMd = pagePath.replace(/\.md$/, "")
+    const withTrailingSlash = noMd.endsWith("/") ? noMd : `${noMd}/`
+    return withTrailingSlash.replace(/\/index\/$/, "/")
+}
+
+function buildLocalizedPath(path: string, localePath: string): string {
+    const sourceLocalePath = localePaths.find(candidate => path.startsWith(candidate))
+    if (!sourceLocalePath) {
+        return path
+    }
+    return path.replace(sourceLocalePath, localePath)
+}
+
+function generateLocaleAlternates(path: string): HeadConfig[] {
+    const sourceLocalePath = localePaths.find(candidate => path.startsWith(candidate))
+    if (!sourceLocalePath) {
+        return []
+    }
+    return localePaths.map(localePath => {
+        const hrefLang = localeHrefLangMap[localePath]
+        const href = toAbsoluteUrl(buildLocalizedPath(path, localePath))
+        return ["link", { rel: "alternate", hreflang: hrefLang, href }]
     })
 }
 
-// https://vitepress.dev/reference/site-config
+function isLocaleHome(path: string): boolean {
+    return /^\/[^/]+\/$/.test(path)
+}
+
+function shouldInjectStructuredData(path: string): boolean {
+    return path === "/" || isLocaleHome(path) || /\/index\/$/.test(path)
+}
+
+function generateStructuredData() {
+    const totalCount = STORE_RATINGS.reduce((sum, item) => sum + item.count, 0)
+    const weightedRating = totalCount === 0
+        ? 0
+        : STORE_RATINGS.reduce((sum, item) => sum + item.rating * item.count, 0) / totalCount
+
+    return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'WebSite',
+                '@id': `${SITE_URL}/#website`,
+                'name': SITE_NAME,
+                'url': SITE_URL,
+                'inLanguage': 'en',
+            },
+            {
+                '@type': 'SoftwareApplication',
+                '@id': `${SITE_URL}/#software`,
+                'name': 'Time Tracker for Browser',
+                'applicationCategory': 'BrowserApplication',
+                'operatingSystem': 'Chrome, Firefox, Edge',
+                'url': toAbsoluteUrl(DEFAULT_LOCALE_PATH),
+                'image': toAbsoluteUrl('/images/logo.png'),
+                'description': DESCRIPTION.join(", "),
+                'isAccessibleForFree': true,
+                'offers': {
+                    '@type': 'Offer',
+                    'price': '0',
+                    'priceCurrency': 'USD',
+                },
+                'aggregateRating': {
+                    '@type': 'AggregateRating',
+                    'ratingValue': weightedRating.toFixed(2),
+                    'bestRating': '5',
+                    'worstRating': '1',
+                    'ratingCount': totalCount.toString(),
+                    'reviewCount': totalCount.toString(),
+                },
+                'sameAs': STORE_RATINGS.map(item => item.link),
+            },
+        ],
+    })
+}
+
 export default defineConfig({
+    title: SITE_NAME,
+    description: DESCRIPTION.join(", "),
     lastUpdated: true,
+    lang: "en",
     srcDir: "./src",
     outDir: "./dist",
     cleanUrls: true,
+    sitemap: {
+        hostname: SITE_URL,
+    },
     head: [
         ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
+        ["meta", { name: "viewport", content: "width=device-width,initial-scale=1" }],
         ["meta", { name: "description", content: DESCRIPTION.join(", ") }],
+        ["meta", { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }],
+        ["meta", { property: "og:type", content: "website" }],
+        ["meta", { property: "og:site_name", content: SITE_NAME }],
+        ["meta", { property: "og:title", content: SITE_NAME }],
+        ["meta", { property: "og:description", content: DESCRIPTION.join(", ") }],
+        ["meta", { property: "og:image", content: toAbsoluteUrl("/images/logo.png") }],
+        ["meta", { property: "og:url", content: `${SITE_URL}${DEFAULT_LOCALE_PATH}` }],
+        ["meta", { name: "twitter:card", content: "summary_large_image" }],
+        ["meta", { name: "twitter:title", content: SITE_NAME }],
+        ["meta", { name: "twitter:description", content: DESCRIPTION.join(", ") }],
+        ["meta", { name: "twitter:image", content: toAbsoluteUrl("/images/logo.png") }],
     ],
     transformHead: ctx => {
-        const pagePath = ctx.page
-        if (/^\/([^\/]+)\/index(\.md)?$/.test(pagePath)) {
-            return [
-                ['script', { type: 'application/ld+json' }, generateStructuredData()],
-            ]
+        const pagePath = normalizePagePath(ctx.page)
+        const canonicalUrl = toAbsoluteUrl(pagePath)
+        const localeAlternates = generateLocaleAlternates(pagePath)
+        const pageHead: HeadConfig[] = [
+            ["link", { rel: "canonical", href: canonicalUrl }],
+            ...localeAlternates,
+            ["link", { rel: "alternate", hreflang: "x-default", href: `${SITE_URL}${DEFAULT_LOCALE_PATH}` }],
+        ]
+
+        if (shouldInjectStructuredData(pagePath)) {
+            pageHead.push(['script', { type: 'application/ld+json' }, generateStructuredData()])
         }
-        return []
+        return pageHead
     },
     themeConfig: {
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/sheepzh/timer' },
+            { icon: 'github', link: 'https://github.com/sheepzh/time-tracker-4-browser' },
         ],
         logo: "/images/logo.png",
     },

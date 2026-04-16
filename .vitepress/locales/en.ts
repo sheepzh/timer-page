@@ -81,7 +81,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Time Tracker",
+    title: "Time Tracker for Browser",
     description: "The BEST web time tracking tool",
     themeConfig: {
         nav: nav(),

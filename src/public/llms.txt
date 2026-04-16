@@ -1,0 +1,36 @@
+# Time Tracker Documentation
+
+> Official docs for the "Time Tracker" browser extension.
+
+Time Tracker is a browser extension that helps users track web usage time, analyze browsing habits, and set limits.
+This site contains installation steps, usage guides, data migration docs, and privacy information.
+
+## Primary Entry Points
+
+- Home (English): /en/
+- Install (English): /en/install
+- Guide Start (English): /en/guide/start
+- Privacy (English): /en/privacy
+
+## Language Entry Points
+
+- English: /en/
+- Simplified Chinese: /zh_CN/
+- Traditional Chinese: /zh_TW/
+- German: /de/
+- French: /fr/
+- Spanish: /es/
+- Portuguese (Portugal): /pt_PT/
+- Japanese: /ja/
+- Russian: /ru/
+
+## Product & Source Links
+
+- Extension source repository: https://github.com/sheepzh/timer
+- Documentation repository: https://github.com/sheepzh/timer-page
+- Issue tracker: https://github.com/sheepzh/timer/issues
+
+## Data & Privacy
+
+- Privacy policy is available under each locale path, e.g. /en/privacy.
+- This documentation site does not require user account sign-in.

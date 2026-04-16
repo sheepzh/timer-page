@@ -2,16 +2,10 @@
     <div class="rating-module">
         <div class="rating-grid">
             <a v-for="rating in ratings" :key="rating.browser" :href="rating.link" :target="rating.target"
-                :title="`Download Time Tracker for ${rating.browser}`" class="rating-item" :itemscope="true"
-                :itemtype="'https://schema.org/SoftwareApplication'" :itemprop="'url'">
+                :title="`Download Time Tracker for ${rating.browser}`" class="rating-item">
                 <div :class="`${rating.icon} rating-icon`" />
                 <div class="rating-info">
-                    <div class="rating-stars" :itemprop="'aggregateRating'" :itemscope="true"
-                        :itemtype="'https://schema.org/AggregateRating'">
-                        <meta :itemprop="'ratingValue'" :content="rating.rating.toString()" />
-                        <meta :itemprop="'bestRating'" content="5" />
-                        <meta :itemprop="'worstRating'" content="1" />
-                        <meta :itemprop="'ratingCount'" :content="rating.count.toString()" />
+                    <div class="rating-stars">
                         <StarRating :rating="rating.rating" size="small" />
                     </div>
                     <div class="rating-value">
@@ -26,6 +20,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
+import { STORE_RATINGS } from '../../shared/ratings'
 import StarRating from './StarRating.vue'
 
 interface Rating {
@@ -41,32 +36,11 @@ const props = withDefaults(defineProps<{
     ratings?: Rating[]
     title?: string
 }>(), {
-    ratings: () => [
-        {
-            browser: 'Chrome',
-            icon: 'i-logos-chrome',
-            rating: 4.87,
-            count: 110,
-            link: 'https://chrome.google.com/webstore/detail/%E7%BD%91%E8%B4%B5%E5%BE%88%E8%B4%B5-%E4%B8%8A%E7%BD%91%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/dkdhhcbjijekmneelocdllcldcpmekmm',
-            target: '_blank',
-        },
-        {
-            browser: 'Firefox',
-            icon: 'i-logos-firefox',
-            rating: 4.98,
-            count: 45,
-            link: 'https://addons.mozilla.org/firefox/addon/besttimetracker',
-            target: '_blank',
-        },
-        {
-            browser: 'Edge',
-            icon: 'i-logos-edge',
-            rating: 4.96,
-            count: 102,
-            link: 'https://microsoftedge.microsoft.com/addons/detail/timer-the-web-time-is-e/fepjgblalcnepokjblgbgmapmlkgfahc',
-            target: '_blank',
-        },
-    ],
+    ratings: () => STORE_RATINGS.map(rating => ({
+        ...rating,
+        icon: `i-logos-${rating.browser.toLowerCase()}`,
+        target: '_blank',
+    })),
     title: 'Browser Ratings',
 })
 
@@ -78,45 +52,42 @@ const formatCount = (count: number): string => {
 }
 
 const structuredData = computed(() => {
-    const applications = props.ratings.map(rating => {
-        const appName = `Time Tracker for ${rating.browser}`
-        return {
-            '@type': 'SoftwareApplication',
-            'name': appName,
-            'applicationCategory': 'BrowserExtension',
-            'operatingSystem': rating.browser,
-            'offers': {
-                '@type': 'Offer',
-                'price': '0',
-                'priceCurrency': 'USD',
-            },
-            'aggregateRating': {
-                '@type': 'AggregateRating',
-                'itemReviewed': {
-                    '@type': 'SoftwareApplication',
-                    'name': appName,
-                },
-                'ratingValue': rating.rating.toString(),
-                'bestRating': '5',
-                'worstRating': '1',
-                'ratingCount': rating.count.toString(),
-            },
-            'url': rating.link,
-        }
-    })
+    const totalCount = props.ratings.reduce((sum, item) => sum + item.count, 0)
+    const weightedRating = totalCount === 0
+        ? 0
+        : props.ratings.reduce((sum, item) => sum + item.rating * item.count, 0) / totalCount
 
     return JSON.stringify({
         '@context': 'https://schema.org',
-        '@graph': applications,
-    }, null, 2)
+        '@type': 'SoftwareApplication',
+        name: 'Time Tracker for Browser',
+        applicationCategory: 'BrowserApplication',
+        operatingSystem: 'Chrome, Firefox, Edge',
+        isAccessibleForFree: true,
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: weightedRating.toFixed(2),
+            bestRating: '5',
+            worstRating: '1',
+            ratingCount: totalCount.toString(),
+            reviewCount: totalCount.toString(),
+        },
+        sameAs: props.ratings.map(item => item.link),
+    })
 })
 
 onMounted(() => {
+    const scriptId = 'tt-jsonld-software'
+    if (document.getElementById(scriptId)) {
+        return
+    }
     const script = document.createElement('script')
+    script.id = scriptId
     script.type = 'application/ld+json'
     script.textContent = structuredData.value
     document.head.appendChild(script)
 })
+
 </script>
 
 <style scoped>
