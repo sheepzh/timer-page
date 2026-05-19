@@ -2,9 +2,13 @@
     "compilerOptions": {
         "jsx": "preserve",
         "strict": true,
-        "strictNullChecks": false
+        "strictNullChecks": true,
+        "target": "es2022",
+        "module": "nodenext",
+        "moduleResolution": "nodenext"
     },
     "include": [
-        "./typings/*.d.ts"
+        "./typings/*.d.ts",
+        "./script/**/*.ts"
     ],
 }

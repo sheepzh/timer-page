@@ -25,3 +25,7 @@ features:
 
 <RatingModule title="Browser Ratings"/>
 <Testimonials />
+
+## Read More
+
+- [The Best 6 Time Tracking Chrome Extensions in 2026](/en/blog/best-time-tracking-chrome-extensions-2026)

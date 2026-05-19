@@ -1,0 +1,17 @@
+{
+    "Chrome": {
+        "rating": 4.888059701492537,
+        "count": 134,
+        "link": "https://chrome.google.com/webstore/detail/%E7%BD%91%E8%B4%B5%E5%BE%88%E8%B4%B5-%E4%B8%8A%E7%BD%91%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/dkdhhcbjijekmneelocdllcldcpmekmm"
+    },
+    "Firefox": {
+        "rating": 4.902,
+        "count": 102,
+        "link": "https://addons.mozilla.org/firefox/addon/besttimetracker"
+    },
+    "Edge": {
+        "rating": 4.9,
+        "count": 110,
+        "link": "https://microsoftedge.microsoft.com/addons/detail/timer-the-web-time-is-e/fepjgblalcnepokjblgbgmapmlkgfahc"
+    }
+}

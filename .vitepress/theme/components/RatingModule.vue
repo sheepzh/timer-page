@@ -9,7 +9,7 @@
                         <StarRating :rating="rating.rating" size="small" />
                     </div>
                     <div class="rating-value">
-                        <span class="rating-number">{{ rating.rating.toFixed(1) }}</span>
+                        <span class="rating-number">{{ rating.rating.toFixed(2) }}</span>
                         <span class="rating-count">({{ formatCount(rating.count) }})</span>
                     </div>
                 </div>
@@ -36,9 +36,10 @@ const props = withDefaults(defineProps<{
     ratings?: Rating[]
     title?: string
 }>(), {
-    ratings: () => STORE_RATINGS.map(rating => ({
+    ratings: () => Object.entries(STORE_RATINGS).map(([browser, rating]) => ({
+        browser,
         ...rating,
-        icon: `i-logos-${rating.browser.toLowerCase()}`,
+        icon: `i-logos-${browser}`,
         target: '_blank',
     })),
     title: 'Browser Ratings',

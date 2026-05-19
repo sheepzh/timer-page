@@ -1,36 +1,43 @@
-# Time Tracker Documentation
+# Time Tracker - Web Habit Builder
 
-> Official docs for the "Time Tracker" browser extension.
+> Time Tracker is a free, privacy-first browser extension for Chrome, Firefox, and Edge that automatically tracks web browsing time, analyzes online habits, and blocks distracting websites. All data is stored locally; no account is required.
 
-Time Tracker is a browser extension that helps users track web usage time, analyze browsing habits, and set limits.
-This site contains installation steps, usage guides, data migration docs, and privacy information.
+## Quick Links
 
-## Primary Entry Points
+- [Home](https://www.wfhg.cc/en/): Product overview, features, and ratings
+- [Install](https://www.wfhg.cc/en/install): Download links for Chrome, Firefox, and Edge stores
+- [Get Started](https://www.wfhg.cc/en/guide/start): 3-step quickstart for new users
+- [Privacy Policy](https://www.wfhg.cc/en/privacy): What data is collected and how it is stored locally
 
-- Home (English): /en/
-- Install (English): /en/install
-- Guide Start (English): /en/guide/start
-- Privacy (English): /en/privacy
+## Guide
 
-## Language Entry Points
+- [Tracking](https://www.wfhg.cc/en/guide/basic/stat): How time and visit counts are aggregated by domain and date, including domain merge rules
+- [Analysis](https://www.wfhg.cc/en/guide/basic/analysis): Habit reports and per-site reports for understanding browsing patterns
+- [Control](https://www.wfhg.cc/en/guide/basic/limit): Creating daily limits, per-visit limits, and forbidden time periods to block distracting sites
+- [Data Transmission](https://www.wfhg.cc/en/guide/data): Exporting and importing data, plus syncing via GitHub Gist or Obsidian
 
-- English: /en/
-- Simplified Chinese: /zh_CN/
-- Traditional Chinese: /zh_TW/
-- German: /de/
-- French: /fr/
-- Spanish: /es/
-- Portuguese (Portugal): /pt_PT/
-- Japanese: /ja/
-- Russian: /ru/
+## Blog
 
-## Product & Source Links
+- [The Best 6 Time Tracking Chrome Extensions in 2026](https://www.wfhg.cc/en/blog/best-time-tracking-chrome-extensions-2026): In-depth comparison of Time Tracker, Web Activity Time Tracker, Toggl Track, RescueTime, Webtime Tracker, and Clockify, focused on all-in-one productivity workflows
 
-- Extension source repository: https://github.com/sheepzh/timer
-- Documentation repository: https://github.com/sheepzh/timer-page
-- Issue tracker: https://github.com/sheepzh/timer/issues
+## Localized Versions
 
-## Data & Privacy
+- [English](https://www.wfhg.cc/en/): Default language
+- [Simplified Chinese](https://www.wfhg.cc/zh_CN/): 简体中文
+- [Traditional Chinese](https://www.wfhg.cc/zh_TW/): 正體中文
+- [German](https://www.wfhg.cc/de/): Deutsch
+- [French](https://www.wfhg.cc/fr/): Français
+- [Spanish](https://www.wfhg.cc/es/): Español
+- [Portuguese (Portugal)](https://www.wfhg.cc/pt_PT/): Português
+- [Japanese](https://www.wfhg.cc/ja/): 日本語
+- [Russian](https://www.wfhg.cc/ru/): Русский
 
-- Privacy policy is available under each locale path, e.g. /en/privacy.
-- This documentation site does not require user account sign-in.
+## Source Code & Community
+
+- [Extension Source Repository](https://github.com/sheepzh/time-tracker-4-browser): Open-source codebase of the browser extension
+- [Documentation Repository](https://github.com/sheepzh/timer-page): Source of this VitePress documentation site
+- [Issue Tracker](https://github.com/sheepzh/timer/issues): Report bugs or request features
+
+## Optional
+
+- [Sitemap](https://www.wfhg.cc/sitemap.xml): Machine-readable list of all indexable pages

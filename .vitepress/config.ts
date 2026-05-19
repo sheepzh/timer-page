@@ -89,11 +89,45 @@ function shouldInjectStructuredData(path: string): boolean {
     return path === "/" || isLocaleHome(path) || /\/index\/$/.test(path)
 }
 
+function isBlogArticle(path: string): boolean {
+    return /\/blog\/[^/]+\/$/.test(path)
+}
+
+function generateArticleStructuredData(path: string, title?: string, description?: string) {
+    const url = toAbsoluteUrl(path)
+    return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': title || SITE_NAME,
+        'description': description || DESCRIPTION.join(", "),
+        'image': toAbsoluteUrl('/images/logo.png'),
+        'author': {
+            '@type': 'Organization',
+            'name': SITE_NAME,
+            'url': SITE_URL,
+        },
+        'publisher': {
+            '@type': 'Organization',
+            'name': SITE_NAME,
+            'logo': {
+                '@type': 'ImageObject',
+                'url': toAbsoluteUrl('/images/logo.png'),
+            },
+        },
+        'mainEntityOfPage': {
+            '@type': 'WebPage',
+            '@id': url,
+        },
+        'url': url,
+        'inLanguage': 'en',
+    })
+}
+
 function generateStructuredData() {
-    const totalCount = STORE_RATINGS.reduce((sum, item) => sum + item.count, 0)
+    const totalCount = Object.values(STORE_RATINGS).reduce((sum, item) => sum + item.count, 0)
     const weightedRating = totalCount === 0
         ? 0
-        : STORE_RATINGS.reduce((sum, item) => sum + item.rating * item.count, 0) / totalCount
+        : Object.values(STORE_RATINGS).reduce((sum, item) => sum + item.rating * item.count, 0) / totalCount
 
     return JSON.stringify({
         '@context': 'https://schema.org',
@@ -128,7 +162,7 @@ function generateStructuredData() {
                     'ratingCount': totalCount.toString(),
                     'reviewCount': totalCount.toString(),
                 },
-                'sameAs': STORE_RATINGS.map(item => item.link),
+                'sameAs': Object.values(STORE_RATINGS).map(item => item.link),
             },
         ],
     })
@@ -173,6 +207,22 @@ export default defineConfig({
 
         if (shouldInjectStructuredData(pagePath)) {
             pageHead.push(['script', { type: 'application/ld+json' }, generateStructuredData()])
+        }
+        if (isBlogArticle(pagePath)) {
+            const title = (ctx.pageData?.frontmatter?.title as string | undefined)
+                ?? (ctx.pageData?.title as string | undefined)
+            const description = ctx.pageData?.frontmatter?.description as string | undefined
+            pageHead.push(['script', { type: 'application/ld+json' }, generateArticleStructuredData(pagePath, title, description)])
+            if (title) {
+                pageHead.push(['meta', { property: "og:title", content: title }])
+                pageHead.push(['meta', { name: "twitter:title", content: title }])
+                pageHead.push(['meta', { property: "og:type", content: "article" }])
+            }
+            if (description) {
+                pageHead.push(['meta', { property: "og:description", content: description }])
+                pageHead.push(['meta', { name: "twitter:description", content: description }])
+                pageHead.push(['meta', { name: "description", content: description }])
+            }
         }
         return pageHead
     },

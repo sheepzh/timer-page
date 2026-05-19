@@ -1,0 +1,38 @@
+name: Update Rating Resource
+
+on:
+    schedule:
+        # Run at 18:00 UTC on the 1st of every month (02:00 Beijing time on the 2nd).
+        - cron: '0 18 1 * *'
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+
+            - name: Setup Node
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+
+            - name: Fetch latest ratings
+              run: node script/update-rating.ts
+
+            - name: Commit and push if changed
+              run: |
+                  set -e
+                  if git diff --quiet -- .vitepress/shared/rating-resource.json; then
+                      echo "No changes to commit."
+                      exit 0
+                  fi
+                  git config user.name  "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add .vitepress/shared/rating-resource.json
+                  git commit -m "chore: update rating-resource.json [skip ci]"
+                  git push
