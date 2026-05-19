@@ -229,6 +229,7 @@ export default defineConfig({
     themeConfig: {
         socialLinks: [
             { icon: 'github', link: 'https://github.com/sheepzh/time-tracker-4-browser' },
+            { icon: 'discord', link: 'https://discord.gg/yXCngD8pKS' },
         ],
         logo: "/images/logo.png",
     },
