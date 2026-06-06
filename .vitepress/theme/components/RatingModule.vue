@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<{
     ratings: () => Object.entries(STORE_RATINGS).map(([browser, rating]) => ({
         browser,
         ...rating,
-        icon: `i-logos-${browser}`,
+        icon: `i-logos-${browser.toLowerCase()}`,
         target: '_blank',
     })),
     title: 'Browser Ratings',
