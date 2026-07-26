@@ -14,7 +14,7 @@ import { STORE_RATINGS } from "./shared/ratings"
 const PRODUCTION_HOME = "https://time-tracker-4-browser.app/en/"
 const SITE_URL = new URL(PRODUCTION_HOME).origin.replace(/\/+$/, "")
 const DEFAULT_LOCALE_PATH = "/en/"
-const SITE_NAME = "Time Tracker"
+const SITE_NAME = "Time Tracker - Web Habit Builder"
 
 const DESCRIPTION: string[] = [
     "Webtime Tracker",
@@ -142,8 +142,8 @@ function generateStructuredData() {
             {
                 '@type': 'SoftwareApplication',
                 '@id': `${SITE_URL}/#software`,
-                'name': 'Time Tracker for Browser',
-                'applicationCategory': 'BrowserApplication',
+                'name': 'Time Tracker - Web Habit Builder',
+                'applicationCategory': 'ProductivityApplication',
                 'operatingSystem': 'Chrome, Firefox, Edge',
                 'url': toAbsoluteUrl(DEFAULT_LOCALE_PATH),
                 'image': toAbsoluteUrl('/images/logo.png'),
@@ -153,6 +153,11 @@ function generateStructuredData() {
                     '@type': 'Offer',
                     'price': '0',
                     'priceCurrency': 'USD',
+                },
+                'author': {
+                    '@type': 'Person',
+                    'name': 'Victor Zhang',
+                    'url': 'https://github.com/sheepzh'
                 },
                 'aggregateRating': {
                     '@type': 'AggregateRating',
