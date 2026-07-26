@@ -11,7 +11,7 @@ import { jaConfig } from "./locales/ja"
 import { ruConfig } from "./locales/ru"
 import { STORE_RATINGS } from "./shared/ratings"
 
-const PRODUCTION_HOME = "https://www.wfhg.cc/en/"
+const PRODUCTION_HOME = "https://time-tracker-4-browser.app/en/"
 const SITE_URL = new URL(PRODUCTION_HOME).origin.replace(/\/+$/, "")
 const DEFAULT_LOCALE_PATH = "/en/"
 const SITE_NAME = "Time Tracker"
