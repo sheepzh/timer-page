@@ -81,7 +81,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Time Tracker - Web Habit Builder | #1 Top-Rated Firefox Extension",
+    title: "Time Tracker - Web Habit Builder",
     description: "An open-source, local-only browser extension for high-accuracy screen time tracking, flexible website blocking, and secure WebDAV syncing. Zero accounts, 100% private.",
     themeConfig: {
         nav: nav(),
