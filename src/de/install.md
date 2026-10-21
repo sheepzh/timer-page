@@ -12,10 +12,10 @@ Die Erweiterung wird offiziell in den Web Stores von Chrome, Edge und Firefox ve
 
 ## Aus dem Quellcode
 
-Sie können auch den Quellcode herunterladen, um ihn manuell zu installieren.
+Du kannst auch den Quellcode herunterladen, um ihn manuell zu installieren.
 
 ::: tip
-Dieser Abschnitt gilt nur für Chromium-basierte Browser. Wenn Sie es für Safari installieren möchten, lesen Sie bitte [diese Seite](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md).
+Dieser Abschnitt gilt nur für Chromium-basierte Browser. Wenn du es für Safari installieren möchtest, findest du auf [dieser Seite](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md) die entsprechende Anleitung.
 :::
 
 ### Voraussetzungen
@@ -41,9 +41,9 @@ npm install
 npm run build
 ```
 
-Nach der Kompilierung wird eine Datei namens `target.zip` im Ordner `[PROJECT_ROOT]/market_packages/` ausgegeben. Dann können Sie sie entpacken und in Ihren Browser laden.
+Nach der Kompilierung wird eine Datei namens `target.zip` im Ordner `[PROJECT_ROOT]/market_packages/` ausgegeben. Dann kannst du sie entpacken und in deinen Browser laden.
 
-Für Firefox und andere Browser, die [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3) nicht unterstützen, müssen Sie diesen Befehl für die Kompilierung verwenden.
+Für Firefox und andere Browser, die [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3) nicht unterstützen, musst du diesen Befehl für die Kompilierung verwenden.
 
 ```sh
 npm run build:firefox

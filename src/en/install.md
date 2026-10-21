@@ -15,7 +15,7 @@ The extension is officially released to the web stores of Chrome, Edge and Firef
 You can also download the source code to install it manually.
 
 ::: tip
-This section only applies to chromium based browsers. If you want to install it for Safari, please read [this page](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md).
+This section only applies to Chromium-based browsers. If you want to install it for Safari, please read [this page](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md).
 :::
 
 ### Prerequisites
@@ -41,9 +41,9 @@ npm install
 npm run build
 ```
 
-After compilation, a file named `target.zip` will be output under the folder `[PROJECT_ROOT]/market_packages/`. Then you can unpack it and load into your browser.
+After compilation, a file named `target.zip` will be output under the folder `[PROJECT_ROOT]/market_packages/`. Then you can unpack it and load it into your browser.
 
-For firefox, and other browsers not supporting [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), you need to use this command for compilation.
+For Firefox, and other browsers not supporting [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), you need to use this command for compilation.
 
 ```sh
 npm run build:firefox

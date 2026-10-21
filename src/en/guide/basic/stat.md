@@ -1,22 +1,22 @@
 ---
-title: Tracking
+title: Track Website Time
 ---
 
 # {{$frontmatter.title}}
 
 ## Dimensions of statistics
 
-Time and count of visits will be grouped and aggregated by unique domain and date. It means that date and domain constitutes the smallest statistical granularity.
+Time and count of visits will be grouped and aggregated by unique domain and date. It means that date and domain constitute the smallest statistical granularity.
 
-And this tool supports you to merge basic records according to your own needs.
+And this tool lets you merge basic records according to your own needs.
 
 ## Summarize data of related sites
 
 As above, this data is aggregated by domain. For example, `www.github.com` and `gist.github.com` are counted as 2 records. If you want to see aggregated data from the two sites, you'll need to merge them manually.
 
-Most data display pages support merge queries. And you can customize merge rules on the backend page.
+Most data display pages support merge queries. And you can customize merge rules on the dashboard.
 
-### What's rules look like?
+### What do the rules look like?
 
 The rule consists of two parts, the source part and the target part. The source part declares which sites hit the rule, and the target part defines how those sites are merged. For example, `gist.github.com >>> github.com` is a common rule, the left `gist.github.com` is the source part, and the right `github.com` is the target part.
 
@@ -37,8 +37,8 @@ The target part can be a specific domain name, a positive integer, or be left bl
 | Source part          | Target part | Look                               | Remark                                                                            |
 | -------------------- | ----------- | ---------------------------------- | --------------------------------------------------------------------------------- |
 | www.google.com.*     | google.com  | `www.google.com.* >>> google.com`  | Sites hitting `www.google.com.*` will be merged into the specific `google.com`    |
-| www.google.com.hk    |             | `www.google.com.hk >>> Not Merge`  | `www.google.com.hk` won't be merged cause of blank target part                    |
-| \*\*\.\*\.google.com | 3           | `**.*.google.com >>> Keep Level 3` | Sites hitting `**.*.google.com` will be merged into the last 3 level domain names |
+| www.google.com.hk    |             | `www.google.com.hk >>> Not Merge`  | `www.google.com.hk` won't be merged because of blank target part                    |
+| \*\*\.\*\.google.com | 3           | `**.*.google.com >>> Keep Level 3` | Sites hitting `**.*.google.com` will be merged into the right-most 3 labels of the domain |
 
 The following table is some merge examples after setting the above rules together.
 
@@ -55,6 +55,6 @@ The following table is some merge examples after setting the above rules togethe
 
 (1) When multiple rules are hit, the source part takes precedence for a specific domain name
 
-(2) Merge to the before level of [Public Suffix List](https://publicsuffix.org/) when no rules are hit
+(2) Merge to the parent level of [Public Suffix List](https://publicsuffix.org/) when no rules are hit
 
 :::

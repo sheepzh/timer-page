@@ -3,7 +3,7 @@ import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: "程式安裝",
+            text: "擴充功能安裝",
             link: "/zh_TW/install"
         },
         {
@@ -14,7 +14,7 @@ function nav(): DefaultTheme.NavItem[] {
             text: "關於",
             items: [
                 {
-                    text: "發布日誌",
+                    text: "更新日誌",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
@@ -25,7 +25,7 @@ function nav(): DefaultTheme.NavItem[] {
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
-                            text: "幫助翻譯",
+                            text: "協助翻譯",
                             link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
@@ -38,7 +38,7 @@ function nav(): DefaultTheme.NavItem[] {
                             link: "/zh_TW/privacy"
                         },
                         {
-                            text: "開源協議",
+                            text: "開源授權條款",
                             link: "https://github.com/sheepzh/timer/blob/main/LICENSE"
                         }
                     ]
@@ -73,7 +73,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: '資料遷移',
+                text: '資料同步',
                 link: '/zh_TW/guide/data'
             }
         ]
@@ -81,8 +81,8 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const zhTwConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "網費很貴 - 上網時間統計瀏覽器擴充套件",
-    description: "網費很貴是免費開源的瀏覽器擴充套件，自動記錄 Chrome、Edge、Firefox 中各網站的瀏覽時間，分析上網習慣，並可限制分心網站的使用時間，資料僅儲存在本機。",
+    title: "網費很貴 - 上網時間統計瀏覽器擴充功能",
+    description: "網費很貴是免費開源的瀏覽器擴充功能，自動記錄 Chrome、Edge、Firefox 中各網站的瀏覽時間，分析上網習慣，並可限制分心網站的使用時間，資料僅儲存在本機。",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

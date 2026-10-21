@@ -1,5 +1,5 @@
 ---
-title: Transmisión de datos
+title: Sincronización de datos
 ---
 
 # {{$frontmatter.title}}
@@ -10,7 +10,7 @@ Pero admite herramientas para ayudarte a transmitir tus datos.
 
 ## Exportar e importar
 
-Puedes exportar los datos a un archivo `.json` en la página de backend y luego importarlo en otros navegadores. Cabe señalar que esta operación es más adecuada si acabas de empezar a usar un nuevo dispositivo o navegador nuevo.
+Puedes exportar los datos a un archivo `.json` en el panel y luego importarlo en otros navegadores. Cabe señalar que esta operación es más adecuada si acabas de empezar a usar un dispositivo o navegador nuevo.
 
 También puedes importar datos exportados desde otras extensiones similares y decidir si reemplazar o agregar a los datos locales.
 

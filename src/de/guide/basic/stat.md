@@ -1,20 +1,20 @@
 ---
-title: Verfolgung
+title: Zeit auf Websites erfassen
 ---
 
 # {{$frontmatter.title}}
 
 ## Dimensionen der Statistik
 
-Zeit und Anzahl der Besuche werden nach eindeutiger Domain und Datum gruppiert und aggregiert. Das bedeutet, dass Datum und Domain die kleinste statistische Granularität bilden.
+Zeit und Anzahl der Besuche werden nach eindeutiger Domain und eindeutigem Datum gruppiert und aggregiert. Das bedeutet, dass Datum und Domain die kleinste statistische Granularität bilden.
 
-Und dieses Tool ermöglicht es Ihnen, Basis-Datensätze nach Ihren eigenen Bedürfnissen zusammenzuführen.
+Und dieses Tool ermöglicht es dir, Basis-Datensätze nach deinen eigenen Bedürfnissen zusammenzuführen.
 
 ## Daten verwandter Websites zusammenfassen
 
-Wie oben erwähnt, werden diese Daten nach Domain aggregiert. Zum Beispiel werden `www.github.com` und `gist.github.com` als 2 Datensätze gezählt. Wenn Sie aggregierte Daten von den beiden Websites sehen möchten, müssen Sie sie manuell zusammenführen.
+Wie oben erwähnt, werden diese Daten nach Domain aggregiert. Zum Beispiel werden `www.github.com` und `gist.github.com` als 2 Datensätze gezählt. Wenn du aggregierte Daten von den beiden Websites sehen möchtest, musst du sie manuell zusammenführen.
 
-Die meisten Datenanzeige-Seiten unterstützen Zusammenführungsabfragen. Und Sie können Zusammenführungsregeln auf der Backend-Seite anpassen.
+Die meisten Datenanzeige-Seiten unterstützen Zusammenführungsabfragen. Und du kannst Zusammenführungsregeln im Dashboard anpassen.
 
 ### Wie sehen die Regeln aus?
 
@@ -32,13 +32,13 @@ Der Quellteil kann ein bestimmter Domainname oder ein Ant-Ausdruck sein. Unten s
 
 ### Wie definiert man den Zielteil?
 
-Der Zielteil kann ein bestimmter Domainname, eine positive ganze Zahl oder leer gelassen werden. Sie werden nacheinander in Verbindung mit dem Quellteil in der folgenden Tabelle vorgestellt.
+Der Zielteil kann ein bestimmter Domainname, eine positive ganze Zahl oder leer gelassen werden. Diese werden nacheinander in Verbindung mit dem Quellteil in der folgenden Tabelle vorgestellt.
 
 | Quellteil              | Zielteil   | Aussehen                          | Bemerkung                                                                                            |
 | ---------------------- | ---------- | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | www.google.com.*       | google.com | `www.google.com.* >>> google.com` | Websites, die `www.google.com.*` entsprechen, werden in das spezifische `google.com` zusammengeführt |
 | www.google.com.hk      |            | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` wird aufgrund des leeren Zielteils nicht zusammengeführt                         |
-| \*\*\.\*\.google.com    | 3          | `**.*.google.com >>> Keep Level 3` | Websites, die `**.*.google.com` entsprechen, werden in die letzten 3 Domain-Ebenen zusammengeführt   |
+| \*\*\.\*\.google.com    | 3          | `**.*.google.com >>> Keep Level 3` | Websites, die `**.*.google.com` entsprechen, werden in die 3 rechten Segmente der Domain zusammengeführt   |
 
 Die folgende Tabelle zeigt einige Zusammenführungsbeispiele nach dem gleichzeitigen Festlegen der obigen Regeln.
 

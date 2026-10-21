@@ -1,16 +1,16 @@
 ---
-title: Control
+title: Set Website Time Limits
 ---
 
 # {{$frontmatter.title}}
 
-Once you realize how much time you spend on useless websites through the above analysis report. Maybe, you need to control the time.
+Once the analysis report above shows you how much time you spend on the sites that cost you the most time, you may want to control your browsing time.
 
-This extension supports you to limit your behavior on any website.
+This extension lets you set rules that limit your browsing on any website.
 
 ## Create limit rules
 
-Firstly, you need create rules on the backend page.
+Firstly, you need to create rules on the dashboard.
 
 Each rule contains several parts, as shown in the following table.
 
@@ -21,12 +21,12 @@ Each rule contains several parts, as shown in the following table.
 | Limit per visit     | Maximum time per visit, zero means no limit.                                                                               |
 | Not allowed periods | The time periods during which access to the target URL is always restricted.                                               |
 
-## Restricted
+## When a Rule Triggers
 
-If you meet the restrictions of any rule, the pages you are visiting will be covered with a mask that prevents you from browsing.
+Once the restrictions of any rule are reached, the pages you are visiting are covered by a blocking overlay that prevents browsing.
 
 To continue, you must go to the rules page and disable or modify this rule. If the unlock operation is set in the option, verification or password is also required.
 
 ::: warning
-Disgusting Verification Code is really hard and disgusting, it may take you too much time to unlock it!
+High-difficulty CAPTCHAs are intentionally annoying, and unlocking may take significant time. Configure with caution.
 :::

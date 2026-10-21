@@ -1,46 +1,48 @@
-# vue-project
+# Time Tracker - Web Habit Builder
 
-This template should help get you started developing with Vue 3 in Vite.
+Official website of [Time Tracker - Web Habit Builder](https://time-tracker-4-browser.app/en/), a free and open-source browser extension for tracking website time, analyzing browsing habits, and limiting distracting sites on Chrome, Edge and Firefox.
 
-## Recommended IDE Setup
+Live site: **https://time-tracker-4-browser.app**
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Stack
 
-## Type Support for `.vue` Imports in TS
+- [VitePress](https://vitepress.dev/) (2.0.0-alpha) static site generator, 9 locales (en / zh_CN / zh_TW / de / es / fr / ja / pt_PT / ru)
+- Node.js >= 22
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Development
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Production build (output in `dist/`):
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+The site is deployed on Vercel; pushes to the default branch trigger an automatic deployment.
+
+## Content layout
 
 ```sh
-npm run lint
+src/<locale>/
+├── index.md          # localized landing page
+├── install.md        # store download links
+├── faq.md            # FAQ (en, with FAQPage structured data)
+├── privacy.md        # privacy policy
+├── guide/            # user documentation (tracking / analysis / limits / data sync)
+└── blog/             # articles and comparisons
+
+src/public/           # robots.txt, llms.txt, images
+.vitepress/config.ts  # sitemap, hreflang, canonical, structured data
 ```
+
+## Contributing
+
+Translations are managed through Crowdin and pull requests to this repository are welcome. See the [translation project](https://github.com/sheepzh/timer-page) and the main [extension repository](https://github.com/sheepzh/time-tracker-4-browser).
+
+## License
+
+The extension is dual-licensed under MIT and the Anti-996 license; website content is part of the same project.

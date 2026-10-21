@@ -21,11 +21,11 @@ function nav(): DefaultTheme.NavItem[] {
                     text: "Apóyanos",
                     items: [
                         {
-                            text: "Enviar problemas",
+                            text: "Reportar problemas",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
-                            text: "Ayuda a traducir",
+                            text: "Ayudar a traducir",
                             link: "https://github.com/sheepzh/timer-page",
                         }
                     ]
@@ -73,7 +73,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'Transmisión de datos',
+                text: 'Sincronización de datos',
                 link: '/es/guide/data'
             }
         ]

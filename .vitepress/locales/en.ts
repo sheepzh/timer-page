@@ -7,6 +7,14 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/en/install"
         },
         {
+            text: "FAQ",
+            link: "/en/faq"
+        },
+        {
+            text: "Blog",
+            link: "/en/blog"
+        },
+        {
             text: "Guide",
             link: "/en/guide/start",
         },
@@ -14,14 +22,14 @@ function nav(): DefaultTheme.NavItem[] {
             text: "About",
             items: [
                 {
-                    text: "Release log",
+                    text: "Changelog",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
                     text: "Support us",
                     items: [
                         {
-                            text: "Submit issues",
+                            text: "Report issues",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
@@ -73,7 +81,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'Data transmission',
+                text: 'Data Sync',
                 link: '/en/guide/data'
             }
         ]
@@ -82,7 +90,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "Time Tracker - Web Habit Builder",
-    description: "An open-source, local-only browser extension for high-accuracy screen time tracking, flexible website blocking, and secure WebDAV syncing. Zero accounts, 100% private.",
+    description: "An open-source extension that tracks time per website, analyzes browsing habits and limits distracting sites. Free, no account, data stays local. For Chrome, Edge and Firefox.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

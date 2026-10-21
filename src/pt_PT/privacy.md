@@ -5,22 +5,22 @@ title: Declaração de privacidade
 # {{$frontmatter.title}}
 
 ::: info
-Para fornecer serviços completos, esta extensão necessariamente coletará alguns de seus dados pessoais durante o uso, consulte a seguinte declaração de privacidade para obter mais detalhes.
+Para disponibilizar todas as funcionalidades, esta extensão recolhe apenas os dados pessoais necessários durante a utilização, consulte a seguinte declaração de privacidade para obter mais detalhes.
 :::
 
-## Quais dados são coletados?
+## Que dados são recolhidos?
 
 | Conteúdo               | Uso                                                                                                           | Obrigatório                                       |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | Histórico de navegação | Usado para contar o tempo de navegação e as visitas                                                           | Sim                                               |
-| Informações de guias   | Usado para obter automaticamente o nome e o ícone do site e melhorar a experiência do usuário ao exibir dados | Somente se esta função estiver ativada nas opções |
+| Informações de separadores   | Usado para obter automaticamente o nome e o ícone do site e melhorar a experiência do utilizador ao exibir dados | Somente se esta função estiver ativada nas opções |
 
-## O que fazer com esses dados?
+## Como estes dados são utilizados?
 
-Garantimos que todos os dados coletados por esta extensão serão salvos apenas no armazenamento local do seu navegador e nunca serão distribuídos em outro lugar.
+Garantimos que todos os dados recolhidos por esta extensão serão guardados apenas no armazenamento local do seu navegador e nunca serão enviados para outro lugar.
 
-No entanto, você pode usar as ferramentas fornecidas pela extensão para exportar ou importar seus dados em formato de arquivo JSON ou CSV. A extensão também permite que você use o GitHub Gist, etc., serviços de terceiros em que você confia o suficiente para fazer backup de seus dados.
+No entanto, pode utilizar as ferramentas fornecidas pela extensão para exportar ou importar os seus dados em ficheiros JSON ou CSV. A extensão também permite utilizar o GitHub Gist e outros serviços de terceiros suficientemente fidedignos para guardar cópias dos seus dados.
 
 ::: tip
-Nós apenas ajudamos você a coletar dados, mas o direito de disposição deve ser seu.
+Apenas o ajudamos a recolher dados. Os dados permanecem totalmente sob o seu controlo.
 :::

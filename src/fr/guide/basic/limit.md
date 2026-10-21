@@ -1,16 +1,16 @@
 ---
-title: Contrôle
+title: Définir des limites de temps
 ---
 
 # {{$frontmatter.title}}
 
-Une fois que vous réalisez combien de temps vous passez sur des sites Web inutiles grâce au rapport d'analyse ci-dessus. Peut-être avez-vous besoin de contrôler le temps.
+Une fois que le rapport d'analyse vous montre sur les sites qui vous font perdre le plus de temps, vous voudrez peut-être contrôler ce temps.
 
 Cette extension vous permet de limiter votre comportement sur n'importe quel site Web.
 
 ## Créer des règles de limite
 
-Tout d'abord, vous devez créer des règles sur la page backend.
+Tout d'abord, vous devez créer des règles sur le tableau de bord.
 
 Chaque règle contient plusieurs parties, comme indiqué dans le tableau suivant.
 
@@ -21,12 +21,12 @@ Chaque règle contient plusieurs parties, comme indiqué dans le tableau suivant
 | Limite par visite       | Temps maximum par visite, zéro signifie aucune limite.                                                                         |
 | Périodes non autorisées | Les périodes pendant lesquelles l'accès à l'URL cible est toujours restreint.                                                  |
 
-## Restreint
+## Au déclenchement d'une règle
 
-Si vous répondez aux restrictions de n'importe quelle règle, les pages que vous visitez seront couvertes d'un masque qui vous empêche de naviguer.
+Dès qu'une restriction d'une règle est atteinte, les pages que vous visitez sont couvertes d'une superposition de blocage qui empêche la navigation.
 
 Pour continuer, vous devez vous rendre sur la page des règles et désactiver ou modifier cette règle. Si l'opération de déverrouillage est définie dans l'option, une vérification ou un mot de passe est également requis.
 
 ::: warning
-Le code de vérification dégoûtant est vraiment difficile et dégoûtant, cela peut vous prendre trop de temps pour le déverrouiller !
+Les CAPTCHA de haute difficulté sont volontairement pénibles, et leur déverrouillage peut prendre beaucoup de temps. Configurez cette option avec prudence.
 :::

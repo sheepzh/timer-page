@@ -1,5 +1,5 @@
 ---
-title: Seguimiento
+title: Registrar tiempo en sitios
 ---
 
 # {{$frontmatter.title}}
@@ -14,7 +14,7 @@ Y esta herramienta te permite fusionar registros básicos según tus propias nec
 
 Como se mencionó anteriormente, estos datos se agregan por dominio. Por ejemplo, `www.github.com` y `gist.github.com` se cuentan como 2 registros. Si deseas ver datos agregados de los dos sitios, deberás fusionarlos manualmente.
 
-La mayoría de las páginas de visualización de datos admiten consultas de fusión. Y puedes personalizar las reglas de fusión en la página de backend.
+La mayoría de las páginas de visualización de datos admiten consultas de fusión. Y puedes personalizar las reglas de fusión en el panel.
 
 ### ¿Cómo se ven las reglas?
 
@@ -38,7 +38,7 @@ La parte de destino puede ser un nombre de dominio específico, un número enter
 | ------------------------ | ---------------- | --------------------------------- | ------------------------------------------------------------------------------------------------ |
 | www.google.com.*         | google.com       | `www.google.com.* >>> google.com` | Los sitios que coincidan con `www.google.com.*` se fusionarán en el `google.com` específico      |
 | www.google.com.hk        |                  | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` no se fusionará debido a la parte de destino en blanco                       |
-| \*\*\.\*\.google.com      | 3                | `**.*.google.com >>> Keep Level 3` | Los sitios que coincidan con `**.*.google.com` se fusionarán en los últimos 3 niveles de dominio |
+| \*\*\.\*\.google.com      | 3                | `**.*.google.com >>> Keep Level 3` | Los sitios que coincidan con `**.*.google.com` se fusionarán en las 3 etiquetas más a la derecha del dominio |
 
 La siguiente tabla muestra algunos ejemplos de fusión después de establecer las reglas anteriores juntas.
 

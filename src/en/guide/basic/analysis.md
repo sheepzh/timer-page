@@ -1,10 +1,10 @@
 ---
-title: Analysis
+title: Analyze Browsing Habits
 ---
 
 # {{$frontmatter.title}}
 
-In addition to basic records, you can also see analytical reports on the backend page, including habit reports and site reports.
+In addition to basic records, you can also see analytical reports on the dashboard, including habit reports and site reports.
 
 ## Habit report
 

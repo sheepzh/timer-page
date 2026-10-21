@@ -1,5 +1,5 @@
 ---
-title: Suivi
+title: Mesurer le temps par site
 ---
 
 # {{$frontmatter.title}}
@@ -14,7 +14,7 @@ Et cet outil vous permet de fusionner les enregistrements de base en fonction de
 
 Comme ci-dessus, ces données sont agrégées par domaine. Par exemple, `www.github.com` et `gist.github.com` sont comptés comme 2 enregistrements. Si vous souhaitez voir les données agrégées des deux sites, vous devrez les fusionner manuellement.
 
-La plupart des pages d'affichage des données prennent en charge les requêtes de fusion. Et vous pouvez personnaliser les règles de fusion sur la page backend.
+La plupart des pages d'affichage des données prennent en charge les requêtes de fusion. Et vous pouvez personnaliser les règles de fusion sur le tableau de bord.
 
 ### À quoi ressemblent les règles ?
 
@@ -32,13 +32,13 @@ La partie source peut être un nom de domaine spécifique ou une expression Ant.
 
 ### Comment définir la partie cible ?
 
-La partie cible peut être un nom de domaine spécifique, un entier positif ou être laissée vide. Ils seront présentés un par un en conjonction avec la partie source dans le tableau ci-dessous.
+La partie cible peut être un nom de domaine spécifique, un entier positif ou être laissée vide. Elles seront présentées un par un en conjonction avec la partie source dans le tableau ci-dessous.
 
 | Partie source            | Partie cible | Apparence                         | Remarque                                                                                         |
 | ------------------------ | ------------ | --------------------------------- | ------------------------------------------------------------------------------------------------ |
 | www.google.com.*         | google.com   | `www.google.com.* >>> google.com` | Les sites correspondant à `www.google.com.*` seront fusionnés dans le `google.com` spécifique    |
 | www.google.com.hk        |              | `www.google.com.hk >>> Not Merge` | `www.google.com.hk` ne sera pas fusionné en raison de la partie cible vide                       |
-| \*\*\.\*\.google.com     | 3            | `**.*.google.com >>> Keep Level 3` | Les sites correspondant à `**.*.google.com` seront fusionnés dans les 3 derniers niveaux de domaine |
+| \*\*\.\*\.google.com     | 3            | `**.*.google.com >>> Keep Level 3` | Les sites correspondant à `**.*.google.com` seront fusionnés vers les 3 étiquettes les plus à droite du domaine |
 
 Le tableau suivant présente quelques exemples de fusion après avoir défini les règles ci-dessus ensemble.
 

@@ -1,17 +1,17 @@
 ---
-title: Analyse
+title: Surfgewohnheiten analysieren
 ---
 
 # {{$frontmatter.title}}
 
-Zusätzlich zu den Basis-Datensätzen können Sie auch Analyseberichte auf der Backend-Seite sehen, einschließlich Gewohnheitsberichten und Website-Berichten.
+Zusätzlich zu den Basis-Datensätzen kannst du auch Analyseberichte im Dashboard sehen, einschließlich Gewohnheitsberichten und Website-Berichten.
 
 ## Gewohnheitsbericht
 
 Der Gewohnheitsbericht besteht aus zwei Teilen.
 
--   Website-Nutzungsgewohnheiten. Dieser Teil zeigt Ihre am häufigsten besuchten Inhalte.
--   Zeitraumgewohnheiten. Dieser Teil zeigt Ihre geschäftigsten Zeiten und längsten Leerlaufzeiten.
+-   Website-Nutzungsgewohnheiten. Dieser Teil zeigt deine am häufigsten besuchten Inhalte.
+-   Zeitraumgewohnheiten. Dieser Teil zeigt deine aktivsten Zeiten und längsten Leerlaufzeiten.
 
 ## Website-Bericht
 
