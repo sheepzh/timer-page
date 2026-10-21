@@ -1,18 +1,18 @@
 ---
-title: Data transmission
+title: Data Sync
 ---
 
 # {{$frontmatter.title}}
 
 This extension only stores your data in local with `chrome.storage.local` API provided by the browser, and never sends your data anywhere.
 
-But it supports tools to help you transmits your data.
+But it supports tools to help you transmit your data.
 
 ## Export and import
 
-You can export the data to a `.json` file on the backend page and then import it in other browsers. It should be noted that this operation is more suitable if you are just starting to use a new device or new browser.
+You can export the data to a `.json` file on the dashboard and then import it in other browsers. This works best when you are moving to a new device or a new browser.
 
-Also You can import data exported from other similar extensions, and decide to override or append to local data.
+Also, you can import data exported from other similar extensions, and decide to override or append to local data.
 
 | Other extension           | File format       | Remark                             |
 | ------------------------- | ----------------- | ---------------------------------- |
@@ -31,4 +31,4 @@ Instead, it provides tools to help you sync data into third-party services you t
 | Github Gist         | Github access token granting Gist permissions                                                                                  |
 | Obsidian            | Obsidian client with plugin [Local REST API for Obsidian](https://github.com/coddingtonbear/obsidian-local-rest-api) installed |
 
-If the token is set correctly, you can query the data of other clients on the record page.
+If the token is set correctly, you can view the data of other clients on the records page.

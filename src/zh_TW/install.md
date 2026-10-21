@@ -1,21 +1,21 @@
 ---
-title: 程式安裝
+title: 擴充功能安裝
 ---
 
 # {{ $frontmatter.title }}
 
 ## 從商店安裝
 
-你可以參考以下鏈接，在 Chrome、Edge 和 Firefox 中安裝該插件。
+你可以參考以下連結，在 Chrome、Edge 和 Firefox 中安裝擴充功能。
 
 <InstallGrid />
 
 ## 從原始碼安裝
 
-你也可以下載程式的原始碼，然後手動編譯安裝。
+你也可以下載擴充功能的原始碼，然後手動編譯安裝。
 
 ::: tip
-此方法只適用基於 chromium 的瀏覽器。如果你想在 Safari 上安裝，請查看 [Safari 安裝指引](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md)。
+此方法只適用於基於 Chromium 的瀏覽器。如果你想在 Safari 上安裝，請查看 [Safari 安裝指引](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md)。
 :::
 
 ### 安裝環境

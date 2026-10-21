@@ -1,16 +1,16 @@
 ---
-title: Transmission de données
+title: Synchronisation des données
 ---
 
 # {{$frontmatter.title}}
 
-Cette extension ne stocke vos données qu'en local avec l'API `chrome.storage.local` fournie par le navigateur, et n'envoie jamais vos données nulle part.
+Cette extension ne stocke vos données qu'en local avec l'API `chrome.storage.local` fournie par le navigateur, et n'envoie vos données nulle part.
 
 Mais elle prend en charge les outils pour vous aider à transmettre vos données.
 
 ## Exporter et importer
 
-Vous pouvez exporter les données vers un fichier `.json` sur la page backend puis les importer dans d'autres navigateurs. Il convient de noter que cette opération est plus appropriée si vous commencez tout juste à utiliser un nouveau périphérique ou un nouveau navigateur.
+Vous pouvez exporter les données vers un fichier `.json` sur le tableau de bord puis les importer dans d'autres navigateurs. Il convient de noter que cette opération est plus appropriée si vous commencez tout juste à utiliser un nouvel appareil ou un nouveau navigateur.
 
 Vous pouvez également importer des données exportées depuis d'autres extensions similaires et décider de remplacer ou d'ajouter aux données locales.
 

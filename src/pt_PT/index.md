@@ -4,7 +4,7 @@ layout: home
 
 hero:
     name: 'Rastreador de Tempo para Navegador'
-    text: Construtor de Hábitos Web
+    text: Crie melhores hábitos de navegação
     tagline: Extensão gratuita e open-source para registar o tempo de navegação em cada site
     actions:
         - theme: brand
@@ -15,10 +15,10 @@ hero:
           link: ./guide/start
 
 features:
-    - title: Rastreamento
-      details: Rastreie o tempo que você gasta navegando em vários sites todos os dias e forneça consultas de dados multifacetadas.
+    - title: Rastreio
+      details: Registe o tempo que passa a navegar em vários sites todos os dias, com consultas por domínio, data e hora do dia.
     - title: Análise
-      details: Analise automaticamente seus hábitos de navegação em cada site e em diferentes momentos com base nos dados de rastreamento.
+      details: Analise automaticamente os seus hábitos de navegação em cada site e em diferentes momentos com base nos dados de rastreio.
     - title: Controle
       details: Com base nos resultados da análise, defina limites de tempo diários e períodos de acesso proibidos para sites designados para melhorar a eficiência do trabalho e dos estudos.
 ---

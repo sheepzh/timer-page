@@ -1,16 +1,16 @@
 ---
-title: Kontrolle
+title: Zeitlimits für Websites festlegen
 ---
 
 # {{$frontmatter.title}}
 
-Sobald Sie durch den obigen Analysebericht erkennen, wie viel Zeit Sie auf nutzlosen Websites verbringen. Vielleicht müssen Sie die Zeit kontrollieren.
+Sobald der Analysebericht dir zeigt, wie viel Zeit du auf Websites verlierst, auf denen du am meisten hängen bleibst, möchtest du diese Zeit vielleicht kontrollieren.
 
-Diese Erweiterung ermöglicht es Ihnen, Ihr Verhalten auf jeder Website zu begrenzen.
+Diese Erweiterung ermöglicht es dir, dein Verhalten auf jeder Website zu begrenzen.
 
 ## Begrenzungsregeln erstellen
 
-Zunächst müssen Sie Regeln auf der Backend-Seite erstellen.
+Zunächst musst du Regeln im Dashboard erstellen.
 
 Jede Regel enthält mehrere Teile, wie in der folgenden Tabelle gezeigt.
 
@@ -21,12 +21,12 @@ Jede Regel enthält mehrere Teile, wie in der folgenden Tabelle gezeigt.
 | Limit pro Besuch         | Maximale Zeit pro Besuch, Null bedeutet keine Begrenzung.                                                                   |
 | Nicht erlaubte Zeiträume | Die Zeiträume, während derer der Zugriff auf die Ziel-URL immer eingeschränkt ist.                                          |
 
-## Eingeschränkt
+## Wenn eine Regel auslöst
 
-Wenn Sie die Einschränkungen einer Regel erfüllen, werden die Seiten, die Sie besuchen, mit einer Maske bedeckt, die Sie am Browsen hindert.
+Sobald die Einschränkungen einer Regel erreicht sind, werden die Seiten, die du besuchst, von einer blockierenden Ebene überdeckt, die weiteres Browsen verhindert.
 
-Um fortzufahren, müssen Sie zur Regelseite gehen und diese Regel deaktivieren oder ändern. Wenn die Entsperroperation in der Option festgelegt ist, ist auch eine Überprüfung oder ein Passwort erforderlich.
+Um fortzufahren, musst du zur Regelseite gehen und diese Regel deaktivieren oder ändern. Wenn die Entsperroperation in der Option festgelegt ist, ist auch eine Überprüfung oder ein Passwort erforderlich.
 
 ::: warning
-Der eklige Verifizierungscode ist wirklich schwer und eklig, es kann zu viel Zeit kosten, ihn zu entsperren!
+Absichtlich schwierige CAPTCHAs können das Entsperren deutlich erschweren und viel Zeit kosten. Konfiguriere diese Option mit Vorsicht.
 :::

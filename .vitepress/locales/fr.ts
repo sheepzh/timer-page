@@ -21,7 +21,7 @@ function nav(): DefaultTheme.NavItem[] {
                     text: "Nous soutenir",
                     items: [
                         {
-                            text: "Soumettre des problèmes",
+                            text: "Signaler des problèmes",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
@@ -73,7 +73,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'Transmission de données',
+                text: 'Synchronisation des données',
                 link: '/fr/guide/data'
             }
         ]

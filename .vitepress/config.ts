@@ -135,6 +135,21 @@ function isBlogArticle(path: string): boolean {
     return /\/blog\/[^/]+\/$/.test(path)
 }
 
+function generateFaqStructuredData(faq: { q: string; a: string }[]) {
+    return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': faq.map(item => ({
+            '@type': 'Question',
+            'name': item.q,
+            'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': item.a,
+            },
+        })),
+    })
+}
+
 function generateArticleStructuredData(path: string, title?: string, description?: string, localePath: string = DEFAULT_LOCALE_PATH) {
     const url = toAbsoluteUrl(path)
     return JSON.stringify({
@@ -292,6 +307,10 @@ export default defineConfig({
                 ?? (ctx.pageData?.title as string | undefined)
             const description = ctx.pageData?.frontmatter?.description as string | undefined
             pageHead.push(['script', { type: 'application/ld+json' }, generateArticleStructuredData(effectivePath, title, description, localePath)])
+        }
+        const faq = ctx.pageData?.frontmatter?.faq as { q: string; a: string }[] | undefined
+        if (faq?.length) {
+            pageHead.push(['script', { type: 'application/ld+json' }, generateFaqStructuredData(faq)])
         }
         return pageHead
     },

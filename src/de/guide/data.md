@@ -1,18 +1,18 @@
 ---
-title: Datenübertragung
+title: Datensynchronisierung
 ---
 
 # {{$frontmatter.title}}
 
-Diese Erweiterung speichert Ihre Daten nur lokal mit der vom Browser bereitgestellten `chrome.storage.local`-API und sendet Ihre Daten niemals irgendwohin.
+Diese Erweiterung speichert deine Daten nur lokal mit der vom Browser bereitgestellten `chrome.storage.local`-API und sendet deine Daten niemals irgendwohin.
 
-Sie unterstützt jedoch Tools, die Ihnen beim Übertragen Ihrer Daten helfen.
+Sie unterstützt jedoch Tools, die dir beim Übertragen deiner Daten helfen.
 
 ## Exportieren und Importieren
 
-Sie können die Daten auf der Backend-Seite in eine `.json`-Datei exportieren und sie dann in anderen Browsern importieren. Es ist zu beachten, dass diese Operation besser geeignet ist, wenn Sie gerade erst beginnen, ein neues Gerät oder einen neuen Browser zu verwenden.
+Du kannst die Daten im Dashboard in eine `.json`-Datei exportieren und sie dann in anderen Browsern importieren. Es ist zu beachten, dass diese Operation besser geeignet ist, wenn du gerade erst beginnst, ein neues Gerät oder einen neuen Browser zu verwenden.
 
-Sie können auch Daten importieren, die aus anderen ähnlichen Erweiterungen exportiert wurden, und entscheiden, ob Sie lokale Daten überschreiben oder anhängen möchten.
+Du kannst auch Daten importieren, die aus anderen ähnlichen Erweiterungen exportiert wurden, und entscheiden, ob du lokale Daten überschreiben oder anhängen möchtest.
 
 | Andere Erweiterung        | Dateiformat         | Bemerkung                                |
 | ------------------------- | ------------------- | ---------------------------------------- |
@@ -31,4 +31,4 @@ Stattdessen bietet sie Tools, die Ihnen helfen, Daten in Dienste von Drittanbiet
 | Github Gist          | Github-Zugriffstoken mit Gist-Berechtigungen                                                                                      |
 | Obsidian             | Obsidian-Client mit installiertem Plugin [Local REST API for Obsidian](https://github.com/coddingtonbear/obsidian-local-rest-api) |
 
-Wenn das Token korrekt eingestellt ist, können Sie die Daten anderer Clients auf der Aufzeichnungsseite abfragen.
+Wenn das Token korrekt eingestellt ist, kannst du die Daten anderer Clients auf der Aufzeichnungsseite abfragen.

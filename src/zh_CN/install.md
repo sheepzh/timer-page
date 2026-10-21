@@ -15,7 +15,7 @@ title: 插件安装
 你也可以下载插件的源代码，然后手动编译和安装。
 
 ::: tip
-该方法只适用基于 chromium 的浏览器。如果你想在 Safari 上安装，请查看 [Safari 安装指引](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md)。
+该方法只适用于基于 Chromium 的浏览器。如果你想在 Safari 上安装，请查看 [Safari 安装指引](https://github.com/sheepzh/timer/blob/main/doc/safari-install.md)。
 :::
 
 ### 安装环境

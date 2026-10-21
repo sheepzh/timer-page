@@ -14,14 +14,14 @@ function nav(): DefaultTheme.NavItem[] {
             text: "Sobre",
             items: [
                 {
-                    text: "Registro de versões",
+                    text: "Registo de versões",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
                     text: "Apoie-nos",
                     items: [
                         {
-                            text: "Enviar problemas",
+                            text: "Reportar problemas",
                             link: "https://github.com/sheepzh/timer/issues"
                         },
                         {
@@ -60,7 +60,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 collapsed: false,
                 items: [
                     {
-                        text: 'Rastreamento',
+                        text: 'Rastreio',
                         link: '/pt_PT/guide/basic/stat'
                     },
                     {
@@ -73,7 +73,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'Transmissão de dados',
+                text: 'Sincronização de dados',
                 link: '/pt_PT/guide/data'
             }
         ]

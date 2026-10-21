@@ -5,7 +5,7 @@ title: Datenschutzerklärung
 # {{$frontmatter.title}}
 
 ::: info
-Um Ihnen vollständige Dienste zu bieten, sammelt diese Erweiterung während der Nutzung notwendigerweise einige Ihrer persönlichen Daten. Weitere Einzelheiten finden Sie in der folgenden Datenschutzerklärung.
+Um dir den vollen Funktionsumfang zu bieten, sammelt diese Erweiterung während der Nutzung nur die erforderlichen personenbezogenen Daten. Weitere Einzelheiten findest du in der folgenden Datenschutzerklärung.
 :::
 
 ## Welche Daten werden gesammelt?
@@ -17,10 +17,10 @@ Um Ihnen vollständige Dienste zu bieten, sammelt diese Erweiterung während der
 
 ## Was wird mit diesen Daten gemacht?
 
-Wir garantieren, dass alle von dieser Erweiterung gesammelten Daten nur im lokalen Speicher Ihres Browsers gespeichert werden und niemals woanders verteilt werden.
+Wir garantieren, dass alle von dieser Erweiterung gesammelten Daten nur im lokalen Speicher deines Browsers gespeichert werden und niemals an andere Stellen übertragen werden.
 
-Sie können jedoch die von der Erweiterung bereitgestellten Tools verwenden, um Ihre Daten im JSON- oder CSV-Dateiformat zu exportieren oder zu importieren. Die Erweiterung unterstützt Sie auch dabei, GitHub Gist usw., Dienste von Drittanbietern, denen Sie ausreichend vertrauen, zu verwenden, um Ihre Daten zu sichern.
+Du kannst jedoch die von der Erweiterung bereitgestellten Tools verwenden, um deine Daten im JSON- oder CSV-Dateiformat zu exportieren oder zu importieren. Die Erweiterung unterstützt dich auch dabei, Dienste von Drittanbietern wie GitHub Gist, denen du ausreichend vertraust, zur Sicherung deiner Daten zu verwenden.
 
 ::: tip
-Wir helfen Ihnen nur beim Sammeln von Daten, aber das Verfügungsrecht muss Ihres sein.
+Wir helfen dir nur beim Sammeln der Daten. Die volle Kontrolle bleibt bei dir.
 :::

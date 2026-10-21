@@ -1,5 +1,5 @@
 ---
-title: 时间追踪
+title: 统计网站浏览时长
 ---
 
 # {{$frontmatter.title}}
@@ -38,7 +38,7 @@ title: 时间追踪
 | -------------------- | ---------- | ---------------------------------- | ------------------------------------------------------------- |
 | www.google.com.*     | google.com | `www.google.com.* >>> google.com`  | 满足 `www.google.com.*` 的网站会被合并到指定条目 `google.com` |
 | www.google.com.hk    |            | `www.google.com.hk >>> Not Merge`  | `www.google.com.hk` 不会被合并，因为目标部分为空              |
-| \*\*\.\*\.google.com | 3          | `**.*.google.com >>> Keep Level 3` | 满足 `**.*.google.com` 的网站，在合并时会保留后 3 级域名      |
+| \*\*\.\*\.google.com | 3          | `**.*.google.com >>> Keep Level 3` | 满足 `**.*.google.com` 的网站，在合并时会保留最右侧 3 段域名      |
 
 下表是上述规则同时设置后的一些合并示例。
 

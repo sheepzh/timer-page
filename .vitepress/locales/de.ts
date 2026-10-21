@@ -11,6 +11,10 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/de/guide/start",
         },
         {
+            text: "Blog",
+            link: "/de/blog"
+        },
+        {
             text: "Über",
             items: [
                 {
@@ -60,7 +64,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 collapsed: false,
                 items: [
                     {
-                        text: 'Verfolgung',
+                        text: 'Statistik',
                         link: '/de/guide/basic/stat'
                     },
                     {
@@ -73,7 +77,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'Datenübertragung',
+                text: 'Datensynchronisierung',
                 link: '/de/guide/data'
             }
         ]

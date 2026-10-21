@@ -11,6 +11,10 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/ru/guide/start",
         },
         {
+            text: "Блог",
+            link: "/ru/blog"
+        },
+        {
             text: "О расширении",
             items: [
                 {
@@ -73,7 +77,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'Передача данных',
+                text: 'Синхронизация данных',
                 link: '/ru/guide/data'
             }
         ]

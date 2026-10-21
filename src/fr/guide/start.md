@@ -1,5 +1,5 @@
 ---
-title: Commencer
+title: Premiers pas
 ---
 
 # {{$frontmatter.title}}
@@ -8,7 +8,7 @@ Vous pouvez commencer rapidement à utiliser cette extension en seulement 3 éta
 
 ## 1. Épingler l'icône
 
-Tout d'abord, pour utiliser cette extension plus facilement, vous feriez mieux de l'épingler. Ce n'est pas la même chose dans différents navigateurs pour le faire, la figure suivante montre comment dans Chrome.
+Tout d'abord, pour utiliser cette extension plus facilement, il est recommandé de l'épingler. La procédure varie selon le navigateur ; la figure suivante montre comment procéder dans Chrome.
 
 <div style="display: flex; justify-content: center;">
     <img src="/images/pin.png" width=400 />
@@ -16,7 +16,7 @@ Tout d'abord, pour utiliser cette extension plus facilement, vous feriez mieux d
 
 ## 2. Naviguer sur n'importe quel site Web
 
-Ensuite, naviguez sur n'importe quel site Web, et vous verrez que le temps bat sur l'icône, comme ceci <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
+Ensuite, naviguez sur n'importe quel site Web, et vous verrez que le temps défile sur l'icône, comme ceci <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
 
 ## 3. Lire les données dans la page popup
 
@@ -25,5 +25,5 @@ Enfin, cliquez sur l'icône pour ouvrir la page popup, et vous pourrez lire les 
 Et vous pouvez accéder à toutes les fonctionnalités en cliquant sur le lien en bas de cette page.
 
 ::: tip
-Vous avez appris l'utilisation de base, essayez-le !!
+Vous avez appris l'utilisation de base, essayez-le !
 :::

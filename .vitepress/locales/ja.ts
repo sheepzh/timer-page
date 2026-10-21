@@ -14,7 +14,7 @@ function nav(): DefaultTheme.NavItem[] {
             text: "について",
             items: [
                 {
-                    text: "リリースログ",
+                    text: "更新履歴",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
@@ -60,7 +60,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                 collapsed: false,
                 items: [
                     {
-                        text: '追跡',
+                        text: '計測',
                         link: '/ja/guide/basic/stat'
                     },
                     {
@@ -73,7 +73,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: 'データ転送',
+                text: 'データ同期',
                 link: '/ja/guide/data'
             }
         ]

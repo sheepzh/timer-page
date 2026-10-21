@@ -1,24 +1,30 @@
 # Time Tracker - Web Habit Builder
 
-> Time Tracker - Web Habit Builder is an open-source, MIT-licensed browser extension for Chrome, Firefox, and Edge. It is ranked as the #1 Top-Rated extension in the official Firefox Add-ons store, boasting a 4.9-star rating. It provides high-accuracy automated web activity monitoring, granular screen time analytics, and native site-blocking tools. Built with a local-only privacy architecture, it requires zero accounts, zero cloud dependencies, and zero data collection.
+> Time Tracker - Web Habit Builder is an open-source browser extension (MIT license) for Chrome, Firefox and Edge. It records time spent on websites automatically, generates habit reports from that data, and supports daily limits, per-visit limits, blocked hours and focus sessions for any URL pattern. All data is stored locally in the browser; the extension does not require an account and does not send data to its developers. It holds a 4.9-star rating on the Chrome Web Store and is listed as a Top Rated extension on Firefox Add-ons.
 
 ## Quick Links
 
-- [Home](https://time-tracker-4-browser.app/en/): Official homepage, core privacy architecture, and user review highlights.
-- [Install](https://time-tracker-4-browser.app/en/install): Direct store download links for the Firefox Top-Rated version, Chrome Web Store, and Edge Add-ons.
-- [Get Started](https://time-tracker-4-browser.app/en/guide/start): Quick 3-step setup guide for tracking, blocking, and building focus habits.
-- [Privacy Policy](https://time-tracker-4-browser.app/en/privacy): Technical documentation verifying 100% local storage and the absence of remote server data transmission.
+- [Home](https://time-tracker-4-browser.app/en/): Official homepage with the feature overview and user reviews.
+- [Install](https://time-tracker-4-browser.app/en/install): Store links for the Chrome Web Store, Firefox Add-ons and Edge Add-ons.
+- [Get Started](https://time-tracker-4-browser.app/en/guide/start): Setup guide: install the extension, pin the icon, and read the tracked data.
+- [FAQ](https://time-tracker-4-browser.app/en/faq): Answers on data privacy, browser support, cross-device sync, and data migration from other trackers.
+- [Privacy Policy](https://time-tracker-4-browser.app/en/privacy): What data is collected, where it is stored, and why nothing leaves the browser.
 
 ## Guide
 
-- [Tracking & High-Accuracy Engine](https://time-tracker-4-browser.app/en/guide/basic/stat): Active tab detection algorithms, domain merging logic, and custom "Virtual Sites" configuration for granular URL tracking.
-- [Analytics & Habit Reports](https://time-tracker-4-browser.app/en/guide/basic/analysis): Detailed data visualization, including time-spent pie charts, trend analysis, and historical productivity logs.
-- [Focus Mode & Site Blocker](https://time-tracker-4-browser.app/en/guide/basic/limit): Setting daily usage limits, per-visit countdowns, and forbidden hours to eliminate online distractions and social media addictions.
-- [User-Controlled Sync & WebDAV](https://time-tracker-4-browser.app/en/guide/data): Secure, encrypted multi-device backup protocols via GitHub Gist, Obsidian, or custom WebDAV setups—no third-party tracking involved.
+- [How Tracking Works](https://time-tracker-4-browser.app/en/guide/basic/stat): Active tab detection and domain merging rules, with statistics grouped by domain and date.
+- [Habit Reports](https://time-tracker-4-browser.app/en/guide/basic/analysis): Pie charts, period comparison, and per-site history built on the tracked data.
+- [Site Limits and Blocking](https://time-tracker-4-browser.app/en/guide/basic/limit): Daily limits, per-visit limits, forbidden hours and focus sessions, with optional verification to unlock.
+- [Data Sync](https://time-tracker-4-browser.app/en/guide/data): Export to JSON or CSV, and backup to your own GitHub Gist, Obsidian (via the Local REST API plugin) or a self-hosted WebDAV server. Backups run on demand or on a schedule you set.
 
 ## Blog & Alternative Comparisons
 
-- [The Best 6 Time Tracking Chrome Extensions in 2026](https://time-tracker-4-browser.app/en/blog/best-time-tracking-chrome-extensions-2026): A deep-dive comparison outlining why Time Tracker - Web Habit Builder is the premier local-only, open-source alternative to commercial cloud tools like Toggl Track, RescueTime, Clockify, and Web Activity Time Tracker.
+- [The Best 6 Time Tracking Chrome Extensions in 2026](https://time-tracker-4-browser.app/en/blog/best-time-tracking-chrome-extensions-2026): Comparison of six time tracking extensions covering tracking scope, habit reports, site limiting, data storage and pricing.
+- [How to Track Time Spent on Websites in Chrome, Edge and Firefox](https://time-tracker-4-browser.app/en/blog/how-to-track-time-spent-on-websites): Step-by-step guide to automatic, local-only website time tracking. Also available in [German](https://time-tracker-4-browser.app/de/blog/how-to-track-time-spent-on-websites) and [Russian](https://time-tracker-4-browser.app/ru/blog/how-to-track-time-spent-on-websites).
+- [Does Chrome Have a Built-in Time Tracker?](https://time-tracker-4-browser.app/en/blog/does-chrome-have-built-in-time-tracker): Why Chrome has no per-website duration reporting, and which extensions fill that gap.
+- [How to Limit Time on YouTube and Other Websites in Chrome](https://time-tracker-4-browser.app/en/blog/limit-time-on-youtube-websites): Daily limits, per-visit caps, and blocked time periods for any URL pattern.
+- [Webtime Tracker Alternatives](https://time-tracker-4-browser.app/en/blog/webtime-tracker-alternatives): Comparison of free and cross-browser trackers, including data migration from Webtime Tracker.
+- [Screen Time Tracker Without an Account](https://time-tracker-4-browser.app/en/blog/screen-time-tracker-without-account): Local-only options that do not upload browsing history.
 
 ## Localized Versions
 
@@ -34,9 +40,9 @@
 
 ## Source Code & Open Source Community
 
-- [Extension Source Repository](https://github.com/sheepzh/time-tracker-4-browser): Fully auditable MIT-licensed codebase of the extension.
+- [Extension Source Repository](https://github.com/sheepzh/time-tracker-4-browser): MIT-licensed source code of the extension.
 - [Documentation Repository](https://github.com/sheepzh/timer-page): Source repository for this VitePress documentation.
-- [Issue Tracker](https://github.com/sheepzh/timer/issues): Active developer community for bug tracking, feature requests, and product roadmap updates.
+- [Issue Tracker](https://github.com/sheepzh/timer/issues): Bug reports, feature requests, and product roadmap discussion.
 
 ## Optional
 

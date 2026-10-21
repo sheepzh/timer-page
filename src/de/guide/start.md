@@ -4,26 +4,26 @@ title: Erste Schritte
 
 # {{$frontmatter.title}}
 
-Sie können in nur 3 einfachen Schritten schnell mit der Verwendung dieser Erweiterung beginnen.
+Du kannst in nur 3 einfachen Schritten schnell mit der Verwendung dieser Erweiterung beginnen.
 
 ## 1. Symbol anheften
 
-Zunächst sollten Sie es anheften, um diese Erweiterung bequemer zu verwenden. Dies ist in verschiedenen Browsern unterschiedlich. Die folgende Abbildung zeigt, wie es in Chrome geht.
+Zunächst solltest du das Symbol anheften, um die Erweiterung bequemer zu erreichen. Das geht in jedem Browser anders: Die folgende Abbildung zeigt, wie es in Chrome funktioniert.
 
 <div style="display: flex; justify-content: center;">
     <img src="/images/pin.png" width=400 />
 </div>
 
-## 2. Beliebige Website durchsuchen
+## 2. Beliebige Website besuchen
 
-Durchsuchen Sie dann eine beliebige Website, und Sie werden sehen, dass die Zeit auf dem Symbol schlägt, so wie <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
+Besuche dann eine beliebige Website, und du wirst sehen, wie die Zeit auf dem Symbol hochzählt, so wie <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
 
-## 3. Daten auf der Popup-Seite lesen
+## 3. Daten auf der Popup-Seite ansehen
 
-Klicken Sie schließlich auf das Symbol, um die Popup-Seite zu öffnen, und Sie können die mit einem Kreisdiagramm visualisierten Daten von heute, dieser Woche oder diesem Monat lesen.
+Klicke schließlich auf das Symbol, um die Popup-Seite zu öffnen, und du kannst die Daten für heute, diese Woche oder diesen Monat als Kreisdiagramm ablesen.
 
-Und Sie können auf alle Funktionen zugreifen, indem Sie auf den Link am unteren Rand dieser Seite klicken.
+Über den Link am unteren Rand dieser Seite erreichst du alle Funktionen.
 
 ::: tip
-Sie haben die grundlegende Verwendung gelernt, probieren Sie es aus!!
+Die grundlegende Verwendung kennst du jetzt. Probier es gleich aus!
 :::

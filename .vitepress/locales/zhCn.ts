@@ -73,7 +73,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
                     }
                 ]
             }, {
-                text: '数据迁移',
+                text: '数据同步',
                 link: '/zh_CN/guide/data'
             }
         ]

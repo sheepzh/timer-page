@@ -4,7 +4,7 @@ layout: home
 
 hero:
     name: 'Zeiterfassung für Browser'
-    text: Web-Gewohnheitsbildner
+    text: Für bessere Surfgewohnheiten
     tagline: Kostenlose Open-Source-Erweiterung zur automatischen Zeiterfassung
     actions:
         - theme: brand
@@ -15,12 +15,12 @@ hero:
           link: ./guide/start
 
 features:
-    - title: Verfolgung
-      details: Verfolgen Sie die Zeit, die Sie jeden Tag auf verschiedenen Websites verbringen, und bieten Sie facettenreiche Datenabfragen.
+    - title: Aufzeichnung
+      details: Zeichnet auf, wie viel Zeit du täglich auf verschiedenen Websites verbringst, mit Abfragen nach Domain, Datum und Tageszeit.
     - title: Analyse
-      details: Analysieren Sie automatisch Ihre Surfgewohnheiten auf jeder Website und zu verschiedenen Zeiten basierend auf Tracking-Daten.
+      details: Analysiert automatisch deine Surfgewohnheiten auf jeder Website und zu verschiedenen Zeiten, basierend auf den aufgezeichneten Daten.
     - title: Kontrolle
-      details: Legen Sie basierend auf den Analyseergebnissen tägliche Zeitbegrenzungen und verbotene Zugriffszeiten für bestimmte Websites fest, um die Arbeits- und Lerneffizienz zu verbessern.
+      details: Lege auf Grundlage der Analyseergebnisse tägliche Zeitbegrenzungen und gesperrte Zugriffszeiten für bestimmte Websites fest, um bei Arbeit und Lernen fokussiert zu bleiben.
 ---
 
 <RatingModule title="Browser-Bewertungen"/>

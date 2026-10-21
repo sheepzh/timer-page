@@ -16,11 +16,11 @@ hero:
 
 features:
     - title: Tracking
-      details: Track the time you spend browsing various websites every day and provide multi-faceted data query.
+      details: Track the time you spend browsing various websites every day, with queries by domain, date and time of day.
     - title: Analysis
       details: Automatically analyze your browsing habits on each website and at different times based on tracking data.
     - title: Control
-      details: Based on the analysis results, Set daily time limits and prohibited access periods for designated websites to improve work and study efficiency.
+      details: Based on the analysis results, set daily time limits and blocked periods for designated websites to stay focused during work or study.
 ---
 
 <RatingModule title="Browser Ratings"/>
