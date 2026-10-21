@@ -81,8 +81,8 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const frConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "Suivi du temps Web",
-    description: "Le MEILLEUR outil de suivi du temps sur le web",
+    title: "Suivi du temps web - Extension Chrome, Edge et Firefox",
+    description: "Extension open-source de suivi du temps : mesure le temps passé par site, analyse les habitudes et limite les distractions. Gratuit, sans compte, données locales. Chrome, Edge et Firefox.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

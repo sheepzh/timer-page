@@ -1,6 +1,28 @@
 {
     "redirects": [
         {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "wfhg.cc"
+                }
+            ],
+            "destination": "https://time-tracker-4-browser.app/:path*",
+            "statusCode": 301
+        },
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.wfhg.cc"
+                }
+            ],
+            "destination": "https://time-tracker-4-browser.app/:path*",
+            "statusCode": 301
+        },
+        {
             "source": "/",
             "destination": "/en",
             "permanent": true

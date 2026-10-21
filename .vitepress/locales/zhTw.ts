@@ -81,8 +81,8 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const zhTwConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "網費很貴",
-    description: "最好用的上網時間統計工具",
+    title: "網費很貴 - 上網時間統計瀏覽器擴充套件",
+    description: "網費很貴是免費開源的瀏覽器擴充套件，自動記錄 Chrome、Edge、Firefox 中各網站的瀏覽時間，分析上網習慣，並可限制分心網站的使用時間，資料僅儲存在本機。",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

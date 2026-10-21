@@ -5,7 +5,7 @@ layout: home
 hero:
     name: 'Time Tracker for Browser'
     text: Web Habit Builder
-    tagline: The BEST web time tracking tool
+    tagline: Free, open-source time tracking for Chrome, Edge and Firefox
     actions:
         - theme: brand
           text: Install

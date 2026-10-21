@@ -81,8 +81,8 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const zhCnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "网费很贵",
-    description: "最好用的上网时间统计工具",
+    title: "网费很贵 - 上网时间统计浏览器插件",
+    description: "网费很贵是免费开源的上网时间统计插件，自动记录 Chrome、Edge、Firefox 中各网站的浏览时长，分析上网习惯，并可限制分心网站的使用时间，数据仅保存在本地。",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),
