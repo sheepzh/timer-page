@@ -1,5 +1,6 @@
 ---
 title: Registar tempo em sites
+description: "Registe automaticamente o tempo em cada site. Estatísticas por domínio e por dia, com regras de fusão para agrupar subdomínios relacionados."
 ---
 
 # {{$frontmatter.title}}

@@ -1,5 +1,6 @@
 ---
 title: 擴充功能安裝
+description: "如何在 Chrome、Edge 和 Firefox 安裝這款瀏覽時間統計擴充功能，以及在其他 Chromium 核心瀏覽器手動載入的方法。"
 ---
 
 # {{ $frontmatter.title }}

@@ -1,5 +1,6 @@
 ---
 title: Erste Schritte
+description: "Automatische Zeiterfassung in drei Schritten einrichten. Erweiterung installieren, wie gewohnt surfen und die Zeit pro Website im Popup ansehen."
 ---
 
 # {{$frontmatter.title}}

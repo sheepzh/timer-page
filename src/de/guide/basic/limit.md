@@ -1,5 +1,6 @@
 ---
 title: Zeitlimits für Websites festlegen
+description: "Tägliche und wöchentliche Zeitlimits für Websites festlegen. Blockierende Ebene mit optionaler Passwort- oder Zwei-Faktor-Verifizierung."
 ---
 
 # {{$frontmatter.title}}

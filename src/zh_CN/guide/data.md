@@ -1,5 +1,6 @@
 ---
 title: 数据同步
+description: "将上网时间数据导出为 JSON 或 CSV，并通过 GitHub Gist、WebDAV 或 Obsidian 备份，支持手动或定时跨设备同步。"
 ---
 
 # {{$frontmatter.title}}

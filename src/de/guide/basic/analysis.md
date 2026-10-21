@@ -1,5 +1,6 @@
 ---
 title: Surfgewohnheiten analysieren
+description: "Surfgewohnheiten analysieren mit Habit- und Website-Berichten. Kreisdiagramme, Zeitraumvergleiche und Verlaufstrends auf Basis der erfassten Daten."
 ---
 
 # {{$frontmatter.title}}

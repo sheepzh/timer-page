@@ -1,5 +1,6 @@
 ---
 title: Datensynchronisierung
+description: "Zeitdaten als JSON oder CSV exportieren und mit GitHub Gist, WebDAV oder Obsidian sichern. Geräteübergreifende Synchronisierung auf Abruf oder nach Zeitplan."
 ---
 
 # {{$frontmatter.title}}

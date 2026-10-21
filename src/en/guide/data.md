@@ -1,5 +1,6 @@
 ---
 title: Data Sync
+description: "Export your time tracking data to JSON or CSV and back it up with GitHub Gist, WebDAV or Obsidian. Cross-device sync on demand or on a schedule."
 ---
 
 # {{$frontmatter.title}}

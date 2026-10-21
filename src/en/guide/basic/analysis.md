@@ -1,5 +1,6 @@
 ---
 title: Analyze Browsing Habits
+description: "Analyze browsing habits with habit reports and per-site reports. Pie charts, period comparison and historical trends built on the tracked time data."
 ---
 
 # {{$frontmatter.title}}

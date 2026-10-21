@@ -1,5 +1,6 @@
 ---
 title: Installation
+description: "So installierst du die Zeiterfassung für Chrome, Edge und Firefox aus dem offiziellen Store, inklusive Hinweise zum manuellen Laden in Chromium-Browsern."
 ---
 
 # {{$frontmatter.title}}

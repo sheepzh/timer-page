@@ -1,5 +1,6 @@
 ---
 title: Installation
+description: "Comment installer l'extension de suivi du temps sur Chrome, Edge et Firefox depuis la boutique officielle, avec le chargement manuel pour les autres navigateurs."
 ---
 
 # {{$frontmatter.title}}

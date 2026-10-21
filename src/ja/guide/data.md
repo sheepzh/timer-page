@@ -1,5 +1,6 @@
 ---
 title: データ同期
+description: "計測データを JSON・CSV でエクスポートし、GitHub Gist・WebDAV・Obsidian でバックアップ。手動または予定実行でデバイス間同期が可能です。"
 ---
 
 # {{$frontmatter.title}}

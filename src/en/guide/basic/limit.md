@@ -1,5 +1,6 @@
 ---
 title: Set Website Time Limits
+description: "Set daily and weekly time limits on any website. Distracting pages get covered by a blocking overlay, with optional password or two-factor verification."
 ---
 
 # {{$frontmatter.title}}

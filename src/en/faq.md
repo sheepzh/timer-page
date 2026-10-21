@@ -1,5 +1,6 @@
 ---
 title: Frequently Asked Questions
+description: "Frequently asked questions about the browser time tracker. Data privacy, browser support, cross-device sync and migrating data from other extensions."
 faq:
     - q: Does Time Tracker collect my browsing data?
       a: No. All data is stored locally in your browser using the chrome.storage.local API and is never sent to any server. The project is fully open source, so you can verify this in the code.

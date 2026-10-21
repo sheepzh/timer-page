@@ -1,5 +1,6 @@
 ---
 title: Zeit auf Websites erfassen
+description: "Zeit auf jeder Website automatisch erfassen. Statistiken pro Domain und Tag, mit Zusammenführungsregeln für zugehörige Subdomains."
 ---
 
 # {{$frontmatter.title}}

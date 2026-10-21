@@ -1,5 +1,6 @@
 ---
 title: Analyser les habitudes de navigation
+description: "Analysez vos habitudes de navigation avec les rapports d'habitudes et de site. Diagrammes circulaires, comparaison de périodes et tendances historiques."
 ---
 
 # {{$frontmatter.title}}

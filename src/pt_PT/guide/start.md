@@ -1,5 +1,6 @@
 ---
 title: Começar
+description: "Configure o registo automático de tempo em três passos. Instale a extensão, navegue normalmente e consulte o tempo por site no painel pop-up."
 ---
 
 # {{$frontmatter.title}}

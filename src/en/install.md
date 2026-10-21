@@ -1,5 +1,6 @@
 ---
 title: Installation
+description: "How to install the time tracking extension on Chrome, Edge and Firefox from the official store, plus manual loading notes for other Chromium browsers."
 ---
 
 # {{$frontmatter.title}}

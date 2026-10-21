@@ -1,5 +1,6 @@
 ---
 title: Declaración de privacidad
+description: "Este rastreador de tiempo no recopila datos personales. Todo se guarda en el almacenamiento local del navegador y nada se envía a ningún servidor."
 ---
 
 # {{$frontmatter.title}}

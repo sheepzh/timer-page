@@ -1,5 +1,6 @@
 ---
 title: Mesurer le temps par site
+description: "Mesurez automatiquement le temps passé sur chaque site. Statistiques par domaine et par jour, avec des règles de fusion pour regrouper les sous-domaines."
 ---
 
 # {{$frontmatter.title}}
