@@ -5,7 +5,7 @@ layout: home
 hero:
     name: '网费很贵'
     text: ''
-    tagline: 最好用的上网时间记录工具
+    tagline: 免费开源插件，自动记录每个网站的浏览时长
     actions:
         - theme: brand
           text: 插件安装

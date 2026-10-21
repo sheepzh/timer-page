@@ -50,13 +50,55 @@ const localeHrefLangMap: Record<string, string> = {
     "/ru/": "ru",
 }
 
+// og:locale uses the language_TERRITORY format defined by the Open Graph protocol
+const localeOgLocaleMap: Record<string, string> = {
+    "/en/": "en_US",
+    "/zh_CN/": "zh_CN",
+    "/zh_TW/": "zh_TW",
+    "/fr/": "fr_FR",
+    "/es/": "es_ES",
+    "/pt_PT/": "pt_PT",
+    "/ja/": "ja_JP",
+    "/de/": "de_DE",
+    "/ru/": "ru_RU",
+}
+
+// Map pageData.locale keys to locale path prefixes, the root locale falls back to English
+const localePathByKey: Record<string, string> = {
+    root: DEFAULT_LOCALE_PATH,
+    en: DEFAULT_LOCALE_PATH,
+    zh_CN: "/zh_CN/",
+    zh_TW: "/zh_TW/",
+    fr: "/fr/",
+    es: "/es/",
+    pt_PT: "/pt_PT/",
+    ja: "/ja/",
+    de: "/de/",
+    ru: "/ru/",
+}
+
+// Localized descriptions reused by structured data and social meta tags
+const localeDescriptions: Record<string, string> = {
+    en: enConfig.description ?? "",
+    zh_CN: zhCnConfig.description ?? "",
+    zh_TW: zhTwConfig.description ?? "",
+    fr: frConfig.description ?? "",
+    es: esConfig.description ?? "",
+    pt_PT: ptConfig.description ?? "",
+    ja: jaConfig.description ?? "",
+    de: deConfig.description ?? "",
+    ru: ruConfig.description ?? "",
+}
+
 function toAbsoluteUrl(path: string): string {
     const normalizedPath = path.startsWith("/") ? path : `/${path}`
     return `${SITE_URL}${normalizedPath}`
 }
 
 function normalizePagePath(pagePath: string): string {
-    const noMd = pagePath.replace(/\.md$/, "")
+    // ctx.page is relative to srcDir without a leading slash in VitePress 2.0.0-alpha
+    const withLeadingSlash = pagePath.startsWith("/") ? pagePath : `/${pagePath}`
+    const noMd = withLeadingSlash.replace(/\.md$/, "")
     const withTrailingSlash = noMd.endsWith("/") ? noMd : `${noMd}/`
     return withTrailingSlash.replace(/\/index\/$/, "/")
 }
@@ -93,7 +135,7 @@ function isBlogArticle(path: string): boolean {
     return /\/blog\/[^/]+\/$/.test(path)
 }
 
-function generateArticleStructuredData(path: string, title?: string, description?: string) {
+function generateArticleStructuredData(path: string, title?: string, description?: string, localePath: string = DEFAULT_LOCALE_PATH) {
     const url = toAbsoluteUrl(path)
     return JSON.stringify({
         '@context': 'https://schema.org',
@@ -119,11 +161,11 @@ function generateArticleStructuredData(path: string, title?: string, description
             '@id': url,
         },
         'url': url,
-        'inLanguage': 'en',
+        'inLanguage': localeHrefLangMap[localePath] ?? 'en',
     })
 }
 
-function generateStructuredData() {
+function generateStructuredData(localePath: string) {
     const totalCount = Object.values(STORE_RATINGS).reduce((sum, item) => sum + item.count, 0)
     const weightedRating = totalCount === 0
         ? 0
@@ -137,7 +179,7 @@ function generateStructuredData() {
                 '@id': `${SITE_URL}/#website`,
                 'name': SITE_NAME,
                 'url': SITE_URL,
-                'inLanguage': 'en',
+                'inLanguage': localeHrefLangMap[localePath] ?? 'en',
             },
             {
                 '@type': 'SoftwareApplication',
@@ -147,7 +189,7 @@ function generateStructuredData() {
                 'operatingSystem': 'Chrome, Firefox, Edge',
                 'url': toAbsoluteUrl(DEFAULT_LOCALE_PATH),
                 'image': toAbsoluteUrl('/images/logo.png'),
-                'description': DESCRIPTION.join(", "),
+                'description': localeDescriptions[localePath] || DESCRIPTION.join(", "),
                 'isAccessibleForFree': true,
                 'offers': {
                     '@type': 'Offer',
@@ -183,51 +225,73 @@ export default defineConfig({
     cleanUrls: true,
     sitemap: {
         hostname: SITE_URL,
+        // VitePress emits no x-default and groups pages per locale with an empty url for the root page
+        transformItems: items =>
+            items
+                .filter(item => item.url !== "")
+                .map(item => {
+                    const links = item.links ?? []
+                    const enHref = links.find(link => link.lang === "en")?.url
+                    return {
+                        ...item,
+                        links: enHref
+                            ? [...links, { lang: "x-default", url: enHref }]
+                            : links.length
+                                ? links
+                                : undefined,
+                    }
+                }),
     },
     head: [
         ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
         ["meta", { name: "viewport", content: "width=device-width,initial-scale=1" }],
-        ["meta", { name: "description", content: DESCRIPTION.join(", ") }],
         ["meta", { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }],
         ["meta", { property: "og:type", content: "website" }],
         ["meta", { property: "og:site_name", content: SITE_NAME }],
-        ["meta", { property: "og:title", content: SITE_NAME }],
-        ["meta", { property: "og:description", content: DESCRIPTION.join(", ") }],
         ["meta", { property: "og:image", content: toAbsoluteUrl("/images/logo.png") }],
-        ["meta", { property: "og:url", content: `${SITE_URL}${DEFAULT_LOCALE_PATH}` }],
         ["meta", { name: "twitter:card", content: "summary_large_image" }],
-        ["meta", { name: "twitter:title", content: SITE_NAME }],
-        ["meta", { name: "twitter:description", content: DESCRIPTION.join(", ") }],
         ["meta", { name: "twitter:image", content: toAbsoluteUrl("/images/logo.png") }],
     ],
     transformHead: ctx => {
         const pagePath = normalizePagePath(ctx.page)
-        const canonicalUrl = toAbsoluteUrl(pagePath)
-        const localeAlternates = generateLocaleAlternates(pagePath)
+        // The root path is redirected to /en/ by Vercel, so all SEO tags resolve to the default locale page
+        const effectivePath = pagePath === "/" ? DEFAULT_LOCALE_PATH : pagePath
+        const canonicalUrl = toAbsoluteUrl(effectivePath)
+        const localeAlternates = generateLocaleAlternates(effectivePath)
+        const xDefaultHref = toAbsoluteUrl(buildLocalizedPath(effectivePath, DEFAULT_LOCALE_PATH))
         const pageHead: HeadConfig[] = [
             ["link", { rel: "canonical", href: canonicalUrl }],
             ...localeAlternates,
-            ["link", { rel: "alternate", hreflang: "x-default", href: `${SITE_URL}${DEFAULT_LOCALE_PATH}` }],
+            ["link", { rel: "alternate", hreflang: "x-default", href: xDefaultHref }],
         ]
 
-        if (shouldInjectStructuredData(pagePath)) {
-            pageHead.push(['script', { type: 'application/ld+json' }, generateStructuredData()])
+        // Infer the locale from the first path segment of the relative page path
+        const localeKey = ctx.pageData.relativePath.split("/")[0]
+        const localePath = localePathByKey[localeKey] ?? DEFAULT_LOCALE_PATH
+        const pageTitle = ctx.pageData.title || SITE_NAME
+        const pageDescription = ctx.pageData.description || localeDescriptions[localePath] || DESCRIPTION.join(", ")
+        pageHead.push(
+            ["meta", { property: "og:title", content: pageTitle }],
+            ["meta", { property: "og:description", content: pageDescription }],
+            ["meta", { property: "og:url", content: canonicalUrl }],
+            ["meta", { property: "og:locale", content: localeOgLocaleMap[localePath] ?? "en_US" }],
+            ["meta", { name: "twitter:title", content: pageTitle }],
+            ["meta", { name: "twitter:description", content: pageDescription }],
+        )
+        localePaths.forEach(candidate => {
+            if (candidate !== localePath) {
+                pageHead.push(["meta", { property: "og:locale:alternate", content: localeOgLocaleMap[candidate] }])
+            }
+        })
+
+        if (shouldInjectStructuredData(effectivePath)) {
+            pageHead.push(['script', { type: 'application/ld+json' }, generateStructuredData(localePath)])
         }
-        if (isBlogArticle(pagePath)) {
+        if (isBlogArticle(effectivePath)) {
             const title = (ctx.pageData?.frontmatter?.title as string | undefined)
                 ?? (ctx.pageData?.title as string | undefined)
             const description = ctx.pageData?.frontmatter?.description as string | undefined
-            pageHead.push(['script', { type: 'application/ld+json' }, generateArticleStructuredData(pagePath, title, description)])
-            if (title) {
-                pageHead.push(['meta', { property: "og:title", content: title }])
-                pageHead.push(['meta', { name: "twitter:title", content: title }])
-                pageHead.push(['meta', { property: "og:type", content: "article" }])
-            }
-            if (description) {
-                pageHead.push(['meta', { property: "og:description", content: description }])
-                pageHead.push(['meta', { name: "twitter:description", content: description }])
-                pageHead.push(['meta', { name: "description", content: description }])
-            }
+            pageHead.push(['script', { type: 'application/ld+json' }, generateArticleStructuredData(effectivePath, title, description, localePath)])
         }
         return pageHead
     },
@@ -247,13 +311,13 @@ export default defineConfig({
         },
         zh_CN: {
             label: "简体中文",
-            lang: "zh_CN",
+            lang: "zh-CN",
             link: "/zh_CN/",
             ...zhCnConfig,
         },
         zh_TW: {
             label: "正體中文",
-            lang: "zh_TW",
+            lang: "zh-TW",
             link: "/zh_TW/",
             ...zhTwConfig
         },
@@ -271,7 +335,7 @@ export default defineConfig({
         },
         pt_PT: {
             label: "Português",
-            lang: "pt_PT",
+            lang: "pt-PT",
             link: "/pt_PT/",
             ...ptConfig,
         },

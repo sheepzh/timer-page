@@ -5,7 +5,7 @@ layout: home
 hero:
     name: 'Zeiterfassung für Browser'
     text: Web-Gewohnheitsbildner
-    tagline: Das BESTE Web-Zeiterfassungstool
+    tagline: Kostenlose Open-Source-Erweiterung zur automatischen Zeiterfassung
     actions:
         - theme: brand
           text: Installieren

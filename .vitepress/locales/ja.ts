@@ -81,8 +81,8 @@ function sidebar(): DefaultTheme.SidebarMulti {
 }
 
 export const jaConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
-    title: "タイムトラッカー",
-    description: "最高のウェブ時間追跡ツール",
+    title: "タイムトラッカー - Chrome・Edge・Firefox 拡張機能",
+    description: "ウェブ閲覧時間を自動計測する無料のブラウザ拡張機能。サイト別の利用時間を記録し、習慣を分析、集中のための利用制限も可能。データは端末内のみに保存。Chrome・Edge・Firefox 対応。",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

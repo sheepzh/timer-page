@@ -5,7 +5,7 @@ layout: home
 hero:
     name: 'Rastreador de Tempo para Navegador'
     text: Construtor de Hábitos Web
-    tagline: A MELHOR ferramenta de rastreamento de tempo na web
+    tagline: Extensão gratuita e open-source para registar o tempo de navegação em cada site
     actions:
         - theme: brand
           text: Instalar
