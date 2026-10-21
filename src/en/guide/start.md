@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: "Get started with automatic time tracking in three steps. Install the extension, browse as usual and check your per-website time in the popup dashboard."
 ---
 
 # {{$frontmatter.title}}

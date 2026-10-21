@@ -1,5 +1,6 @@
 ---
 title: Privacy statement
+description: "This time tracker collects no personal data. Everything stays in your browser's local storage, and nothing is sent to any server."
 ---
 
 # {{$frontmatter.title}}

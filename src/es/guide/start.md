@@ -1,5 +1,6 @@
 ---
 title: Primeros pasos
+description: "Configura el registro automático de tiempo en tres pasos. Instala la extensión, navega con normalidad y consulta el tiempo por sitio en la ventana emergente."
 ---
 
 # {{$frontmatter.title}}

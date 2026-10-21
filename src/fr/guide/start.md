@@ -1,5 +1,6 @@
 ---
 title: Premiers pas
+description: "Configurez le suivi automatique du temps en trois étapes. Installez l'extension, naviguez normalement et consultez le temps par site dans le popup."
 ---
 
 # {{$frontmatter.title}}

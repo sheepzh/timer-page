@@ -1,5 +1,6 @@
 ---
 title: Datenschutzerklärung
+description: "Dieser Zeittracker sammelt keine persönlichen Daten. Alles bleibt im lokalen Speicher deines Browsers und nichts wird an einen Server gesendet."
 ---
 
 # {{$frontmatter.title}}

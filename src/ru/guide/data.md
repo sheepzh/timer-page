@@ -1,5 +1,6 @@
 ---
 title: Синхронизация данных
+description: "Экспорт данных в JSON или CSV и резервные копии через GitHub Gist, WebDAV или Obsidian. Синхронизация между устройствами вручную или по расписанию."
 ---
 
 # {{$frontmatter.title}}

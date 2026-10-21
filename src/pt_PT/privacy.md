@@ -1,5 +1,6 @@
 ---
 title: Declaração de privacidade
+description: "Esta extensão de registo de tempo não recolhe dados pessoais. Tudo fica no armazenamento local do navegador e nada é enviado para servidores."
 ---
 
 # {{$frontmatter.title}}

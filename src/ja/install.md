@@ -1,5 +1,6 @@
 ---
 title: インストール
+description: "Chrome・Edge・Firefox への時間計測拡張機能のインストール手順。ストアからの追加方法と、その他のブラウザへの手動読み込みについても解説します。"
 ---
 
 # {{$frontmatter.title}}

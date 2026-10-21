@@ -1,5 +1,6 @@
 ---
 title: 資料同步
+description: "將瀏覽時間資料匯出為 JSON 或 CSV，並透過 GitHub Gist、WebDAV 或 Obsidian 備份，支援手動或排程跨裝置同步。"
 ---
 
 # {{$frontmatter.title}}

@@ -1,5 +1,6 @@
 ---
 title: Déclaration de confidentialité
+description: "Ce traqueur de temps ne collecte aucune donnée personnelle. Tout reste dans le stockage local du navigateur et rien n'est envoyé à un serveur."
 ---
 
 # {{$frontmatter.title}}

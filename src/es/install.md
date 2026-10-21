@@ -1,5 +1,6 @@
 ---
 title: Instalación
+description: "Cómo instalar la extensión de control de tiempo en Chrome, Edge y Firefox desde la tienda oficial, con notas para cargarla manualmente en otros navegadores."
 ---
 
 # {{$frontmatter.title}}

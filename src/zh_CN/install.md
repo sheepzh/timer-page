@@ -1,5 +1,6 @@
 ---
 title: 插件安装
+description: "如何在 Chrome、Edge 和 Firefox 中安装这款上网时间统计扩展，以及在其他 Chromium 内核浏览器中手动加载的方法。"
 ---
 
 # {{ $frontmatter.title }}

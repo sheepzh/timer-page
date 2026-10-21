@@ -1,5 +1,6 @@
 ---
 title: Limitar tempo em sites
+description: "Defina limites de tempo diários e semanais em qualquer site. A camada de bloqueio cobre a página, com verificação opcional por palavra-passe ou dois fatores."
 ---
 
 # {{$frontmatter.title}}

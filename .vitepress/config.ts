@@ -78,16 +78,17 @@ const localePathByKey: Record<string, string> = {
 }
 
 // Localized descriptions reused by structured data and social meta tags
+// Keys are locale path prefixes, matching the lookup argument used by transformHead and generateStructuredData
 const localeDescriptions: Record<string, string> = {
-    en: enConfig.description ?? "",
-    zh_CN: zhCnConfig.description ?? "",
-    zh_TW: zhTwConfig.description ?? "",
-    fr: frConfig.description ?? "",
-    es: esConfig.description ?? "",
-    pt_PT: ptConfig.description ?? "",
-    ja: jaConfig.description ?? "",
-    de: deConfig.description ?? "",
-    ru: ruConfig.description ?? "",
+    "/en/": enConfig.description ?? "",
+    "/zh_CN/": zhCnConfig.description ?? "",
+    "/zh_TW/": zhTwConfig.description ?? "",
+    "/fr/": frConfig.description ?? "",
+    "/es/": esConfig.description ?? "",
+    "/pt_PT/": ptConfig.description ?? "",
+    "/ja/": jaConfig.description ?? "",
+    "/de/": deConfig.description ?? "",
+    "/ru/": ruConfig.description ?? "",
 }
 
 function toAbsoluteUrl(path: string): string {

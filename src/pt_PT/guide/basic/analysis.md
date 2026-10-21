@@ -1,5 +1,6 @@
 ---
 title: Analisar hábitos de navegação
+description: "Analise hábitos de navegação com relatórios de hábitos e de site. Gráficos circulares, comparação de períodos e tendências históricas."
 ---
 
 # {{$frontmatter.title}}

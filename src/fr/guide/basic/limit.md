@@ -1,5 +1,6 @@
 ---
 title: Définir des limites de temps
+description: "Fixez des limites de temps quotidiennes et hebdomadaires. Superposition de blocage avec vérification optionnelle par mot de passe ou deux facteurs."
 ---
 
 # {{$frontmatter.title}}

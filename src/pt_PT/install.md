@@ -1,5 +1,6 @@
 ---
 title: Instalação
+description: "Como instalar a extensão de registo de tempo no Chrome, Edge e Firefox a partir da loja oficial, com notas sobre o carregamento manual noutros navegadores."
 ---
 
 # {{$frontmatter.title}}

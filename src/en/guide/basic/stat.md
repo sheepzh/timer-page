@@ -1,5 +1,6 @@
 ---
 title: Track Website Time
+description: "Track time spent on each website automatically. Per-domain and daily statistics, with domain merging rules to group related subdomains into one record."
 ---
 
 # {{$frontmatter.title}}

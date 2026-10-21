@@ -1,5 +1,6 @@
 ---
 title: 分析上網習慣
+description: "透過習慣報告和網站報告分析上網習慣，以圖表呈現時段對比與歷史趨勢。"
 ---
 
 # {{$frontmatter.title}}

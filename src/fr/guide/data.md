@@ -1,5 +1,6 @@
 ---
 title: Synchronisation des données
+description: "Exportez vos données en JSON ou CSV et sauvegardez-les avec GitHub Gist, WebDAV ou Obsidian. Synchronisation multi-appareils à la demande ou planifiée."
 ---
 
 # {{$frontmatter.title}}
