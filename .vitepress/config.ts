@@ -9,6 +9,7 @@ import { esConfig } from "./locales/es"
 import { ptConfig } from "./locales/pt_PT"
 import { jaConfig } from "./locales/ja"
 import { ruConfig } from "./locales/ru"
+import { ukConfig } from "./locales/uk"
 import { STORE_RATINGS } from "./shared/ratings"
 
 const PRODUCTION_HOME = "https://time-tracker-4-browser.app/en/"
@@ -33,9 +34,10 @@ const localePaths = [
     "/fr/",
     "/es/",
     "/pt_PT/",
+    "/ru/",
     "/ja/",
     "/de/",
-    "/ru/",
+    "/uk/",
 ]
 
 const localeHrefLangMap: Record<string, string> = {
@@ -48,6 +50,7 @@ const localeHrefLangMap: Record<string, string> = {
     "/ja/": "ja",
     "/de/": "de",
     "/ru/": "ru",
+    "/uk/": "uk",
 }
 
 // og:locale uses the language_TERRITORY format defined by the Open Graph protocol
@@ -61,6 +64,7 @@ const localeOgLocaleMap: Record<string, string> = {
     "/ja/": "ja_JP",
     "/de/": "de_DE",
     "/ru/": "ru_RU",
+    "/uk/": "uk_UA",
 }
 
 // Map pageData.locale keys to locale path prefixes, the root locale falls back to English
@@ -75,6 +79,7 @@ const localePathByKey: Record<string, string> = {
     ja: "/ja/",
     de: "/de/",
     ru: "/ru/",
+    uk: "/uk/",
 }
 
 // Localized descriptions reused by structured data and social meta tags
@@ -89,6 +94,7 @@ const localeDescriptions: Record<string, string> = {
     "/ja/": jaConfig.description ?? "",
     "/de/": deConfig.description ?? "",
     "/ru/": ruConfig.description ?? "",
+    "/uk/": ukConfig.description ?? "",
 }
 
 function toAbsoluteUrl(path: string): string {
@@ -347,6 +353,12 @@ export default defineConfig({
             link: "/fr/",
             ...frConfig,
         },
+        ru: {
+            label: "Русский",
+            lang: "ru",
+            link: "/ru/",
+            ...ruConfig,
+        },
         es: {
             label: "Español",
             lang: "es",
@@ -371,11 +383,11 @@ export default defineConfig({
             link: "/de/",
             ...deConfig,
         },
-        ru: {
-            label: "Русский",
-            lang: "ru",
-            link: "/ru/",
-            ...ruConfig,
+        uk: {
+            label: "Українська",
+            lang: "uk",
+            link: "/uk/",
+            ...ukConfig,
         },
     },
 })
