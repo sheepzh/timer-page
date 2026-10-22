@@ -1,5 +1,6 @@
 ---
 title: Blog
+description: "Notes and how-to guides on tracking website time, analyzing browsing habits and limiting distracting sites across Chrome, Edge and Firefox."
 ---
 
 # Blog
