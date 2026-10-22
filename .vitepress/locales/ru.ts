@@ -15,6 +15,10 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/ru/blog"
         },
         {
+            text: "Вопросы и ответы",
+            link: "/ru/faq"
+        },
+        {
             text: "О расширении",
             items: [
                 {

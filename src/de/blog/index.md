@@ -1,5 +1,6 @@
 ---
 title: Blog
+description: Anleitungen zum Erfassen der Zeit auf Websites, zur Analyse von Surfgewohnheiten und zum Festlegen von Zeitlimits in Chrome, Edge und Firefox.
 ---
 
 # Blog
