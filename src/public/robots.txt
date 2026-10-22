@@ -20,4 +20,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: ./sitemap.xml
+Sitemap: https://time-tracker-4-browser.app/sitemap.xml
