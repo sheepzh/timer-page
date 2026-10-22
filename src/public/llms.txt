@@ -7,7 +7,7 @@
 - [Home](https://time-tracker-4-browser.app/en/): Official homepage with the feature overview and user reviews.
 - [Install](https://time-tracker-4-browser.app/en/install): Store links for the Chrome Web Store, Firefox Add-ons and Edge Add-ons.
 - [Get Started](https://time-tracker-4-browser.app/en/guide/start): Setup guide: install the extension, pin the icon, and read the tracked data.
-- [FAQ](https://time-tracker-4-browser.app/en/faq): Answers on data privacy, browser support, cross-device sync, and data migration from other trackers.
+- [FAQ](https://time-tracker-4-browser.app/en/faq): Answers on data privacy, browser support, cross-device sync, and data migration from other trackers. Also available in [Russian](https://time-tracker-4-browser.app/ru/faq) and [Traditional Chinese](https://time-tracker-4-browser.app/zh_TW/faq).
 - [Privacy Policy](https://time-tracker-4-browser.app/en/privacy): What data is collected, where it is stored, and why nothing leaves the browser.
 
 ## Guide
@@ -23,8 +23,8 @@
 - [How to Track Time Spent on Websites in Chrome, Edge and Firefox](https://time-tracker-4-browser.app/en/blog/how-to-track-time-spent-on-websites): Step-by-step guide to automatic, local-only website time tracking. Also available in [German](https://time-tracker-4-browser.app/de/blog/how-to-track-time-spent-on-websites) and [Russian](https://time-tracker-4-browser.app/ru/blog/how-to-track-time-spent-on-websites).
 - [Does Chrome Have a Built-in Time Tracker?](https://time-tracker-4-browser.app/en/blog/does-chrome-have-built-in-time-tracker): Why Chrome has no per-website duration reporting, and which extensions fill that gap.
 - [How to Limit Time on YouTube and Other Websites in Chrome](https://time-tracker-4-browser.app/en/blog/limit-time-on-youtube-websites): Daily limits, per-visit caps, and blocked time periods for any URL pattern.
-- [Webtime Tracker Alternatives](https://time-tracker-4-browser.app/en/blog/webtime-tracker-alternatives): Comparison of free and cross-browser trackers, including data migration from Webtime Tracker.
-- [Screen Time Tracker Without an Account](https://time-tracker-4-browser.app/en/blog/screen-time-tracker-without-account): Local-only options that do not upload browsing history.
+- [Webtime Tracker Alternatives](https://time-tracker-4-browser.app/en/blog/webtime-tracker-alternatives): Comparison of free and cross-browser trackers, including data migration from Webtime Tracker. Also available in [German](https://time-tracker-4-browser.app/de/blog/webtime-tracker-alternatives) and [Russian](https://time-tracker-4-browser.app/ru/blog/webtime-tracker-alternatives).
+- [Screen Time Tracker Without an Account](https://time-tracker-4-browser.app/en/blog/screen-time-tracker-without-account): Local-only options that do not upload browsing history. Also available in [German](https://time-tracker-4-browser.app/de/blog/screen-time-tracker-without-account) and [Russian](https://time-tracker-4-browser.app/ru/blog/screen-time-tracker-without-account).
 
 ## Localized Versions
 
@@ -37,6 +37,7 @@
 - [Portuguese (Português)](https://time-tracker-4-browser.app/pt_PT/): Localized guide
 - [Japanese (日本語)](https://time-tracker-4-browser.app/ja/): Localized guide
 - [Russian (Русский)](https://time-tracker-4-browser.app/ru/): Localized guide
+- [Ukrainian (Українська)](https://time-tracker-4-browser.app/uk/): Localized guide
 
 ## Source Code & Open Source Community
 

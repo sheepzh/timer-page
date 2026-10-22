@@ -11,6 +11,10 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/ja/guide/start",
         },
         {
+            text: "ブログ",
+            link: "/ja/blog"
+        },
+        {
             text: "について",
             items: [
                 {

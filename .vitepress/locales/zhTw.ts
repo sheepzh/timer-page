@@ -11,6 +11,10 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/zh_TW/guide/start",
         },
         {
+            text: "常見問題",
+            link: "/zh_TW/faq"
+        },
+        {
             text: "關於",
             items: [
                 {
