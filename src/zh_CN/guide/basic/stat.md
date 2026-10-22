@@ -50,7 +50,7 @@ description: "自动记录每个网站的浏览时间。按域名和日期汇总
 | www.google.com.hk     | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> 不合并` | www.google.com.hk **(1)** |
 | es.news.google.com    | `**.*.google.com >>> 3 级域名`                                       | news.google.com           |
 | b.c.photos.google.com | `**.*.google.com >>> 3 级域名`                                       | photos.google.com         |
-| pass.hust.edu.cn      |                                                                      | hust.edu.cn **(2)**       |
+| dept.cam.ac.uk      |                                                                      | cam.ac.uk **(2)**       |
 
 ::: tip
 

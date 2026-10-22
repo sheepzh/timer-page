@@ -50,7 +50,7 @@ Die folgende Tabelle zeigt einige Zusammenführungsbeispiele nach dem gleichzeit
 | www.google.com.hk          | `www.google.com.* >>> google.com`<br/>`www.google.com.hk >>> Not Merge`        | www.google.com.hk **(1)**             |
 | es.news.google.com         | `**.*.google.com >>> Keep Level 3`                                              | news.google.com                        |
 | b.c.photos.google.com      | `**.*.google.com >>> Keep Level 3`                                              | photos.google.com                      |
-| pass.hust.edu.cn           |                                                                                 | hust.edu.cn **(2)**                    |
+| dept.cam.ac.uk           |                                                                                 | cam.ac.uk **(2)**                    |
 
 ::: tip
 
