@@ -1,26 +1,21 @@
 <template>
     <div class="testimonials-section">
         <div class="testimonials-grid" ref="gridRef">
-            <article v-for="(testimonial, index) in testimonials" :key="index" class="testimonial-card"
-                :itemscope="true" :itemtype="'https://schema.org/Review'">
+            <article v-for="(testimonial, index) in testimonials" :key="index" class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-left">
                         <div class="testimonial-source">
                             <span class="source-icon" :class="getSourceIcon(testimonial.source)"></span>
                         </div>
-                        <div class="testimonial-rating" :itemprop="'reviewRating'" :itemscope="true"
-                            :itemtype="'https://schema.org/Rating'">
-                            <meta :itemprop="'ratingValue'" :content="testimonial.rating.toString()" />
-                            <meta :itemprop="'bestRating'" content="5" />
+                        <div class="testimonial-rating">
                             <StarRating :rating="testimonial.rating" />
                         </div>
                     </div>
-                    <div class="testimonial-author" :itemprop="'author'" :itemscope="true"
-                        :itemtype="'https://schema.org/Person'">
-                        <span class="author-name" :itemprop="'name'">{{ testimonial.name }}</span>
+                    <div class="testimonial-author">
+                        <span class="author-name">{{ testimonial.name }}</span>
                     </div>
                 </div>
-                <p class="testimonial-content" :itemprop="'reviewBody'">
+                <p class="testimonial-content">
                     {{ testimonial.content }}
                 </p>
             </article>
