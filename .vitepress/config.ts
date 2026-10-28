@@ -1,3 +1,4 @@
+import { readdirSync } from "node:fs"
 import { defineConfig } from 'vitepress'
 import type { HeadConfig } from 'vitepress'
 import { enConfig } from "./locales/en"
@@ -104,11 +105,31 @@ function toAbsoluteUrl(path: string): string {
 
 function normalizePagePath(pagePath: string): string {
     // ctx.page is relative to srcDir without a leading slash in VitePress 2.0.0-alpha
+    // cleanUrls serves file pages without a trailing slash and only keeps it on directory index pages
     const withLeadingSlash = pagePath.startsWith("/") ? pagePath : `/${pagePath}`
     const noMd = withLeadingSlash.replace(/\.md$/, "")
-    const withTrailingSlash = noMd.endsWith("/") ? noMd : `${noMd}/`
-    return withTrailingSlash.replace(/\/index\/$/, "/")
+    return noMd.replace(/\/index$/, "/")
 }
+
+// Canonical and hreflang may only reference pages that exist: most blog posts are published
+// in a subset of the ten locales, so assuming every locale has a translation would emit
+// alternate entries that resolve to 404
+const existingPagePaths = new Set<string>()
+
+function collectPagePaths(dir: string, prefix = ""): void {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        if (entry.name.startsWith(".") || entry.name === "public") {
+            continue
+        }
+        if (entry.isDirectory()) {
+            collectPagePaths(`${dir}/${entry.name}`, `${prefix}${entry.name}/`)
+        } else if (entry.name.endsWith(".md")) {
+            existingPagePaths.add(normalizePagePath(`${prefix}${entry.name}`))
+        }
+    }
+}
+
+collectPagePaths(`${process.cwd()}/src`)
 
 function buildLocalizedPath(path: string, localePath: string): string {
     const sourceLocalePath = localePaths.find(candidate => path.startsWith(candidate))
@@ -118,16 +139,21 @@ function buildLocalizedPath(path: string, localePath: string): string {
     return path.replace(sourceLocalePath, localePath)
 }
 
-function generateLocaleAlternates(path: string): HeadConfig[] {
+function resolveLocaleHrefs(path: string): { localePath: string; href: string }[] {
     const sourceLocalePath = localePaths.find(candidate => path.startsWith(candidate))
     if (!sourceLocalePath) {
         return []
     }
-    return localePaths.map(localePath => {
-        const hrefLang = localeHrefLangMap[localePath]
-        const href = toAbsoluteUrl(buildLocalizedPath(path, localePath))
-        return ["link", { rel: "alternate", hreflang: hrefLang, href }]
-    })
+    return localePaths
+        .map(localePath => ({ localePath, href: buildLocalizedPath(path, localePath) }))
+        .filter(({ href }) => existingPagePaths.has(href))
+}
+
+function generateLocaleAlternates(localeHrefs: { localePath: string; href: string }[]): HeadConfig[] {
+    return localeHrefs.map(({ localePath, href }) => [
+        "link",
+        { rel: "alternate", hreflang: localeHrefLangMap[localePath], href: toAbsoluteUrl(href) },
+    ] as HeadConfig)
 }
 
 function isLocaleHome(path: string): boolean {
@@ -135,11 +161,11 @@ function isLocaleHome(path: string): boolean {
 }
 
 function shouldInjectStructuredData(path: string): boolean {
-    return path === "/" || isLocaleHome(path) || /\/index\/$/.test(path)
+    return path === "/" || isLocaleHome(path)
 }
 
 function isBlogArticle(path: string): boolean {
-    return /\/blog\/[^/]+\/$/.test(path)
+    return /\/blog\/[^/]+$/.test(path)
 }
 
 function generateFaqStructuredData(faq: { q: string; a: string }[]) {
@@ -247,22 +273,41 @@ export default defineConfig({
     cleanUrls: true,
     sitemap: {
         hostname: SITE_URL,
-        // VitePress emits no x-default and groups pages per locale with an empty url for the root page
-        transformItems: items =>
-            items
-                .filter(item => item.url !== "")
-                .map(item => {
-                    const links = item.links ?? []
-                    const enHref = links.find(link => link.lang === "en")?.url
-                    return {
-                        ...item,
-                        links: enHref
-                            ? [...links, { lang: "x-default", url: enHref }]
-                            : links.length
-                                ? links
-                                : undefined,
+        // VitePress emits no x-default and maps the default locale home to the site root,
+        // which Vercel redirects to /en, so both are normalized before emitting
+        transformItems: items => items
+            .filter(item => item.url !== "")
+            .map(item => {
+                // The root locale page is emitted twice: once as /en/ and once as the site root
+                // and single locale entries carry no leading slash
+                const normalizeHome = (url: string) => {
+                    const path = url.startsWith(`${SITE_URL}/`) ? url.slice(SITE_URL.length) : url
+                    const withLeadingSlash = path.startsWith("/") ? path : `/${path}`
+                    return withLeadingSlash === "/" ? DEFAULT_LOCALE_PATH : withLeadingSlash
+                }
+                const links: { lang: string; url: string }[] = []
+                for (const link of item.links ?? []) {
+                    if (link.lang === "x-default" || links.some(existing => existing.lang === link.lang)) {
+                        continue
                     }
-                }),
+                    links.push({ ...link, url: normalizeHome(link.url) })
+                }
+                const xDefaultHref =
+                    links.find(link => link.lang === "en")?.url ?? links[0]?.url ?? normalizeHome(item.url)
+                // Pages published in a single locale produce no links, so the self entry is rebuilt
+                if (!links.length) {
+                    const selfPath = normalizeHome(item.url)
+                    const selfLocale = localePaths.find(localePath => selfPath.startsWith(localePath))
+                    if (selfLocale) {
+                        links.push({ lang: localeHrefLangMap[selfLocale], url: selfPath })
+                    }
+                }
+                return {
+                    ...item,
+                    url: normalizeHome(item.url),
+                    links: [...links, { lang: "x-default", url: xDefaultHref }],
+                }
+            }),
     },
     head: [
         ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
@@ -279,13 +324,17 @@ export default defineConfig({
         // The root path is redirected to /en/ by Vercel, so all SEO tags resolve to the default locale page
         const effectivePath = pagePath === "/" ? DEFAULT_LOCALE_PATH : pagePath
         const canonicalUrl = toAbsoluteUrl(effectivePath)
-        const localeAlternates = generateLocaleAlternates(effectivePath)
-        const xDefaultHref = toAbsoluteUrl(buildLocalizedPath(effectivePath, DEFAULT_LOCALE_PATH))
+        const localeHrefs = resolveLocaleHrefs(effectivePath)
+        const localeAlternates = generateLocaleAlternates(localeHrefs)
+        // Fall back to the first published translation when the default locale has no page
+        const xDefaultHref = localeHrefs.find(item => item.localePath === DEFAULT_LOCALE_PATH)?.href ?? localeHrefs[0]?.href
         const pageHead: HeadConfig[] = [
             ["link", { rel: "canonical", href: canonicalUrl }],
             ...localeAlternates,
-            ["link", { rel: "alternate", hreflang: "x-default", href: xDefaultHref }],
         ]
+        if (xDefaultHref) {
+            pageHead.push(["link", { rel: "alternate", hreflang: "x-default", href: toAbsoluteUrl(xDefaultHref) }])
+        }
 
         // Infer the locale from the first path segment of the relative page path
         const localeKey = ctx.pageData.relativePath.split("/")[0]
