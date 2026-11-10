@@ -314,7 +314,7 @@ export default defineConfig({
         ["meta", { name: "viewport", content: "width=device-width,initial-scale=1" }],
         ["meta", { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }],
         // Baidu verification
-        ["meta", { name: "baidu-site-verification", content: "codeva-BMp8bH0dQN" }],
+        ["meta", { name: "baidu-site-verification", content: "codeva-bPnlrFgPdV" }],
         // Bing verification
         ["meta", { name: "msvalidate.01", content: "2E2C6B85AB0C0D85CCB3528B2A2C96AA" }],
         // Yandex verification
