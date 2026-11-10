@@ -54,3 +54,4 @@ Time Tracker - Web Habit Builder соответствует всем четыр�
 
 - [Есть ли в Chrome встроенный трекер времени?](/ru/blog/does-chrome-have-built-in-time-tracker)
 - [Как ограничить время на YouTube и других сайтах](/ru/blog/limit-time-on-youtube-websites)
+- [Онлайн-трекер времени: с чего начать](/ru/guide/start)

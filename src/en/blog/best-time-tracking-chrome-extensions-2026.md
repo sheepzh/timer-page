@@ -245,6 +245,8 @@ Time Tracker is free and open source; the <a href="/en/install" target="_blank" 
 - [Frequently Asked Questions](/en/faq): data privacy, browser support and data migration
 - [Getting Started guide](/en/guide/start): set up tracking step by step
 - [Analyze Browsing Habits](/en/guide/basic/analysis): what the habit reports show
+- [How to Track Time Spent on Websites](/en/blog/how-to-track-time-spent-on-websites): automatic, local-only tracking setup
+- [Webtime Tracker Alternatives](/en/blog/webtime-tracker-alternatives): migration path from Webtime Tracker
 
 ---
 
