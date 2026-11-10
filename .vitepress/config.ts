@@ -313,6 +313,14 @@ export default defineConfig({
         ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
         ["meta", { name: "viewport", content: "width=device-width,initial-scale=1" }],
         ["meta", { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }],
+        // Baidu verification
+        ["meta", { name: "baidu-site-verification", content: "codeva-BMp8bH0dQN" }],
+        // Bing verification
+        ["meta", { name: "msvalidate.01", content: "2E2C6B85AB0C0D85CCB3528B2A2C96AA" }],
+        // Yandex verification
+        ["meta", { name: "yandex-verification", content: "b456ef62962d7f7f" }],
+        // Naver verification
+        ["meta", { name: "naver-site-verification", content: "38a8f5ad7c5621fc48a9d9c18ca7e4e4a753f31e" }],
         ["meta", { property: "og:type", content: "website" }],
         ["meta", { property: "og:site_name", content: SITE_NAME }],
         ["meta", { property: "og:image", content: toAbsoluteUrl("/images/logo.png") }],
