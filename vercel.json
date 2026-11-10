@@ -23,11 +23,6 @@
             "statusCode": 301
         },
         {
-            "source": "/",
-            "destination": "/en",
-            "permanent": true
-        },
-        {
             "source": "/:lang(en|zh_CN|zh_TW|de|fr|es|pt_PT|ja|ru|uk)/blog/:slug/",
             "destination": "/:lang/blog/:slug",
             "permanent": true
@@ -46,6 +41,12 @@
             "source": "/:lang(en|zh_CN|zh_TW|de|fr|es|pt_PT|ja|ru|uk)/guide/basic/:page(stat|analysis|limit)/",
             "destination": "/:lang/guide/basic/:page",
             "permanent": true
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/en"
         }
     ],
     "cleanUrls": true
