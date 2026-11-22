@@ -90,7 +90,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "Time Tracker - Web Habit Builder",
-    description: "An open-source extension that tracks time per website, analyzes browsing habits and limits distracting sites. Free, no account, data stays local. For Chrome, Edge and Firefox.",
+    description: "See how long you really spend on each website. Free, open-source tracker for Chrome, Edge and Firefox. No account, and your data never leaves the device.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

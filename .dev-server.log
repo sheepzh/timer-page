@@ -1,0 +1,24 @@
+
+> timer-page@0.0.0 dev
+> vitepress dev
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./locales/en" without a file extension (.vitepress/config.ts:4:26). Add the file extension
+  - import "./locales/zhCn" without a file extension (.vitepress/config.ts:5:28). Add the file extension
+  - import "./locales/zhTw" without a file extension (.vitepress/config.ts:6:28). Add the file extension
+  - import "./locales/de" without a file extension (.vitepress/config.ts:7:26). Add the file extension
+  - import "./locales/fr" without a file extension (.vitepress/config.ts:8:26). Add the file extension
+  - import "./locales/es" without a file extension (.vitepress/config.ts:9:26). Add the file extension
+  - import "./locales/pt_PT" without a file extension (.vitepress/config.ts:10:26). Add the file extension
+  - import "./locales/ja" without a file extension (.vitepress/config.ts:11:26). Add the file extension
+  - import "./locales/ru" without a file extension (.vitepress/config.ts:12:26). Add the file extension
+  - import "./locales/uk" without a file extension (.vitepress/config.ts:13:26). Add the file extension
+  - import "./shared/ratings" without a file extension (.vitepress/config.ts:14:31). Add the file extension
+  - JSON import "./rating-resource.json" without import attributes (.vitepress/shared/ratings.ts:1:21). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+  vitepress 2.0.0-alpha.20  (using vite 8.3.4)
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help

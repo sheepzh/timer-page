@@ -7,6 +7,10 @@ function nav(): DefaultTheme.NavItem[] {
             link: "/zh_CN/install"
         },
         {
+            text: "常见问题",
+            link: "/zh_CN/faq"
+        },
+        {
             text: "使用手册",
             link: "/zh_CN/guide/start",
         },

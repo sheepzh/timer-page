@@ -1,69 +1,87 @@
 ---
-title: Frequently Asked Questions
-description: "Frequently asked questions about the browser time tracker. Data privacy, browser support, cross-device sync and migrating data from other extensions."
+title: "Browser Time Tracker FAQ: Limits, Privacy and Migration"
+description: How to see your time per website, whether Chrome can limit site time, how to stop a YouTube evening, and how to bring your history from another tracker.
 faq:
-    - q: Does Time Tracker collect my browsing data?
-      a: No. All data is stored locally in your browser using the chrome.storage.local API and is never sent to any server. The project is fully open source, so you can verify this in the code.
+    - q: How do I see how much time I spend on each website?
+      a: Install the extension and it records time per website on its own, second by second, with no timer to start. Open the dashboard for today's totals, then switch to the report pages for per-site history, weekly trends and time-of-day distribution.
+    - q: Does Chrome track website time on its own?
+      a: No. Chrome History records that a visit happened and when it started, not how long you stayed. Google My Activity logs browsing through your Google account and stores it in the cloud, and it still gives no clean per-website duration. An extension that runs inside the browser is the only way to get site-level time.
+    - q: Can Chrome limit how long I spend on a website?
+      a: Chrome has no built-in site time limit. This extension adds four kinds of rule for any URL pattern — a daily or weekly cap, a cap per single visit, blocked hours, and a focus session that keeps chosen sites closed while it runs.
+    - q: How do I stop YouTube from taking my whole evening?
+      a: Give YouTube a daily budget, then add a per-visit cap so one video cannot turn into two hours, and block the hours you want back. When the budget runs out the page is covered until the next day. You can require a password, a custom question or a two-factor code to unlock it, so skipping the rule takes a deliberate act.
+    - q: Is there a time tracker that works without an account?
+      a: This one never asks for registration. Everything is written to your browser's own local storage, nothing is uploaded, and the code is MIT-licensed so the storage behaviour can be checked rather than trusted.
+    - q: How do I move my history from another time tracker?
+      a: Export from the old extension, then use the import tool. It reads Webtime Tracker (CSV or JSON), Web Activity Time Tracker (CSV) and History Trends Unlimited (TSC), and you choose whether the imported rows overwrite or append to what you already have.
+    - q: Does Time Tracker collect or report my browsing data?
+      a: No. There is no telemetry, no analytics and no remote logging. Data lives in the chrome.storage.local API on your device and the project is fully open source, so you can verify both claims in the repository.
     - q: Which browsers are supported?
-      a: Chrome, Edge and Firefox on desktop, plus Firefox for Android, including site blocking. Chrome on Android does not support extensions.
+      a: Chrome, Edge and Firefox on desktop, plus Firefox for Android, including site blocking there. Chrome on Android does not support extensions at all, which is a platform restriction rather than a missing feature.
     - q: Is Time Tracker free?
-      a: Yes. The extension is completely free and open source, with no accounts and no subscriptions.
+      a: Yes. Completely free and open source, with no accounts, no subscriptions and no premium tier.
     - q: Can I sync my data across devices?
-      a: Yes, through services you control. You can export your data as a JSON or CSV file and import it on another device, or back it up via your own WebDAV server, GitHub Gist or Obsidian — manually, or automatically on a schedule you configure. No third-party cloud of ours is involved.
-    - q: How do I limit the time I spend on distracting websites?
-      a: Create a limit rule with a restricted URL, then set a daily or weekly limit, a limit per visit, or time periods where access is not allowed. The rule takes effect as soon as the limit is reached.
+      a: Yes, through services you control. Export as JSON or CSV and import on the other device, or back up to your own WebDAV server, a private GitHub Gist or Obsidian via its Local REST API plugin. Backups run on demand or on a schedule you set. No cloud of ours is involved.
     - q: Does time still count when I switch tabs or play videos?
-      a: The timer follows the focused tab. Fullscreen video is always counted as active, and a tab playing audio is treated as active too. Otherwise the timer stops when you switch away, and tracking can also pause automatically when no activity is detected.
-    - q: Does it work on mobile browsers?
-      a: Firefox for Android is supported, including tracking and site blocking. Mobile Chrome and iOS browsers do not support the extension APIs required, so those platforms cannot be covered.
+      a: The timer follows the focused tab. Fullscreen video always counts as active, and a tab playing audio counts as active too. Otherwise timing stops when you switch away, and it can also pause automatically when no activity is detected.
     - q: How long is my data kept?
-      a: Indefinitely, by design. Data stays on your device until you delete it yourself in the data management page, and there is no automatic retention limit.
-    - q: Can I migrate data from other time tracking extensions?
-      a: Yes. You can import data exported from Webtime Tracker (CSV or JSON), Web Activity Time Tracker (CSV) and History Trends Unlimited (TSC), and choose to override or append to your local data. See [Data Sync](/en/guide/data).
-    - q: Is my usage reported anywhere for statistics?
-      a: No. The extension has no telemetry, no analytics and no remote logging. What you browse and how long you browse stays on your device.
+      a: Indefinitely, by design. It stays on your device until you delete it yourself on the data management page. There is no automatic retention limit and no cleanup schedule.
+    - q: Can I export the data or take it with me?
+      a: Yes, as JSON or CSV at any time. Both are open formats, so the history is not locked into this extension.
 ---
 
 # {{$frontmatter.title}}
 
-Quick answers about how Time Tracker handles your data, which browsers it supports, and how to control your browsing time. For setup steps, see the [Getting Started guide](/en/guide/start).
+Answers to the questions people ask before installing a browser time tracker, and the ones that come up afterwards. For setup steps, see the [Getting Started guide](/en/guide/start).
 
-## Does Time Tracker collect my browsing data?
+## How do I see how much time I spend on each website?
 
-No. All data is stored locally in your browser using the `chrome.storage.local` API and is never sent to any server. The project is fully open source, so you can verify this in the code.
+Install the extension and it records time per website on its own, second by second, with no timer to start. Open the dashboard for today's totals, then switch to the report pages for per-site history, weekly trends and time-of-day distribution. See [How Tracking Works](/en/guide/basic/stat) and [Habit Reports](/en/guide/basic/analysis).
+
+## Does Chrome track website time on its own?
+
+No. Chrome History records that a visit happened and when it started, not how long you stayed. Google My Activity logs browsing through your Google account and stores it in the cloud, and it still gives no clean per-website duration. An extension that runs inside the browser is the only way to get site-level time. The [full breakdown](/en/blog/does-chrome-have-built-in-time-tracker) covers what Chrome and your operating system do report.
+
+## Can Chrome limit how long I spend on a website?
+
+Chrome has no built-in site time limit. This extension adds four kinds of rule for any URL pattern — a daily or weekly cap, a cap per single visit, blocked hours, and a focus session that keeps chosen sites closed while it runs. See [Set Website Time Limits](/en/guide/basic/limit) for the walkthrough.
+
+## How do I stop YouTube from taking my whole evening?
+
+Give YouTube a daily budget, then add a per-visit cap so one video cannot turn into two hours, and block the hours you want back. When the budget runs out the page is covered until the next day. You can require a password, a custom question or a two-factor code to unlock it, so skipping the rule takes a deliberate act. The [YouTube walkthrough](/en/blog/limit-time-on-youtube-websites) has the exact settings.
+
+## Is there a time tracker that works without an account?
+
+This one never asks for registration. Everything is written to your browser's own local storage, nothing is uploaded, and the code is MIT-licensed so the storage behaviour can be checked rather than trusted. [Local-only options compared](/en/blog/screen-time-tracker-without-account).
+
+## How do I move my history from another time tracker?
+
+Export from the old extension, then use the import tool. It reads Webtime Tracker (CSV or JSON), Web Activity Time Tracker (CSV) and History Trends Unlimited (TSC), and you choose whether the imported rows overwrite or append to what you already have. See [Data Sync](/en/guide/data) and the [alternatives comparison](/en/blog/webtime-tracker-alternatives).
+
+## Does Time Tracker collect or report my browsing data?
+
+No. There is no telemetry, no analytics and no remote logging. Data lives in the `chrome.storage.local` API on your device and the project is fully open source, so you can verify both claims in the repository.
 
 ## Which browsers are supported?
 
-Chrome, Edge and Firefox on desktop, plus Firefox for Android, including site blocking. Chrome on Android does not support extensions.
+Chrome, Edge and Firefox on desktop, plus Firefox for Android, including site blocking there. Chrome on Android does not support extensions at all, which is a platform restriction rather than a missing feature.
 
 ## Is Time Tracker free?
 
-Yes. The extension is completely free and open source, with no accounts and no subscriptions.
+Yes. Completely free and open source, with no accounts, no subscriptions and no premium tier.
 
 ## Can I sync my data across devices?
 
-Yes, through services you control. You can export your data as a JSON or CSV file and import it on another device, or back it up via your own WebDAV server, GitHub Gist or Obsidian — manually, or automatically on a schedule you configure. No third-party cloud of ours is involved. See [Data Sync](/en/guide/data) for details.
-
-## How do I limit the time I spend on distracting websites?
-
-Create a limit rule with a restricted URL, then set a daily or weekly limit, a limit per visit, or time periods where access is not allowed. The rule takes effect as soon as the limit is reached. See [Set Website Time Limits](/en/guide/basic/limit) for the full walkthrough.
+Yes, through services you control. Export as JSON or CSV and import on the other device, or back up to your own WebDAV server, a private GitHub Gist or Obsidian via its Local REST API plugin. Backups run on demand or on a schedule you set. No cloud of ours is involved. See [Data Sync](/en/guide/data) for details.
 
 ## Does time still count when I switch tabs or play videos?
 
-The timer follows the focused tab. Fullscreen video is always counted as active, and a tab playing audio is treated as active too. Otherwise the timer stops when you switch away, and tracking can also pause automatically when no activity is detected.
-
-## Does it work on mobile browsers?
-
-Firefox for Android is supported, including tracking and site blocking. Mobile Chrome and iOS browsers do not support the extension APIs required, so those platforms cannot be covered.
+The timer follows the focused tab. Fullscreen video always counts as active, and a tab playing audio counts as active too. Otherwise timing stops when you switch away, and it can also pause automatically when no activity is detected.
 
 ## How long is my data kept?
 
-Indefinitely, by design. Data stays on your device until you delete it yourself in the data management page, and there is no automatic retention limit.
+Indefinitely, by design. It stays on your device until you delete it yourself on the data management page. There is no automatic retention limit and no cleanup schedule.
 
-## Can I migrate data from other time tracking extensions?
+## Can I export the data or take it with me?
 
-Yes. You can import data exported from Webtime Tracker (CSV or JSON), Web Activity Time Tracker (CSV) and History Trends Unlimited (TSC), and choose to override or append to your local data. See [Data Sync](/en/guide/data).
-
-## Is my usage reported anywhere for statistics?
-
-No. The extension has no telemetry, no analytics and no remote logging. What you browse and how long you browse stays on your device.
+Yes, as JSON or CSV at any time. Both are open formats, so the history is not locked into this extension.

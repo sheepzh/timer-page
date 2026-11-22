@@ -54,5 +54,5 @@ Das war die ganze Einrichtung. Auf der <a href="/de/install" target="_blank" rel
 
 ## Weiterlesen
 
-- [Hat Chrome einen integrierten Zeit-Tracker?](/de/blog/does-chrome-have-built-in-time-tracker)
+- [Chrome hat keinen integrierten Zeit-Tracker: diese Erweiterungen helfen](/de/blog/does-chrome-have-built-in-time-tracker)
 - [Zeit auf YouTube und anderen Websites begrenzen](/de/blog/limit-time-on-youtube-websites)

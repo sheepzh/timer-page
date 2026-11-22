@@ -4,8 +4,8 @@ layout: home
 
 hero:
     name: 'Suivi du temps pour le navigateur'
-    text: Pour de meilleures habitudes de navigation
-    tagline: Outil gratuit et open source de suivi du temps sur le web
+    text: Voyez où passe vraiment votre temps de navigation
+    tagline: Gratuite et open source. Sans compte, vos données restent sur votre appareil. Chrome, Edge et Firefox.
     actions:
         - theme: brand
           text: Installer
@@ -16,11 +16,11 @@ hero:
 
 features:
     - title: Suivi
-      details: Suivez le temps que vous passez à naviguer sur différents sites Web chaque jour avec des requêtes par domaine, date et heure.
+      details: Chaque site que vous ouvrez accumule du temps tout seul, seconde par seconde. Filtrez les relevés par domaine, par date ou par heure de la journée.
     - title: Analyse
-      details: Analysez automatiquement vos habitudes de navigation sur chaque site Web et à différents moments en fonction des données de suivi.
+      details: Les rapports montrent vos sites les plus visités, vos heures les plus actives et vos plus longues pauses. De quoi repérer ce que vous pouvez changer.
     - title: Contrôle
-      details: Sur la base des résultats d'analyse, définissez des limites de temps quotidiennes et des périodes d'accès interdit pour les sites Web désignés afin d'améliorer l'efficacité du travail et des études.
+      details: Définissez un plafond quotidien, une limite par visite ou des plages bloquées pour le site de votre choix. Une fois le budget épuisé, la page est masquée jusqu'au lendemain, sauf si vous la déverrouillez volontairement.
 ---
 
 <RatingModule title="Évaluations des navigateurs"/>

@@ -1,6 +1,6 @@
 ---
 title: The Best 6 Time Tracking Chrome Extensions in 2026
-description: A comparison of six time tracking Chrome extensions in 2026, covering tracking scope, habit reports, site limiting, data storage and pricing, based on publicly available store information.
+description: Six time tracking Chrome extensions for 2026, three of them free with no paid tier. Covers tracking scope, habit reports, site limiting and local data storage.
 ---
 
 # The Best 6 Time Tracking Chrome Extensions in 2026
@@ -10,6 +10,8 @@ Most browsing is a series of quick checks that quietly turn into long sessions. 
 There is one catch when picking one. Most extensions cover only part of the job. Some only count time, some only show charts, some only block sites, and using three extensions for one workflow is its own kind of clutter. This list favors tools that combine tracking with analysis or site control, and marks clearly which extensions do what.
 
 The list below covers the best time tracking Chrome extensions in 2026. All six were selected from the Chrome Web Store by comparing publicly available information: store ratings and user counts, feature lists, privacy disclosures, and the source repositories of the open-source projects. Ratings and user counts are refreshed monthly from the store listings.
+
+On price, three of the six are free with no paid tier at all — Time Tracker - Web Habit Builder, Web Activity Time Tracker and Webtime Tracker. The other three are freemium: usable without paying, but with the deeper features behind a subscription. The [comparison table](#quick-comparison-table) marks each one.
 
 Our selection criteria:
 
@@ -26,7 +28,7 @@ Our selection criteria:
 
 **The all-in-one option: tracking, reports and site limits in one extension.**
 
-<a href="https://chromewebstore.google.com/detail/time-tracker-web-habit-bu/dkdhhcbjijekmneelocdllcldcpmekmm" target="_blank" rel="noopener">Time Tracker</a> is an open-source extension (MIT licensed) that combines time tracking, habit analysis and website limiting. On the Chrome Web Store it holds a 4.9-star rating from 134 reviews with over 10,000 users; on Firefox Add-ons it is listed as a Top Rated extension.
+<a href="https://chromewebstore.google.com/detail/time-tracker-web-habit-bu/dkdhhcbjijekmneelocdllcldcpmekmm" target="_blank" rel="noopener">Time Tracker</a> is an open-source extension (MIT licensed) that combines time tracking, habit analysis and website limiting. It is rated 4.87 from 153 reviews on the Chrome Web Store, 4.91 from 137 reviews on Firefox Add-ons and 4.9 from 113 reviews on Edge Add-ons.
 
 Most trackers on this list cover one part of the workflow: counting, charting or blocking. Time Tracker puts all three in a single interface, which is the main reason it ranks first here.
 
@@ -250,4 +252,4 @@ Time Tracker is free and open source; the <a href="/en/install" target="_blank" 
 
 ---
 
-*Last updated: October 2026. Ratings are refreshed monthly from official store listings.*
+*Last updated: November 2026. Ratings are refreshed monthly from official store listings.*

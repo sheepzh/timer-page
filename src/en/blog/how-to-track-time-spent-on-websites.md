@@ -35,7 +35,7 @@ A tip: look at your top five sites and ask one question for each: "was this time
 
 ## Step 3: Turn data into action
 
-Tracking alone doesn't change behavior, but it tells you exactly where a rule would help. For example, if the report shows 90 minutes per day on video sites, you can set a daily limit for that pattern. See [How to Limit Time on YouTube and Other Websites](/en/blog/limit-time-on-youtube-websites) for the walkthrough.
+Tracking alone doesn't change behavior, but it tells you exactly where a rule would help. For example, if the report shows 90 minutes per day on video sites, you can set a daily limit for that pattern. See [How to Limit Time on Websites in Chrome](/en/blog/limit-time-on-youtube-websites) for the walkthrough.
 
 Because the tracker records everything locally, the numbers are yours to keep. You can [export the data](/en/guide/data) as JSON or CSV at any time, or analyze trends with the built-in [habit reports](/en/guide/basic/analysis).
 
@@ -54,6 +54,6 @@ That is the whole setup. The <a href="/en/install" target="_blank" rel="noopener
 
 ## Related reading
 
-- [Does Chrome Have a Built-in Time Tracker?](/en/blog/does-chrome-have-built-in-time-tracker)
-- [How to Limit Time on YouTube and Other Websites](/en/blog/limit-time-on-youtube-websites)
+- [Chrome Has No Built-in Time Tracker: Use These Extensions Instead](/en/blog/does-chrome-have-built-in-time-tracker)
+- [How to Limit Time on Websites in Chrome](/en/blog/limit-time-on-youtube-websites)
 - [The Best Time Tracking Chrome Extensions in 2026](/en/blog/best-time-tracking-chrome-extensions-2026)

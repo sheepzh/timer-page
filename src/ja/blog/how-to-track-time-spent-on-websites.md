@@ -50,5 +50,5 @@ Chrome・Edge・Firefox のストアへのリンクは<a href="/ja/install" targ
 
 ## 関連記事
 
-- [Chrome に内蔵の時間トラッカーはある?](/ja/blog/does-chrome-have-built-in-time-tracker)
+- [Chrome に内蔵の時間トラッカーはない｜代わりに使う拡張機能](/ja/blog/does-chrome-have-built-in-time-tracker)
 - [YouTube の利用時間を制限する方法](/ja/blog/limit-time-on-youtube-websites)

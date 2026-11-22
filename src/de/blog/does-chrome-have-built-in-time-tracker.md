@@ -1,9 +1,9 @@
 ---
-title: Hat Chrome einen integrierten Zeit-Tracker?
+title: "Chrome hat keinen integrierten Zeit-Tracker: diese Erweiterungen helfen"
 description: Chrome hat keinen integrierten Bildschirmzeit-Tracker für die Zeit pro Website. Dieser Artikel erklärt, was Chrome und das Betriebssystem bieten, und wie du mit einer Open-Source-Erweiterung automatisches, lokales Zeit-Tracking hinzufügst.
 ---
 
-# Hat Chrome einen integrierten Zeit-Tracker? Was man stattdessen nutzen kann
+# Chrome hat keinen integrierten Zeit-Tracker: diese Erweiterungen helfen
 
 Kurze Antwort: **nein**. Chrome zeigt dir, welche Seiten du besucht hast, aber nicht, *wie lange* du auf jeder Website warst. Für einen Bildschirmzeit-Bericht innerhalb von Chrome brauchst du eine kleine Erweiterung.
 

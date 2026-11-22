@@ -86,7 +86,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const deConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "Zeiterfassung für Browser - Chrome, Edge & Firefox",
-    description: "Open-Source-Erweiterung zur Zeiterfassung: erfasst die Surfzeit pro Website, analysiert Surfgewohnheiten und blockt ablenkende Seiten. Kostenlos, ohne Konto, für Chrome, Edge und Firefox.",
+    description: "Sieh, wie viel Zeit du auf jeder Website verbringst. Kostenlose Open-Source-Erweiterung für Chrome, Edge und Firefox. Ohne Konto, Daten bleiben lokal.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

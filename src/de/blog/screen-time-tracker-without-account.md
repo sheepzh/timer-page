@@ -51,5 +51,5 @@ Wenn die Prüfliste oben dem entspricht, was du suchst, findest du auf der <a hr
 
 ## Weiterlesen
 
-- [Hat Chrome einen integrierten Zeit-Tracker?](/de/blog/does-chrome-have-built-in-time-tracker)
+- [Chrome hat keinen integrierten Zeit-Tracker: diese Erweiterungen helfen](/de/blog/does-chrome-have-built-in-time-tracker)
 - [Zeit auf Websites messen in Chrome, Edge und Firefox](/de/blog/how-to-track-time-spent-on-websites)

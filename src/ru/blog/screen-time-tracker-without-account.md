@@ -51,7 +51,7 @@ description: Отслеживайте экранное время и часы в
 
 ## Читайте также
 
-- [Есть ли в Chrome встроенный трекер времени?](/ru/blog/does-chrome-have-built-in-time-tracker)
+- [В Chrome нет встроенного трекера времени: какие расширения использовать](/ru/blog/does-chrome-have-built-in-time-tracker)
 - [Аналоги Webtime Tracker](/ru/blog/webtime-tracker-alternatives)
 - [Вопросы и ответы](/ru/faq)
 - [Отслеживание времени на сайтах](/ru/guide/start)

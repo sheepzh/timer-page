@@ -82,7 +82,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const ukConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "Трекер часу для браузера - Chrome, Edge та Firefox",
-    description: "Трекер часу в браузері: враховує час на кожному сайті, аналізує звички та обмежує відволікаючі сайти. Безкоштовно, відкритий код, для Chrome, Edge та Firefox.",
+    description: "Дізнайтеся, скільки часу ви проводите на кожному сайті. Безкоштовне open-source розширення для Chrome, Edge та Firefox. Без акаунта, дані залишаються на пристрої.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

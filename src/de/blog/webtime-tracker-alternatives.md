@@ -1,11 +1,11 @@
 ---
-title: "Webtime Tracker Alternativen: kostenlos, quelloffen und browserübergreifend"
-description: Suchst du eine Webtime Tracker Alternative? Vergleich kostenloser Open-Source-Zeit-Tracker — mit Website-Blockierung, Cross-Browser-Support für Chrome, Edge und Firefox und rein lokaler Datenspeicherung.
+title: "Webtime Tracker Alternativen: kostenlos, Firefox, Daten-Import"
+description: Kostenlose Webtime Tracker Alternativen für Chrome, Edge und Firefox. Importiere deine Daten aus Webtime Tracker, Web Activity Time Tracker oder History Trends.
 ---
 
-# Webtime Tracker Alternativen: kostenlos, quelloffen und browserübergreifend
+# Webtime Tracker Alternativen: kostenlos, Firefox, Daten-Import
 
-Webtime Tracker ist eine bekannte Chrome-Erweiterung, um zu sehen, wie viel Zeit du auf Websites verbringst. Sie macht eine Aufgabe einfach, und vielen reicht das. Je nachdem, warum du eine Alternative suchst — mehr Funktionen, ein anderer Browser oder andere Datenschutzgarantien —, gibt es mehrere Optionen, die du kennen solltest.
+Webtime Tracker ist eine bekannte Chrome-Erweiterung, um zu sehen, wie viel Zeit du auf Websites verbringst. Sie macht eine Aufgabe einfach, und vielen reicht das. Je nachdem, warum du eine Alternative suchst — mehr Funktionen, ein anderer Browser, deine bisherigen Daten behalten oder andere Datenschutzgarantien —, gibt es mehrere Optionen, die du kennen solltest.
 
 Unten ein Vergleich anhand der öffentlichen Store-Beschreibungen, danach eine Einordnung, welches Tool zu welcher Situation passt.
 

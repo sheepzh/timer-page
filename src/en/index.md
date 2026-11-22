@@ -1,11 +1,13 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: Website Time Tracker for Chrome, Edge and Firefox
+titleTemplate: false
 
 hero:
     name: 'Time Tracker for Browser'
-    text: Web Habit Builder
-    tagline: Free, open-source time tracking for Chrome, Edge and Firefox
+    text: See where your browsing time goes
+    tagline: Free and open source. No account, and the data stays on your device. Chrome, Edge and Firefox.
     actions:
         - theme: brand
           text: Install
@@ -16,11 +18,11 @@ hero:
 
 features:
     - title: Tracking
-      details: Track the time you spend browsing various websites every day, with queries by domain, date and time of day.
+      details: Every site you open accumulates time on its own, second by second. Filter the records by domain, by date or by hour of the day.
     - title: Analysis
-      details: Automatically analyze your browsing habits on each website and at different times based on tracking data.
+      details: Reports show your most-visited sites, your busiest hours and your longest idle gaps, so the numbers point at something you can change.
     - title: Control
-      details: Based on the analysis results, set daily time limits and blocked periods for designated websites to stay focused during work or study.
+      details: Set a daily cap, a per-visit cap or blocked hours for any site. When the budget runs out, the page is covered until the next day unless you unlock it on purpose.
 ---
 
 <RatingModule title="Browser Ratings"/>

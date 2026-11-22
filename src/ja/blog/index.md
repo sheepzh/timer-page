@@ -9,4 +9,4 @@ Time Tracker - Web Habit Builder の使い方と、ブラウザ時間の管理�
 
 - [ウェブサイトごとの閲覧時間を記録する方法](/ja/blog/how-to-track-time-spent-on-websites)
 - [YouTube の時間制限｜ブラウザで利用時間を制限する方法](/ja/blog/limit-time-on-youtube-websites)
-- [Chrome に内蔵の時間トラッカーはある?](/ja/blog/does-chrome-have-built-in-time-tracker)
+- [Chrome に内蔵の時間トラッカーはない｜代わりに使う拡張機能](/ja/blog/does-chrome-have-built-in-time-tracker)

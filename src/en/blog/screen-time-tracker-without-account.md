@@ -51,6 +51,6 @@ If the checklist above matches what you want, the <a href="/en/install" target="
 
 ## Related reading
 
-- [Does Chrome Have a Built-in Time Tracker?](/en/blog/does-chrome-have-built-in-time-tracker)
-- [Webtime Tracker Alternatives: Free, Open-Source and Cross-Browser Options](/en/blog/webtime-tracker-alternatives)
+- [Chrome Has No Built-in Time Tracker: Use These Extensions Instead](/en/blog/does-chrome-have-built-in-time-tracker)
+- [Webtime Tracker Alternatives: Free, Cross-Browser, Import Your Data](/en/blog/webtime-tracker-alternatives)
 - [FAQ](/en/faq)

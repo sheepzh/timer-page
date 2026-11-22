@@ -10,12 +10,12 @@ Guides and comparisons about tracking, analyzing and controlling your browsing t
 ## Guides
 
 - [How to Track Time Spent on Websites in Chrome, Edge and Firefox](/en/blog/how-to-track-time-spent-on-websites) — set up automatic, local-only tracking step by step
-- [Does Chrome Have a Built-in Time Tracker?](/en/blog/does-chrome-have-built-in-time-tracker) — why the answer is no, and what to use instead
-- [How to Limit Time on YouTube and Other Websites in Chrome](/en/blog/limit-time-on-youtube-websites) — daily limits, per-visit caps and blocked hours for any site
+- [Chrome Has No Built-in Time Tracker: Use These Extensions Instead](/en/blog/does-chrome-have-built-in-time-tracker) — what Chrome and your OS do report, and the gap an extension fills
+- [How to Limit Time on Websites in Chrome (YouTube, Any Site)](/en/blog/limit-time-on-youtube-websites) — daily limits, per-visit caps and blocked hours for any site
 
 ## Comparisons
 
-- [Webtime Tracker Alternatives: Free, Open-Source and Cross-Browser Options](/en/blog/webtime-tracker-alternatives) — including a direct data migration path
+- [Webtime Tracker Alternatives: Free, Cross-Browser, Import Your Data](/en/blog/webtime-tracker-alternatives) — including a direct data migration path
 - [The Best Time Tracking Chrome Extensions in 2026](/en/blog/best-time-tracking-chrome-extensions-2026) — six tools compared on privacy, features and price
 
 ## Privacy

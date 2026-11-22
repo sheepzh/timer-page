@@ -82,7 +82,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const esConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "Rastreador de tiempo web - Extensión para Chrome y Edge",
-    description: "Extensión de código abierto para registrar el tiempo de navegación por sitio, analizar hábitos y limitar distracciones. Gratis, sin cuenta, datos solo locales. Chrome, Edge y Firefox.",
+    description: "Mira cuánto tiempo pasas en cada sitio web. Extensión gratuita de código abierto para Chrome, Edge y Firefox. Sin cuenta, datos solo en tu dispositivo.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

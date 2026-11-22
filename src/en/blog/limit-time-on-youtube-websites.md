@@ -1,15 +1,15 @@
 ---
-title: How to Limit Time on YouTube and Other Websites in Chrome
-description: Set a daily time limit for YouTube, Reddit, social media or any website in Chrome, Edge and Firefox. Free and open-source website time limiter with per-visit limits and blocked time periods.
+title: How to Limit Time on Websites in Chrome (YouTube, Any Site)
+description: "Limit time on any website in Chrome, Edge and Firefox: YouTube, Reddit, news or social media. Free and open-source, with per-visit caps and blocked hours."
 ---
 
-# How to Limit Time on YouTube and Other Websites in Chrome
+# How to Limit Time on Websites in Chrome (YouTube, Any Site)
 
-"I'll watch one video" is how an evening disappears: the autoplay queue keeps feeding the next one, and willpower at 11 pm rarely wins. A rule enforced by your browser holds up better.
+Most people who want a time limit already know which site costs them the most. What fails is enforcement. Willpower at 11 pm rarely wins against an autoplay queue, and a rule that lives only in your head is easy to renegotiate.
 
-This guide shows how to set an automatic time limit for YouTube (or any other website) using a free, open-source extension for Chrome, Edge and Firefox.
+This guide shows how to set an automatic time limit for any website — YouTube, Reddit, the news, a shop or a work tool you keep reopening — using a free, open-source extension for Chrome, Edge and Firefox.
 
-## Why not install a "YouTube limiter" extension?
+## Why not install a single-site limiter?
 
 The store is full of single-purpose limiters: one for YouTube, another for TikTok, a third for Instagram.
 

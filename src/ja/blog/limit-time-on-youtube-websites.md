@@ -60,4 +60,4 @@ URL はパターン式に対応しているので、1 つのルールでドメ�
 ## 関連記事
 
 - [ウェブサイトごとの閲覧時間を記録する方法](/ja/blog/how-to-track-time-spent-on-websites)
-- [Chrome に内蔵の時間トラッカーはある?](/ja/blog/does-chrome-have-built-in-time-tracker)
+- [Chrome に内蔵の時間トラッカーはない｜代わりに使う拡張機能](/ja/blog/does-chrome-have-built-in-time-tracker)

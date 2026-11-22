@@ -1,9 +1,9 @@
 ---
-title: Does Chrome Have a Built-in Time Tracker? What to Use Instead
-description: Chrome has no built-in tracker for per-website browsing durations. This article explains what Chrome and your operating system do offer, and how to add automatic, local-only website time tracking with an open-source extension.
+title: "Chrome Has No Built-in Time Tracker: Use These Extensions Instead"
+description: Chrome has no built-in per-website time tracking. What it does offer, and how to add automatic, local-only tracking with a free open-source extension.
 ---
 
-# Does Chrome Have a Built-in Time Tracker? What to Use Instead
+# Chrome Has No Built-in Time Tracker: Use These Extensions Instead
 
 Short answer: **no**. Chrome can show you a list of sites you visited, but it has no built-in feature that tells you *how long* you spent on each website. If you're looking for the equivalent of a screen time report inside Chrome, you'll need a small extension.
 
