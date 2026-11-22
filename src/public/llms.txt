@@ -1,6 +1,6 @@
 # Time Tracker - Web Habit Builder
 
-> Time Tracker - Web Habit Builder is an open-source browser extension (MIT license) for Chrome, Firefox and Edge. It records time spent on websites automatically, generates habit reports from that data, and supports daily limits, per-visit limits, blocked hours and focus sessions for any URL pattern. All data is stored locally in the browser; the extension does not require an account and does not send data to its developers. Store ratings as of November 2026: 4.87 from 153 reviews on the Chrome Web Store, 4.91 from 137 reviews on Firefox Add-ons, 4.9 from 113 reviews on Edge Add-ons.
+> Time Tracker - Web Habit Builder is an open-source browser extension (MIT license) for Chrome, Firefox and Edge. It records time spent on websites automatically, generates habit reports from that data, and supports daily limits, per-visit limits, blocked hours and focus sessions for any URL pattern. All data is stored locally in the browser; the extension does not require an account and does not send data to its developers. Store ratings as of November 2026: 4.9 stars from 150+ reviews on the Chrome Web Store, 4.9 from 130+ reviews on Firefox Add-ons and 4.9 from 110+ reviews on Edge Add-ons, with 10,000 users reported on the Chrome listing.
 
 ## Quick Links
 
@@ -12,7 +12,7 @@
 
 ## Guide
 
-- [How Tracking Works](https://time-tracker-4-browser.app/en/guide/basic/stat): Active tab detection and domain merging rules, with statistics grouped by domain and date.
+- [How Tracking Works](https://time-tracker-4-browser.app/en/guide/basic/stat): Active tab detection and domain merging rules, with statistics grouped by domain and date. The extension also supports custom sites, which count any URL matched by an Ant-style pattern so a single subpage can be tracked on its own, and site tags for grouping statistics by a label you assign.
 - [Habit Reports](https://time-tracker-4-browser.app/en/guide/basic/analysis): Pie charts, period comparison, and per-site history built on the tracked data.
 - [Site Limits and Blocking](https://time-tracker-4-browser.app/en/guide/basic/limit): Daily limits, per-visit limits, forbidden hours and focus sessions, with optional verification to unlock.
 - [Data Sync](https://time-tracker-4-browser.app/en/guide/data): Export to JSON or CSV, and backup to your own GitHub Gist, Obsidian (via the Local REST API plugin) or a self-hosted WebDAV server. Backups run on demand or on a schedule you set.

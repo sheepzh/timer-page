@@ -1,15 +1,34 @@
 ---
 title: Track Website Time
-description: "Track time spent on each website automatically. Per-domain and daily statistics, with domain merging rules to group related subdomains into one record."
+description: "Track time spent on each website automatically. Per-domain and daily statistics, custom sites for a single subpage, site tags, and domain merging rules."
 ---
 
 # {{$frontmatter.title}}
 
 ## Dimensions of statistics
 
-Time and count of visits will be grouped and aggregated by unique domain and date. It means that date and domain constitute the smallest statistical granularity.
+Time and count of visits are grouped and aggregated by unique domain and date. In that default view, a domain plus a date is the smallest unit.
 
-And this tool lets you merge basic records according to your own needs.
+Two settings change that granularity in opposite directions. Custom sites go finer, so one subpage can be counted on its own. Merge rules go coarser, so several related domains collapse into one record. Site tags sit across both, letting you group any set of sites under a label you choose.
+
+## Count a single subpage as its own site
+
+A domain record cannot tell you how long one specific page held your attention. If you want that, add a custom site on the site management page, using the button in the top right.
+
+A custom site matches the whole URL rather than only the host, and the pattern follows the Ant format, so wildcards work the same way they do in merge rules. Two cases where this is useful:
+
+- A video or document you return to constantly, for example one YouTube video or one Notion page, counted separately from the rest of the domain
+- A subpath that means something different from the site as a whole, for example `/jobs` on a recruiting site or `/watch` on a video site
+
+Once a custom site matches a visit, that visit is recorded against the custom site in addition to the domain, so the subpage shows up as its own row in the statistics.
+
+## Group sites with tags
+
+Each site can carry a tag, and tags are assigned on the site management page, including in batch for several sites at once. Statistics queries accept tag filters, so you can look at one group without changing how the underlying records are stored.
+
+Tags are manual. The extension does not classify sites into productivity buckets on its own, which is the difference between this and tools that score sites automatically. What you get instead is a grouping that matches how you actually think about your own browsing.
+
+Tags are included when you export site data, so the grouping survives a migration to another device.
 
 ## Summarize data of related sites
 

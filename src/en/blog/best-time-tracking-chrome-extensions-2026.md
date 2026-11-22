@@ -28,7 +28,7 @@ Our selection criteria:
 
 **The all-in-one option: tracking, reports and site limits in one extension.**
 
-<a href="https://chromewebstore.google.com/detail/time-tracker-web-habit-bu/dkdhhcbjijekmneelocdllcldcpmekmm" target="_blank" rel="noopener">Time Tracker</a> is an open-source extension (MIT licensed) that combines time tracking, habit analysis and website limiting. It is rated 4.87 from 153 reviews on the Chrome Web Store, 4.91 from 137 reviews on Firefox Add-ons and 4.9 from 113 reviews on Edge Add-ons.
+<a href="https://chromewebstore.google.com/detail/time-tracker-web-habit-bu/dkdhhcbjijekmneelocdllcldcpmekmm" target="_blank" rel="noopener">Time Tracker</a> is an open-source extension (MIT licensed) that combines time tracking, habit analysis and website limiting. It is rated 4.9 stars from 150+ reviews on the Chrome Web Store, 4.9 from 130+ reviews on Firefox Add-ons and 4.9 from 110+ reviews on Edge Add-ons, and the store listing reports 10,000 users.
 
 Most trackers on this list cover one part of the workflow: counting, charting or blocking. Time Tracker puts all three in a single interface, which is the main reason it ranks first here.
 
@@ -67,7 +67,7 @@ Anyone who wants tracking, reports and site limits in one free tool, and prefers
 
 **An open-source tracker with basic limiting capabilities.**
 
-<a href="https://chromewebstore.google.com/detail/web-activity-time-tracker/hhfnghjdeddcfegfekjeihfmbjenlomm" target="_blank" rel="noopener">Web Activity Time Tracker</a> is an open-source Chrome extension that provides straightforward time tracking with a clean interface. It reports over 30,000 users and a 4.83-star rating on the store.
+<a href="https://chromewebstore.google.com/detail/web-activity-time-tracker/hhfnghjdeddcfegfekjeihfmbjenlomm" target="_blank" rel="noopener">Web Activity Time Tracker</a> is an open-source Chrome extension that provides straightforward time tracking with a clean interface. Its store listing reports 30,000 users, but the rating is 3.4 stars from about 1,000 reviews, the lowest of any tool on this list.
 
 ### Core Advantages
 
