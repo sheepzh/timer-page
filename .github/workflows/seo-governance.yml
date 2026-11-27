@@ -67,6 +67,10 @@ jobs:
                       echo "Report is ${BYTES} bytes, over the 60000 limit for an issue body."
                       exit 1
                   fi
+                  if [ -z "$COPILOT_TOKEN" ]; then
+                      echo "COPILOT_TOKEN is not set. Without it the issue cannot be assigned to an agent, so no issue is opened."
+                      exit 1
+                  fi
                   echo "Preflight ok: $REPORT"
 
             - name: Open governance issue for Copilot coding agent
@@ -108,7 +112,6 @@ jobs:
                   echo "Opened $URL"
 
             - name: Assign Copilot
-              if: env.COPILOT_TOKEN != ''
               env:
                   GH_TOKEN: ${{ secrets.COPILOT_TOKEN }}
                   GH_REPO: ${{ github.repository }}

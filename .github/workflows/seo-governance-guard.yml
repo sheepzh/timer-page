@@ -10,7 +10,7 @@ permissions:
 
 jobs:
     guard:
-        if: contains(github.event.pull_request.title, '[seo-governance]')
+        if: contains(github.event.pull_request.title, 'seo-governance') || startsWith(github.event.pull_request.head.ref, 'copilot/seo-governance')
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -25,7 +25,7 @@ jobs:
 
             - name: Build
               run: |
-                  npm ci
+                  npm install --no-audit --no-fund
                   npm run build
 
             - name: Whitelist guard
@@ -48,6 +48,4 @@ jobs:
             - name: Enable auto-merge
               env:
                   GH_TOKEN: ${{ github.token }}
-              run: |
-                  gh pr merge --auto --squash "${{ github.event.pull_request.number }}" || \
-                      echo "auto-merge not enabled on this branch; PR stays for manual merge"
+              run: gh pr merge --auto --squash "${{ github.event.pull_request.number }}"
