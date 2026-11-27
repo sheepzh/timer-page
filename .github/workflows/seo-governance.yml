@@ -113,4 +113,17 @@ jobs:
                   GH_TOKEN: ${{ secrets.COPILOT_TOKEN }}
                   GH_REPO: ${{ github.repository }}
                   URL: ${{ steps.issue.outputs.url }}
-              run: gh issue edit "$URL" --add-assignee Copilot
+              run: |
+                  set -e
+                  OWNER=${GH_REPO%/*}
+                  NAME=${GH_REPO#*/}
+                  NUMBER=$(basename "$URL")
+                  ISSUE_ID=$(gh api graphql \
+                      -f query="query{repository(owner:\"$OWNER\",name:\"$NAME\"){issue(number:$NUMBER){id}}}" \
+                      --jq .data.repository.issue.id)
+                  BOT_ID=$(gh api graphql \
+                      -f query="query{repository(owner:\"$OWNER\",name:\"$NAME\"){suggestedActors(capabilities:[CAN_BE_ASSIGNED],first:50){nodes{login ... on Bot{id}}}}}" \
+                      --jq '.data.repository.suggestedActors.nodes[] | select(.login=="copilot-swe-agent") | .id')
+                  gh api graphql \
+                      -f query="mutation{replaceActorsForAssignable(input:{assignableId:\"$ISSUE_ID\",actorIds:[\"$BOT_ID\"]}){assignable{... on Issue{number}}}}"
+                  echo "Assigned copilot-swe-agent to issue $NUMBER"
