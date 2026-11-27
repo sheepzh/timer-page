@@ -32,6 +32,8 @@ jobs:
               with:
                   name: seo-report
                   path: .seo-reports/*.md
+                  include-hidden-files: true
+                  if-no-files-found: error
                   retention-days: 7
 
     optimize:
