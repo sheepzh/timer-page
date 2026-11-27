@@ -82,7 +82,7 @@ function sidebar(): DefaultTheme.SidebarMulti {
 
 export const frConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     title: "Suivi du temps web - Extension Chrome, Edge et Firefox",
-    description: "Voyez combien de temps vous passez sur chaque site. Extension gratuite et open source pour Chrome, Edge et Firefox. Sans compte, données locales.",
+    description: "Mesurez le temps passé sur chaque site avec une extension gratuite et open source pour Chrome, Edge et Firefox. Sans compte, données locales.",
     themeConfig: {
         nav: nav(),
         sidebar: sidebar(),

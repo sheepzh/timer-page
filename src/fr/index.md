@@ -5,7 +5,7 @@ layout: home
 hero:
     name: 'Suivi du temps pour le navigateur'
     text: Voyez où passe vraiment votre temps de navigation
-    tagline: Gratuite et open source. Sans compte, vos données restent sur votre appareil. Chrome, Edge et Firefox.
+    tagline: Gratuite et open source. Sans compte, vous mesurez votre temps par site avec des données qui restent sur votre appareil.
     actions:
         - theme: brand
           text: Installer

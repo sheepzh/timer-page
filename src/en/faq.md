@@ -1,6 +1,6 @@
 ---
 title: "Browser Time Tracker FAQ: Limits, Privacy and Migration"
-description: How to see your time per website, whether Chrome can limit site time, how to stop a YouTube evening, and how to bring your history from another tracker.
+description: Find quick answers on website time tracking, Chrome time limits, local-only privacy, data import, export, sync and supported browsers.
 faq:
     - q: How do I see how much time I spend on each website?
       a: Install the extension and it records time per website on its own, second by second, with no timer to start. Open the dashboard for today's totals, then switch to the report pages for per-site history, weekly trends and time-of-day distribution.
