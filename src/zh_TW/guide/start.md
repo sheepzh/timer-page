@@ -12,12 +12,12 @@ description: "三步驟開始自動記錄瀏覽時間。安裝擴充功能後照
 首先，為了更方便地使用這個擴充功能，你需要將圖示固定到工具列上。 不同瀏覽器的操作方式不同，下圖顯示了在 Chrome 中的做法。
 
 <div style="display: flex; justify-content: center;">
-    <img src="/images/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 alt="將 Time Tracker 圖示固定到 Chrome 工具列" />
 </div>
 
 ## 2. 瀏覽任何網站
 
-然後你可以點開任何網站，擴充功能的圖示上會顯示網站的當日瀏覽時間，就像這樣 <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>。
+然後你可以點開任何網站，擴充功能的圖示上會顯示網站的當日瀏覽時間，就像這樣 <img src="/images/beating.gif" style="display: inline-block;height: 24px;" alt="擴充功能圖示上即時累加目前網站的瀏覽時間"/>。
 
 ## 3. 在彈出頁中查看資料
 

@@ -1,6 +1,13 @@
 ---
 title: "Chrome hat keinen integrierten Zeit-Tracker: diese Erweiterungen helfen"
 description: Chrome hat keinen integrierten Bildschirmzeit-Tracker für die Zeit pro Website. Dieser Artikel erklärt, was Chrome und das Betriebssystem bieten, und wie du mit einer Open-Source-Erweiterung automatisches, lokales Zeit-Tracking hinzufügst.
+faq:
+    - q: Verlangsamt das den Browser?
+      a: Nein. Die Erweiterung ist leichtgewichtig (rund 1 MB) und merkt sich nur den fokussierten Tab; Seiteninhalte werden nicht geprüft.
+    - q: Wo liegen die Daten?
+      a: Ausschließlich im lokalen Speicher deines Browsers auf deinem Gerät. Das ist im quelloffenen Code überprüfbar, und du kannst die Daten jederzeit selbst exportieren oder synchronisieren.
+    - q: Funktioniert das in privaten Fenstern?
+      a: Browser führen Erweiterungen nicht in privaten Fenstern aus, außer du erlaubst es ausdrücklich; die Aufzeichnung folgt damit den Datenschutzregeln deines Browsers.
 ---
 
 # Chrome hat keinen integrierten Zeit-Tracker: diese Erweiterungen helfen

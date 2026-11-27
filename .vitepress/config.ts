@@ -183,7 +183,7 @@ function generateFaqStructuredData(faq: { q: string; a: string }[]) {
     })
 }
 
-function generateArticleStructuredData(path: string, title?: string, description?: string, localePath: string = DEFAULT_LOCALE_PATH) {
+function generateArticleStructuredData(path: string, title?: string, description?: string, localePath: string = DEFAULT_LOCALE_PATH, dateModified?: string) {
     const url = toAbsoluteUrl(path)
     return JSON.stringify({
         '@context': 'https://schema.org',
@@ -191,14 +191,16 @@ function generateArticleStructuredData(path: string, title?: string, description
         'headline': title || SITE_NAME,
         'description': description || DESCRIPTION.join(", "),
         'image': toAbsoluteUrl('/images/logo.png'),
+        // Named Person author strengthens E-E-A-T; the publisher stays the Organization
         'author': {
-            '@type': 'Organization',
-            'name': SITE_NAME,
-            'url': SITE_URL,
+            '@type': 'Person',
+            'name': 'Victor Zhang',
+            'url': 'https://github.com/sheepzh',
         },
         'publisher': {
             '@type': 'Organization',
             'name': SITE_NAME,
+            'url': SITE_URL,
             'logo': {
                 '@type': 'ImageObject',
                 'url': toAbsoluteUrl('/images/logo.png'),
@@ -210,6 +212,45 @@ function generateArticleStructuredData(path: string, title?: string, description
         },
         'url': url,
         'inLanguage': localeHrefLangMap[localePath] ?? 'en',
+        // Dropped from the output when undefined; sourced from the git-backed lastUpdated value
+        'dateModified': dateModified,
+    })
+}
+
+// Localized label for the breadcrumb root, one entry per locale home
+const localeHomeLabelMap: Record<string, string> = {
+    "/en/": "Home",
+    "/zh_CN/": "首页",
+    "/zh_TW/": "首頁",
+    "/fr/": "Accueil",
+    "/es/": "Inicio",
+    "/pt_PT/": "Página inicial",
+    "/ja/": "ホーム",
+    "/de/": "Startseite",
+    "/ru/": "Главная",
+    "/uk/": "Головна",
+}
+
+// Two-level breadcrumb (locale home -> current page) for every indexable content page.
+// The leaf name reuses the already-localized page title, so no section labels are fabricated.
+function generateBreadcrumbStructuredData(path: string, localePath: string, pageTitle: string) {
+    return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': localeHomeLabelMap[localePath] ?? 'Home',
+                'item': toAbsoluteUrl(localePath),
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': pageTitle,
+                'item': toAbsoluteUrl(path),
+            },
+        ],
     })
 }
 
@@ -370,11 +411,22 @@ export default defineConfig({
             const title = (ctx.pageData?.frontmatter?.title as string | undefined)
                 ?? (ctx.pageData?.title as string | undefined)
             const description = ctx.pageData?.frontmatter?.description as string | undefined
-            pageHead.push(['script', { type: 'application/ld+json' }, generateArticleStructuredData(effectivePath, title, description, localePath)])
+            // lastUpdated is a git-backed timestamp when the lastUpdated option is enabled
+            const lastUpdated = ctx.pageData?.lastUpdated as number | string | undefined
+            const dateModified = typeof lastUpdated === "number"
+                ? new Date(lastUpdated).toISOString()
+                : typeof lastUpdated === "string"
+                    ? lastUpdated
+                    : undefined
+            pageHead.push(['script', { type: 'application/ld+json' }, generateArticleStructuredData(effectivePath, title, description, localePath, dateModified)])
         }
         const faq = ctx.pageData?.frontmatter?.faq as { q: string; a: string }[] | undefined
         if (faq?.length) {
             pageHead.push(['script', { type: 'application/ld+json' }, generateFaqStructuredData(faq)])
+        }
+        // Breadcrumbs on every indexable content page; home pages are the breadcrumb root and skip it
+        if (!shouldInjectStructuredData(effectivePath)) {
+            pageHead.push(['script', { type: 'application/ld+json' }, generateBreadcrumbStructuredData(effectivePath, localePath, pageTitle)])
         }
         return pageHead
     },

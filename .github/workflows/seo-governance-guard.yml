@@ -1,0 +1,53 @@
+name: SEO Governance Guard
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+
+permissions:
+    contents: read
+    pull-requests: write
+
+jobs:
+    guard:
+        if: contains(github.event.pull_request.title, '[seo-governance]')
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+
+            - name: Build
+              run: |
+                  npm ci
+                  npm run build
+
+            - name: Whitelist guard
+              run: |
+                  set -e
+                  BASE="${{ github.event.pull_request.base.sha }}"
+                  CHANGED=$(git diff --name-only "$BASE" HEAD)
+                  echo "$CHANGED"
+                  BAD=$(echo "$CHANGED" | grep -v -E '^(src/.+\.md|\.vitepress/locales/.+\.ts|src/public/(llms\.txt|robots\.txt))$' || true)
+                  if [ -n "$BAD" ]; then
+                      echo "Whitelist violation, paths outside SKILL.md section 3:"
+                      echo "$BAD"
+                      exit 1
+                  fi
+                  if echo "$CHANGED" | grep -q 'rating-resource.json'; then
+                      echo "rating-resource.json is CI-owned and must not appear in a governance PR."
+                      exit 1
+                  fi
+
+            - name: Enable auto-merge
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  gh pr merge --auto --squash "${{ github.event.pull_request.number }}" || \
+                      echo "auto-merge not enabled on this branch; PR stays for manual merge"

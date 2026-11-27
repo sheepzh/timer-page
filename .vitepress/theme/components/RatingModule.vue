@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
 import { STORE_RATINGS } from '../../shared/ratings'
 import StarRating from './StarRating.vue'
 
@@ -32,7 +31,7 @@ interface Rating {
     target?: string
 }
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
     ratings?: Rating[]
     title?: string
 }>(), {
@@ -52,43 +51,9 @@ const formatCount = (count: number): string => {
     return count.toString()
 }
 
-const structuredData = computed(() => {
-    const totalCount = props.ratings.reduce((sum, item) => sum + item.count, 0)
-    const weightedRating = totalCount === 0
-        ? 0
-        : props.ratings.reduce((sum, item) => sum + item.rating * item.count, 0) / totalCount
-
-    return JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        name: 'Time Tracker for Browser',
-        applicationCategory: 'BrowserApplication',
-        operatingSystem: 'Chrome, Firefox, Edge',
-        isAccessibleForFree: true,
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: weightedRating.toFixed(2),
-            bestRating: '5',
-            worstRating: '1',
-            ratingCount: totalCount.toString(),
-            reviewCount: totalCount.toString(),
-        },
-        sameAs: props.ratings.map(item => item.link),
-    })
-})
-
-onMounted(() => {
-    const scriptId = 'tt-jsonld-software'
-    if (document.getElementById(scriptId)) {
-        return
-    }
-    const script = document.createElement('script')
-    script.id = scriptId
-    script.type = 'application/ld+json'
-    script.textContent = structuredData.value
-    document.head.appendChild(script)
-})
-
+// SoftwareApplication + AggregateRating JSON-LD is injected once at build time by
+// transformHead in config.ts. This component renders the visible rating grid only, so no
+// duplicate client-side structured data is emitted here.
 </script>
 
 <style scoped>

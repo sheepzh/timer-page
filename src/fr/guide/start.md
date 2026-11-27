@@ -12,12 +12,12 @@ Vous pouvez commencer rapidement à utiliser cette extension en seulement 3 éta
 Tout d'abord, pour utiliser cette extension plus facilement, il est recommandé de l'épingler. La procédure varie selon le navigateur ; la figure suivante montre comment procéder dans Chrome.
 
 <div style="display: flex; justify-content: center;">
-    <img src="/images/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 alt="Épingler l'icône de Time Tracker dans la barre d'outils de Chrome" />
 </div>
 
 ## 2. Naviguer sur n'importe quel site Web
 
-Ensuite, naviguez sur n'importe quel site Web, et vous verrez que le temps défile sur l'icône, comme ceci <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
+Ensuite, naviguez sur n'importe quel site Web, et vous verrez que le temps défile sur l'icône, comme ceci <img src="/images/beating.gif" style="display: inline-block;height: 24px;" alt="L'icône de la barre d'outils qui comptabilise le temps passé sur le site actuel"/>.
 
 ## 3. Lire les données dans la page popup
 

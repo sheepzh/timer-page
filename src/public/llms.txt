@@ -5,6 +5,7 @@
 ## Quick Links
 
 - [Home](https://time-tracker-4-browser.app/en/): Official homepage with the feature overview and user reviews.
+- [About](https://time-tracker-4-browser.app/en/about): What the extension does, its MIT open-source and local-only privacy model, the source repositories, and who maintains it.
 - [Install](https://time-tracker-4-browser.app/en/install): Store links for the Chrome Web Store, Firefox Add-ons and Edge Add-ons.
 - [Get Started](https://time-tracker-4-browser.app/en/guide/start): Setup guide: install the extension, pin the icon, and read the tracked data.
 - [FAQ](https://time-tracker-4-browser.app/en/faq): How to see your time per website, whether Chrome can limit site time on its own, how to stop a YouTube evening, plus privacy, browser support, cross-device sync and migrating data from other trackers. Also available in [Russian](https://time-tracker-4-browser.app/ru/faq), [Simplified Chinese](https://time-tracker-4-browser.app/zh_CN/faq) and [Traditional Chinese](https://time-tracker-4-browser.app/zh_TW/faq).

@@ -22,7 +22,7 @@ function nav(): DefaultTheme.NavItem[] {
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },
                 {
-                    text: "Unterstützen Sie uns",
+                    text: "Unterstütze uns",
                     items: [
                         {
                             text: "Probleme melden",

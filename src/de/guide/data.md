@@ -25,7 +25,7 @@ Du kannst auch Daten importieren, die aus anderen ähnlichen Erweiterungen expor
 
 Diese Erweiterung unterstützt keine Dienste, die Daten remote speichern.
 
-Stattdessen bietet sie Tools, die Ihnen helfen, Daten in Dienste von Drittanbietern zu synchronisieren, denen Sie vertrauen.
+Stattdessen bietet sie Tools, die dir helfen, Daten in Dienste von Drittanbietern zu synchronisieren, denen du vertraust.
 
 | Drittanbieter-Dienst | Voraussetzungen                                                                                                                   |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |

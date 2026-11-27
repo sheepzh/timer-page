@@ -12,12 +12,12 @@ description: "三步开始自动记录上网时间。安装扩展后正常浏览
 首先，为了更方便地使用这个扩展，你需要将图标固定到工具栏上。不同浏览器的操作方式不同，下图显示了在 Chrome 中的做法。
 
 <div style="display: flex; justify-content: center;">
-    <img src="/images/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 alt="将 Time Tracker 图标固定到 Chrome 工具栏" />
 </div>
 
 ## 2. 浏览任何网站
 
-然后你可以点开任何网站，扩展图标上会展示该网站的当日浏览时间，就像这样 <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>。
+然后你可以点开任何网站，扩展图标上会展示该网站的当日浏览时间，就像这样 <img src="/images/beating.gif" style="display: inline-block;height: 24px;" alt="扩展图标上实时累加当前网站的浏览时间"/>。
 
 ## 3. 在弹出页中查看数据
 

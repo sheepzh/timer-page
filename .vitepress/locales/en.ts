@@ -22,6 +22,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "About",
             items: [
                 {
+                    text: "About the project",
+                    link: "/en/about"
+                },
+                {
                     text: "Changelog",
                     link: "https://github.com/sheepzh/timer/blob/main/CHANGELOG.md"
                 },

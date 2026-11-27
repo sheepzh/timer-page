@@ -4,3 +4,4 @@ dist
 .vitepress/cache
 package-lock.json
 ppp
+.seo-reports

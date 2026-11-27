@@ -12,12 +12,12 @@ Du kannst in nur 3 einfachen Schritten schnell mit der Verwendung dieser Erweite
 Zunächst solltest du das Symbol anheften, um die Erweiterung bequemer zu erreichen. Das geht in jedem Browser anders: Die folgende Abbildung zeigt, wie es in Chrome funktioniert.
 
 <div style="display: flex; justify-content: center;">
-    <img src="/images/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 alt="Anheften des Time-Tracker-Symbols in der Chrome-Symbolleiste" />
 </div>
 
 ## 2. Beliebige Website besuchen
 
-Besuche dann eine beliebige Website, und du wirst sehen, wie die Zeit auf dem Symbol hochzählt, so wie <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
+Besuche dann eine beliebige Website, und du wirst sehen, wie die Zeit auf dem Symbol hochzählt, so wie <img src="/images/beating.gif" style="display: inline-block;height: 24px;" alt="Das Symbol zählt die Browse-Zeit der aktuellen Website hoch"/>.
 
 ## 3. Daten auf der Popup-Seite ansehen
 

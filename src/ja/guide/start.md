@@ -12,12 +12,12 @@ description: "自動時間計測を 3 ステップで開始。拡張機能をイ
 まず、この拡張機能をより便利に使用するために、ピン留めすることをお勧めします。これを行う方法はブラウザによって異なります。以下の図はChromeでの方法を示しています。
 
 <div style="display: flex; justify-content: center;">
-    <img src="/images/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 alt="Chrome のツールバーに Time Tracker のアイコンを固定する手順" />
 </div>
 
 ## 2. 任意のウェブサイトを閲覧する
 
-次に、任意のウェブサイトを閲覧すると、アイコンに時間が刻まれているのが見えます。このように <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>。
+次に、任意のウェブサイトを閲覧すると、アイコンに時間が刻まれているのが見えます。このように <img src="/images/beating.gif" style="display: inline-block;height: 24px;" alt="現在のウェブサイトの閲覧時間をアイコン上でリアルタイムに加算する様子"/>。
 
 ## 3. ポップアップページでデータを読む
 

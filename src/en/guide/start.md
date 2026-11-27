@@ -12,12 +12,12 @@ You can quickly start using this extension in just 3 easy steps.
 Firstly, to use this extension more conveniently, we recommend pinning it. This works differently in each browser; the following figure shows how in Chrome.
 
 <div style="display: flex; justify-content: center;">
-    <img src="/images/pin.png" width=400 />
+    <img src="/images/pin.png" width=400 alt="Pinning the Time Tracker icon to the Chrome toolbar" />
 </div>
 
 ## 2. Browse any website
 
-Then, browse any website, and you will see the time ticking up on the icon, just like this <img src="/images/beating.gif" style="display: inline-block;height: 24px;"/>.
+Then, browse any website, and you will see the time ticking up on the icon, just like this <img src="/images/beating.gif" style="display: inline-block;height: 24px;" alt="The toolbar icon counting up browsing time for the current website"/>.
 
 ## 3. Read data in the popup page
 

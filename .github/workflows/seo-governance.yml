@@ -1,0 +1,102 @@
+name: SEO Governance Loop
+
+on:
+    schedule:
+        - cron: '0 2 1,6,11,16,21,26 * *'
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    observe:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+
+            - name: Setup Node
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+
+            - name: Observe Search Console
+              env:
+                  GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+                  GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+                  GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+              run: node script/seo-observe.ts
+
+            - name: Upload report
+              uses: actions/upload-artifact@v4
+              with:
+                  name: seo-report
+                  path: .seo-reports/*.md
+                  retention-days: 7
+
+    optimize:
+        needs: observe
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            issues: write
+        steps:
+            - name: Download report
+              uses: actions/download-artifact@v4
+              with:
+                  name: seo-report
+                  path: .seo-reports/
+
+            - name: Preflight report
+              run: |
+                  set -e
+                  REPORT=$(ls -1 .seo-reports/*.md 2>/dev/null | sort | tail -1 || true)
+                  if [ -z "$REPORT" ]; then
+                      echo "No report in .seo-reports. Aborting before an issue is created."
+                      exit 1
+                  fi
+                  grep -q '^# SEO observe ' "$REPORT" || { echo "$REPORT has no header line."; exit 1; }
+                  grep -q 'Page dimension:' "$REPORT" || { echo "$REPORT has no page totals."; exit 1; }
+                  grep -q 'Last .* days:' "$REPORT" || { echo "$REPORT has no recent-day block."; exit 1; }
+                  BYTES=$(wc -c < "$REPORT")
+                  if [ "$BYTES" -gt 60000 ]; then
+                      echo "Report is ${BYTES} bytes, over the 60000 limit for an issue body."
+                      exit 1
+                  fi
+                  echo "Preflight ok: $REPORT"
+
+            - name: Open governance issue for Copilot coding agent
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  GH_REPO: ${{ github.repository }}
+              run: |
+                  set -e
+                  REPORT=$(ls -1 .seo-reports/*.md | sort | tail -1)
+                  {
+                      echo "Automated SEO governance loop."
+                      echo ""
+                      echo "Read .github/skills/seo-governance/SKILL.md in full before any edit."
+                      echo ""
+                      echo "<details><summary>Observation report</summary>"
+                      echo ""
+                      cat "$REPORT"
+                      echo ""
+                      echo "</details>"
+                      echo ""
+                      echo "Execute only the optimize phase: apply exactly the actions whose trigger"
+                      echo "thresholds in SKILL.md section 2 are hit by the report. Respect the file"
+                      echo "whitelist in section 3, the language rules and brand safety red lines in"
+                      echo "section 4, and the fact-verification rules in section 5."
+                      echo ""
+                      echo "Carry every lead from the report into the pull request body under a Leads"
+                      echo "heading, unchanged, even when no threshold is hit."
+                      echo ""
+                      echo "Open a pull request whose title starts with [seo-governance] and whose body"
+                      echo "lists each applied action with the threshold that triggered it. Do not"
+                      echo "modify any path outside the whitelist. If no threshold is hit, close this"
+                      echo "issue without opening a pull request."
+                  } > .issue-body.md
+                  gh issue create \
+                      --title "[seo-governance] optimize $(date -u +%F)" \
+                      --assignee Copilot \
+                      --body-file .issue-body.md

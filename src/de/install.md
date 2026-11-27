@@ -7,7 +7,7 @@ description: "So installierst du die Zeiterfassung für Chrome, Edge und Firefox
 
 ## Aus dem Web Store
 
-Die Erweiterung wird offiziell in den Web Stores von Chrome, Edge und Firefox veröffentlicht. Sie können sie direkt über die folgenden Links installieren.
+Die Erweiterung wird offiziell in den Web Stores von Chrome, Edge und Firefox veröffentlicht. Du kannst sie direkt über die folgenden Links installieren.
 
 <InstallGrid />
 
