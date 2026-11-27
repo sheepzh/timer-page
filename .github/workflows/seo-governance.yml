@@ -42,6 +42,8 @@ jobs:
         permissions:
             contents: read
             issues: write
+        env:
+            COPILOT_TOKEN: ${{ secrets.COPILOT_TOKEN }}
         steps:
             - name: Download report
               uses: actions/download-artifact@v4
@@ -68,6 +70,7 @@ jobs:
                   echo "Preflight ok: $REPORT"
 
             - name: Open governance issue for Copilot coding agent
+              id: issue
               env:
                   GH_TOKEN: ${{ github.token }}
                   GH_REPO: ${{ github.repository }}
@@ -98,7 +101,16 @@ jobs:
                       echo "modify any path outside the whitelist. If no threshold is hit, close this"
                       echo "issue without opening a pull request."
                   } > .issue-body.md
-                  gh issue create \
+                  URL=$(gh issue create \
                       --title "[seo-governance] optimize $(date -u +%F)" \
-                      --assignee Copilot \
-                      --body-file .issue-body.md
+                      --body-file .issue-body.md)
+                  echo "url=$URL" >> "$GITHUB_OUTPUT"
+                  echo "Opened $URL"
+
+            - name: Assign Copilot
+              if: env.COPILOT_TOKEN != ''
+              env:
+                  GH_TOKEN: ${{ secrets.COPILOT_TOKEN }}
+                  GH_REPO: ${{ github.repository }}
+                  URL: ${{ steps.issue.outputs.url }}
+              run: gh issue edit "$URL" --add-assignee Copilot
