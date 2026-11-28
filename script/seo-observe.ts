@@ -6,6 +6,9 @@ const COUNTRY_MIN_IMPS = 5;
 const COMBINED_MIN_IMPS = 5;
 const PAGE_TWO_MIN_IMPS = 50;
 const LEAD_COUNTRY_MIN_IMPS = 50;
+const BASELINE_MIN_IMPS = 50;
+const EVAL_PRE_DAYS = 14;
+const EVAL_INDEX_LAG_DAYS = 7;
 const LOCALE_MATCH_MIN = 0.6;
 const TARGET_DAILY_IMPS = 10000;
 const TARGET_CTR = 0.02;
@@ -83,6 +86,8 @@ const weighted = (rows: Row[]): number => {
 };
 
 const pct = (v: number): string => `${(v * 100).toFixed(2)}%`;
+const signed = (v: number): string => `${v >= 0 ? "+" : ""}${v.toFixed(1)}`;
+const pctChange = (a: number, b: number): number => (a > 0 ? ((b - a) / a) * 100 : 0);
 
 const LANGS = ["en", "de", "es", "fr", "ja", "pt_PT", "ru", "uk", "zh_CN", "zh_TW"];
 
@@ -103,6 +108,18 @@ const SLASH_PATHS = [
 const pathOf = (url: string): string => url.replace(BASE, "") || "/";
 const normalizePage = (url: string): string => pathOf(url).replace(/\/+$/, "") || "/";
 const cell = (s: string): string => s.replace(/\|/g, "\\|");
+const shift = (day: string, delta: number): string => new Date(Date.parse(day) + delta * 86400000).toISOString().slice(0, 10);
+const mde = (p: number, n: number): number => (p > 0 && n > 0 ? 2.8 * Math.sqrt((p * (1 - p) * 2) / n) * 100 : 0);
+
+async function lastContentDeploy(): Promise<string | null> {
+    try {
+        const { execSync } = await import("node:child_process");
+        const iso = execSync("git log -1 --format=%cI -- src .vitepress", { encoding: "utf8" }).trim();
+        return iso ? iso.slice(0, 10) : null;
+    } catch {
+        return null;
+    }
+}
 const byImps = (a: Row, b: Row): number => b.impressions - a.impressions;
 const metricRow = (label: string, clicks: number, imps: number, wpos: number): string =>
     `| ${label} | ${clicks} | ${imps} | ${pct(imps ? clicks / imps : 0)} | ${wpos.toFixed(1)} |`;
@@ -135,12 +152,64 @@ async function main(): Promise<void> {
     const totals = sum(pages);
     const windowCtr = totals.impressions ? totals.clicks / totals.impressions : 0;
 
-    const recentStart = new Date(Date.parse(winEnd) - 2 * 86400000).toISOString().slice(0, 10);
-    const recentRows = daily.filter((r) => cmpDate(dateKey(r.keys[0]), dateKey(recentStart)) >= 0);
-    const recent = sum(recentRows);
-    const recentCtr = recent.impressions ? recent.clicks / recent.impressions : 0;
-    const recentPos = weighted(recentRows);
-    const ctrDrop = windowCtr > 0 && (recentCtr - windowCtr) / windowCtr < -0.3;
+    const deployDay = await lastContentDeploy();
+    const preStart = deployDay ? shift(deployDay, -EVAL_PRE_DAYS) : "";
+    const preEnd = deployDay ? shift(deployDay, -1) : "";
+    const postStart = deployDay ? shift(deployDay, EVAL_INDEX_LAG_DAYS + 1) : "";
+    const postEnd = deployDay ? shift(deployDay, EVAL_INDEX_LAG_DAYS + EVAL_PRE_DAYS) : "";
+    const preStartClipped = deployDay && cmpDate(dateKey(preStart), dateKey(winStart)) < 0 ? winStart : preStart;
+    const preEndClipped = deployDay && cmpDate(dateKey(preEnd), dateKey(winEnd)) > 0 ? winEnd : preEnd;
+    const preRows =
+        deployDay && cmpDate(dateKey(preStartClipped), dateKey(preEndClipped)) <= 0
+            ? await query(token, ["date"], preStartClipped, preEndClipped)
+            : [];
+    const postEndClipped = deployDay && cmpDate(dateKey(postEnd), dateKey(winEnd)) > 0 ? winEnd : postEnd;
+    const postRows =
+        deployDay && cmpDate(dateKey(postStart), dateKey(winEnd)) <= 0 && cmpDate(dateKey(postStart), dateKey(postEndClipped)) <= 0
+            ? await query(token, ["date"], postStart, postEndClipped)
+            : [];
+    const pre = sum(preRows);
+    const post = sum(postRows);
+    const preDays = preRows.length;
+    const postDays = postRows.length;
+    const preCtr = pre.impressions ? pre.clicks / pre.impressions : 0;
+    const postCtr = post.impressions ? post.clicks / post.impressions : 0;
+    const prePos = weighted(preRows);
+    const postPos = weighted(postRows);
+    const windowPos = weighted(pages);
+    const curDailyImps = totals.impressions / dayCount;
+    const curDailyClicks = totals.clicks / dayCount;
+
+    const pageAgg = new Map<string, { imps: number; clicks: number; posSum: number }>();
+    for (const r of pages) {
+        const key = normalizePage(r.keys[0]);
+        const a = pageAgg.get(key) ?? { imps: 0, clicks: 0, posSum: 0 };
+        a.imps += r.impressions;
+        a.clicks += r.clicks;
+        a.posSum += (r.position ?? 0) * r.impressions;
+        pageAgg.set(key, a);
+    }
+    const pagesNorm = [...pageAgg.entries()].map(([page, a]) => ({ page, imps: a.imps, clicks: a.clicks, pos: a.imps ? a.posSum / a.imps : 0 }));
+
+    const bucketOf = (pos: number): string => (pos <= 3 ? "1-3" : pos <= 10 ? "4-10" : pos <= 20 ? "11-20" : "21+");
+    const buckets = ["1-3", "4-10", "11-20", "21+"].map((name) => {
+        const rows = pagesNorm.filter((r) => bucketOf(r.pos) === name);
+        const imps = rows.reduce((s, r) => s + r.imps, 0);
+        const clicks = rows.reduce((s, r) => s + r.clicks, 0);
+        return { name, pageCount: rows.length, imps, clicks, ctr: imps ? clicks / imps : 0 };
+    });
+    const bucketCtr = new Map(buckets.map((b) => [b.name, b.ctr]));
+    const thinBuckets = buckets.filter((b) => b.imps < BASELINE_MIN_IMPS).map((b) => b.name);
+    const belowBucket = pagesNorm
+        .filter((r) => r.imps >= BASELINE_MIN_IMPS)
+        .map((r) => {
+            const expected = bucketCtr.get(bucketOf(r.pos)) ?? 0;
+            const ctr = r.imps ? r.clicks / r.imps : 0;
+            return { ...r, ctr, expected, ratio: expected > 0 ? ctr / expected : 1 };
+        })
+        .filter((r) => r.expected > 0 && r.ratio < 0.6)
+        .sort((a, b) => b.imps - a.imps)
+        .slice(0, 15);
 
     const languages: Record<string, ReturnType<typeof sum> & { ctr: number; wpos: number }> = {};
     for (const lang of LANGS) {
@@ -173,8 +242,6 @@ async function main(): Promise<void> {
 
     const dailyImps = totals.impressions / dayCount;
     const dailyClicks = totals.clicks / dayCount;
-    const recentDays = recentRows.length || 1;
-    const recentDailyImps = recent.impressions / recentDays;
 
     const pageTwoQueries = queries
         .filter((r) => (r.position ?? 0) >= 11 && (r.position ?? 0) <= 20 && r.impressions >= PAGE_TWO_MIN_IMPS)
@@ -214,12 +281,78 @@ async function main(): Promise<void> {
     L.push("");
     L.push(`Page dimension: clicks=${totals.clicks} impressions=${totals.impressions} CTR=${pct(windowCtr)}`);
     L.push("");
-    L.push(`Last ${recentRows.length} days: clicks=${recent.clicks} impressions=${recent.impressions} CTR=${pct(recentCtr)} weighted position=${recentPos.toFixed(1)}`);
-    if (ctrDrop) {
-        L.push("");
-        L.push("**Triggered: last-3-day CTR is more than 30% below the window CTR. Diagnose only, no edits this round.**");
+    L.push("## Summary");
+    L.push("");
+    L.push(`Target ${TARGET_DAILY_IMPS} daily impressions at ${pct(TARGET_CTR)} CTR. This window: ${dailyImps.toFixed(0)} per day at ${pct(windowCtr)}, which is ${pct(dailyImps / TARGET_DAILY_IMPS)} of the impression target and ${pct(windowCtr / TARGET_CTR)} of the CTR target.`);
+    L.push("");
+    L.push(`Section 2.1 hits — zero-click pages at position 10 or better: ${highPosZeroClick.length}; zero-click homepages: ${homeZeroClick.length}; pages under 60% of their rank bucket: ${belowBucket.length}.`);
+    L.push("");
+    if (deployDay) {
+        const readyOn = shift(deployDay, EVAL_INDEX_LAG_DAYS + EVAL_PRE_DAYS + 2);
+        L.push(`Deploy boundary ${deployDay}. Next readable comparison ${readyOn}; the deploy-window change column reads n/a until then.`);
+    } else {
+        L.push("No deploy boundary in the checkout history, so the deploy-window block carries no comparison.");
     }
     L.push("");
+    L.push(`Leads for a human: ${pageTwoQueries.length} page-two queries, ${cannibalized.length} queries spread over two or more pages, ${localeMismatch.length} countries under the matching-language threshold. The tables behind these numbers sit under Details.`);
+    L.push("");
+    L.push("## Baseline");
+    L.push("");
+    L.push("CTR by position bucket over the same window. A page is judged against its own bucket, not the site average.");
+    L.push("");
+    L.push("| bucket | pages | impressions | clicks | CTR |");
+    L.push("|---|---|---|---|---|");
+    for (const b of buckets) L.push(`| ${b.name} | ${b.pageCount} | ${b.imps} | ${b.clicks} | ${pct(b.ctr)} |`);
+    L.push("");
+    if (thinBuckets.length) {
+        L.push(`Bucket ${thinBuckets.join(", ")} carries fewer than ${BASELINE_MIN_IMPS} impressions, so its CTR cannot serve as a reference.`);
+        L.push("");
+    }
+    L.push(`### Pages below 60% of their bucket CTR (imps >= ${BASELINE_MIN_IMPS})`);
+    L.push("");
+    if (belowBucket.length) {
+        L.push("| page | position | impressions | clicks | CTR | bucket CTR | ratio |");
+        L.push("|---|---|---|---|---|---|---|");
+        for (const r of belowBucket) L.push(`| ${cell(r.page)} | ${r.pos.toFixed(1)} | ${r.imps} | ${r.clicks} | ${pct(r.ctr)} | ${pct(r.expected)} | ${r.ratio.toFixed(2)} |`);
+    } else {
+        L.push("- none");
+    }
+    L.push("");
+    L.push("## Deploy window");
+    L.push("");
+    if (!deployDay) {
+        L.push("No commit touching `src/` or `.vitepress/` exists in the checkout history, so this run has no deploy boundary. Read the baseline block only.");
+        L.push("");
+    } else {
+        L.push(`Boundary ${deployDay}: commit date of the most recent commit touching \`src/\` or \`.vitepress/\`. A push after that date has no click evidence yet.`);
+        L.push("");
+        L.push(`Pre window ${preStartClipped} to ${preEnd} (${EVAL_PRE_DAYS} days): ${preDays} days carry data.`);
+        L.push(`Post window ${postStart} to ${postEnd}, opened ${EVAL_INDEX_LAG_DAYS} days after the boundary so Google can recrawl and replace the snippet: ${postDays} days carry data.`);
+        L.push("");
+        const readable = preDays >= EVAL_PRE_DAYS && postDays >= EVAL_PRE_DAYS;
+        const preImps = preDays ? pre.impressions / preDays : 0;
+        const preClicks = preDays ? pre.clicks / preDays : 0;
+        const postImps = postDays ? post.impressions / postDays : 0;
+        const postClicks = postDays ? post.clicks / postDays : 0;
+        const delta = (a: number, b: number, unit: string): string => (readable ? `${signed(unit === "pp" ? (b - a) * 100 : pctChange(a, b))}${unit}` : "n/a");
+        L.push("| metric | pre per day | post per day | change |");
+        L.push("|---|---|---|---|");
+        L.push(`| impressions | ${preImps.toFixed(1)} | ${postDays ? postImps.toFixed(1) : "-"} | ${delta(preImps, postImps, "%")} |`);
+        L.push(`| clicks | ${preClicks.toFixed(2)} | ${postDays ? postClicks.toFixed(2) : "-"} | ${delta(preClicks, postClicks, "%")} |`);
+        L.push(`| CTR | ${preDays ? pct(preCtr) : "-"} | ${postDays ? pct(postCtr) : "-"} | ${delta(preCtr, postCtr, "pp")} |`);
+        L.push(`| weighted position | ${preDays ? prePos.toFixed(1) : "-"} | ${postDays ? postPos.toFixed(1) : "-"} | ${readable ? signed(postPos - prePos) : "n/a"} |`);
+        L.push("");
+        if (!readable) {
+            const short = EVAL_PRE_DAYS - Math.min(preDays, postDays);
+            const readyOn = shift(deployDay, EVAL_INDEX_LAG_DAYS + EVAL_PRE_DAYS + 2);
+            L.push(`The change column reads n/a until both sides hold ${EVAL_PRE_DAYS} days; the short side needs ${short} more days. First readable date: ${readyOn}, once the post window closes and the 2-day data latency has passed.`);
+            L.push("");
+        }
+        L.push(`Each side is ${EVAL_PRE_DAYS} days, not 3. At ${curDailyImps.toFixed(0)} impressions per day a 3-day side carries about ${(curDailyImps * 3).toFixed(0)} impressions and its minimum detectable CTR difference is ${mde(windowCtr, curDailyImps * 3).toFixed(1)}pp, wider than the ${((TARGET_CTR - windowCtr) * 100).toFixed(2)}pp still needed to reach target; ${EVAL_PRE_DAYS} days brings it to ${mde(windowCtr, curDailyImps * EVAL_PRE_DAYS).toFixed(1)}pp.`);
+        L.push("");
+        L.push("This comparison is site level. A single page carries a few dozen impressions per day, so its own before and after stays under the detectable difference at any side length; page-level judgement comes from the baseline block.");
+        L.push("");
+    }
 
     L.push("## Target");
     L.push("");
@@ -231,7 +364,11 @@ async function main(): Promise<void> {
     L.push(`| clicks | ${totals.clicks} | ${dailyClicks.toFixed(1)} | ${(TARGET_DAILY_IMPS * TARGET_CTR).toFixed(0)} | ${pct(dailyClicks / (TARGET_DAILY_IMPS * TARGET_CTR))} |`);
     L.push(`| ctr | ${pct(windowCtr)} | - | ${pct(TARGET_CTR)} | ${pct(windowCtr / TARGET_CTR)} |`);
     L.push("");
-    L.push(`Last ${recentDays} days run at ${recentDailyImps.toFixed(0)} impressions per day and ${pct(recentCtr)} CTR: ${pct(recentDailyImps / TARGET_DAILY_IMPS)} of the impression target, ${pct(recentCtr / TARGET_CTR)} of the CTR target.`);
+
+
+    L.push("## Details (agent input)");
+    L.push("");
+    L.push("Everything below this line supports attribution and is collapsed in the issue body.");
     L.push("");
 
     L.push("## Leads (impression side, human decides)");

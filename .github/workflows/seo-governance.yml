@@ -14,6 +14,8 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0
 
             - name: Setup Node
               uses: actions/setup-node@v5
@@ -61,7 +63,10 @@ jobs:
                   fi
                   grep -q '^# SEO observe ' "$REPORT" || { echo "$REPORT has no header line."; exit 1; }
                   grep -q 'Page dimension:' "$REPORT" || { echo "$REPORT has no page totals."; exit 1; }
-                  grep -q 'Last .* days:' "$REPORT" || { echo "$REPORT has no recent-day block."; exit 1; }
+                  grep -q '## Summary' "$REPORT" || { echo "$REPORT has no summary block."; exit 1; }
+                  grep -q '## Baseline' "$REPORT" || { echo "$REPORT has no baseline block."; exit 1; }
+                  grep -q '## Deploy window' "$REPORT" || { echo "$REPORT has no deploy-window block."; exit 1; }
+                  grep -q '## Details (agent input)' "$REPORT" || { echo "$REPORT has no details boundary."; exit 1; }
                   BYTES=$(wc -c < "$REPORT")
                   if [ "$BYTES" -gt 60000 ]; then
                       echo "Report is ${BYTES} bytes, over the 60000 limit for an issue body."
@@ -86,9 +91,11 @@ jobs:
                       echo ""
                       echo "Read .github/skills/seo-governance/SKILL.md in full before any edit."
                       echo ""
-                      echo "<details><summary>Observation report</summary>"
+                      awk '/^## Details \(agent input\)$/{exit} {print}' "$REPORT"
                       echo ""
-                      cat "$REPORT"
+                      echo "<details><summary>Full tables for attribution (agent input)</summary>"
+                      echo ""
+                      awk '/^## Details \(agent input\)$/{f=1;next} f' "$REPORT"
                       echo ""
                       echo "</details>"
                       echo ""

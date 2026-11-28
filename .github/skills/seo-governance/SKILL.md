@@ -24,9 +24,9 @@ Trigger: `.github/workflows/seo-governance.yml`, cron at 02:00 UTC on the 1st, 6
 
 Pipeline, in order, with artifact destinations:
 
-1. observe: the observe job of seo-governance.yml runs `script/seo-observe.ts`. GSC credentials (client id, client secret, refresh token) are injected as repository secrets into that job's env and never leave it. The script calls searchAnalytics for eight dimension sets in one pass: date, page, query, country, device, page x query x country, searchAppearance and brandedClassification, and writes a single file `.seo-reports/<UTC date>.md`, which the job uploads as a workflow artifact. The report is never committed: it exists only inside the run and, after step 2, inside the issue body. The window is a fixed 36-day span ending 2 days behind today, which is the data latency; the span is requested explicitly rather than left to the API, so the comparison basis does not drift as data accumulates. Trend detection is internal to one report: the last 3 days are compared against the whole window. No cross-run snapshot is kept.
+1. observe: the observe job of seo-governance.yml runs `script/seo-observe.ts`. GSC credentials (client id, client secret, refresh token) are injected as repository secrets into that job's env and never leave it. The script calls searchAnalytics for eight dimension sets in one pass: date, page, query, country, device, page x query x country, searchAppearance and brandedClassification, and writes a single file `.seo-reports/<UTC date>.md`, which the job uploads as a workflow artifact. The report is never committed: it exists only inside the run and, after step 2, inside the issue body. The window is a fixed 36-day span ending 2 days behind today, which is the data latency; the span is requested explicitly rather than left to the API, so the comparison basis does not drift as data accumulates. Every comparison stays inside one report: a page's CTR is judged against the bucket of pages at a similar rank, and the site is compared across the most recent deploy boundary read from git history. No cross-run snapshot is kept.
 2. optimize: the next job downloads that artifact and creates a governance issue with `gh issue create --assignee Copilot`, inlining the whole report in a collapsed block of the body alongside the skill path. The GitHub built-in Copilot coding agent picks it up in its hosted environment, reads this skill (`.github/skills/` is the native repository skill location for Copilot) plus the report, edits files according to the thresholds in section 2, and opens a pull request whose title starts with `[seo-governance]`. The agent environment contains GitHub built-in skills and the GitHub MCP only; no third-party agent action is referenced and no GSC credential is exposed to it. If no threshold is hit, the agent closes the issue without a pull request.
-3. publish: `.github/workflows/seo-governance-guard.yml` runs build and the whitelist guard on the pull request as a required status check, then enables `gh pr merge --auto --squash`. After merge into main, Vercel deploys automatically; the deployment is the final consumer of the loop. Each run compares its own window against itself: a 36-day cumulative window already carries the trend, so the report states the last-3-day block next to the full window and needs no stored reference point.
+3. publish: `.github/workflows/seo-governance-guard.yml` runs build and the whitelist guard on the pull request as a required status check, then enables `gh pr merge --auto --squash`. After merge into main, Vercel deploys automatically; the deployment is the final consumer of the loop. Each run carries its own reference: the rank-bucket table is rebuilt from the same window, so no stored baseline can go stale, and the deploy-window block anchors its pre and post sides on the most recent commit touching `src/` or `.vitepress/`, skipping 7 days after that boundary before the post side opens.
 
 Any failing step stops the loop: observe failure creates no issue; guard failure blocks the merge; when auto-merge is unavailable the pull request waits for a human merge and the loop never pushes to main around the check.
 
@@ -39,16 +39,16 @@ Evaluate in order, abort at the first failure:
 | # | Check | Command |
 |---|---|---|
 | 1 | The issue carries an observation report | the body contains a collapsed block that starts with `# SEO observe ` |
-| 2 | That block has page totals and a recent-day block | `Page dimension:` and `Last ` both appear inside it |
+| 2 | That block carries page totals and both reference blocks | `Page dimension:`, `## Baseline` and `## Deploy window` all appear inside it |
 | 3 | Node responds | `node -v` |
-| 4 | Dependencies install from the lockfile | `npm ci` |
+| 4 | Dependencies install | `npm install --no-audit --no-fund`; the repository carries no lockfile, so `npm ci` fails by design |
 | 5 | Build is green before any edit | `npm run build` |
 
 Rules that override everything else in this skill:
 
 1. On abort, close the issue with one comment naming the failed check and the raw error, then stop. No pull request, no file edit, no retry, no alternative approach.
 2. Abort immediately. Do not read sections 2 to 7, do not fetch the site, do not inspect search performance, do not draft a plan. A session that continues past a failed preflight produces a conclusion built on nothing.
-3. Never repair the environment inside the loop. No `npm install` without the lockfile, no version pinning, no edits to `package.json`, `package-lock.json`, `.nvmrc`, `vercel.json` or either workflow. Those paths are outside section 3, and a green build from altered tooling is not evidence that the site builds.
+3. Never repair the environment inside the loop. No dependency pinning, no edits to `package.json`, `package-lock.json`, `.nvmrc`, `vercel.json` or either workflow. `npm install` is the sanctioned install step because the repository carries no lockfile; generating a lockfile from inside the loop is the kind of tooling change this rule forbids. Those paths are outside section 3, and a green build from altered tooling is not evidence that the site builds.
 4. Never fetch data yourself. The report is the only input. The agent environment holds no GSC credential, so any attempt ends in 401 after the whole session has been spent.
 5. Check 5 protects the loop as much as the build: if `main` was already red, every governance pull request fails on grounds unrelated to copy, and the failure gets misread as the previous round's copy change.
 
@@ -69,10 +69,11 @@ Thresholds are grouped by which target number they move. The optimize phase edit
 
 | Metric | Trigger | Action |
 |---|---|---|
+| Below-bucket CTR | page carries >= 50 impressions and its CTR is under 60% of its rank bucket, in the baseline block | Edit that page's frontmatter title or description per section 4. Broadest trigger: a page at position 9 is judged against the 4-10 bucket, never against the site average |
 | High-position zero-click page | position <= 10 and impressions >= 40 and clicks = 0 in the window | Edit that page's frontmatter title or description per section 4 |
 | High-impression zero-click query | impressions >= 100 and clicks = 0 | Judge intent relevance first. A query unrelated to the product (known instance: `trackerweb 4`) is excluded from CTR computation and gets no action. A zero-click category query that is relevant is a position problem and stays in |
 | Language homepage zero-click | that language's homepage has impressions >= 30 and clicks = 0 | Edit that locale's description and the homepage hero tagline |
-| CTR drop | last-3-day CTR more than 30% below the window CTR | Diagnose only, no edits; list position and wording changes in the report |
+| CTR drop | window CTR well under the pre-window CTR while position holds steady | Diagnose only, no edits; list position and wording changes in the report. Skip this row while the deploy-window change column reads n/a |
 
 ### 2.2 Leads the loop reports but cannot act on (impression side)
 
@@ -192,13 +193,13 @@ Source locations for capability boundaries: limit processors in `src/content-scr
 
 ## 6. Publish guardrails
 
-1. The guard workflow runs `npm ci && npm run build` on pull requests whose title contains `[seo-governance]`. YAML frontmatter errors surface here; a build failure fails the check and blocks the merge.
+1. The guard workflow runs `npm install --no-audit --no-fund && npm run build` on pull requests whose title contains `[seo-governance]` or whose head branch starts with `copilot/seo-governance`. YAML frontmatter errors surface here; a build failure fails the check and blocks the merge.
 2. The guard workflow checks that every path in `git diff --name-only base...HEAD` falls inside the section 3 whitelist; any violation fails the check.
 3. The guard workflow rejects `.vitepress/shared/rating-resource.json` outright.
 4. With all checks green the guard workflow enables auto-merge (squash). When the repository has auto-merge disabled the step degrades to a notice and the pull request waits for a human merge; the loop never pushes to main around the check.
 5. Report commits from the observe job use the github-actions[bot] identity, matching the update-rating.yml precedent; local operations use the repository-level git config identity (sheepzh) and never modify git config.
 6. The pull request body must list each applied action together with the threshold that triggered it, for human spot checks. Reports and pull requests are the only auditable outputs of the loop.
-7. Clicks are attributed by comparing their date against the deployment time: clicks dated before a deployment cannot be its result, and the deployment time is read from the commit history on each run rather than stored.
+7. Clicks are attributed by comparing their date against the deployment time: clicks dated before a deployment cannot be its result, and the deployment time is read from the commit history on each run rather than stored. The boundary is the commit date of the most recent commit touching `src/` or `.vitepress/`, because workflow-only commits deploy nothing the crawler can see. The observe job checks out full history for this reason; a shallow clone makes the boundary equal to HEAD and the block meaningless.
 8. A pull request that touches a locale outside the ten in section 0, or adds a locale directory, is a violation whatever its diff size. Section 3's whitelist permits any path under `src/`; only this rule keeps a new language out.
 
 ## 7. Known exceptions and out-of-loop decisions
@@ -222,9 +223,13 @@ Requires a human decision, the loop cannot act:
 
 `script/seo-observe.ts` writes `.seo-reports/<date>.md` on the runner. The observe job uploads it as an artifact, the optimize job inlines it into the issue body, and the issue is where the agent reads it. The file is never committed, so no report enters the repository history and no retention policy is needed. One report per run, no companion snapshot.
 
-The report carries, in order: the target block (window totals, per-day values and progress against 10,000 daily impressions and 2% CTR, plus the last-3-day run rate); the leads block (page-two queries, query cannibalization, locale mismatch); the window start, end and day count; page-dimension totals and CTR; the last-3-day block with its CTR and weighted position; the by-language, by-device and by-country tables; the triggered threshold lists with their pages and queries; the full page table; the query table; the page x query x country table; the page x query table; the search appearance table; the branded classification table. The full and combined tables exist so the agent can attribute impressions to a page, a query and a country without guessing. That is the reason it needs no GSC access of its own: the material is already in the file.
+The report is split at one marker, `## Details (agent input)`. Above the marker sits what a reviewer reads: the header line with window start, end and day count; page-dimension totals and CTR; the summary block (progress against both targets, the count of section 2.1 hits, the deploy boundary with its next readable date, and the size of every lead category); the baseline block (CTR per rank bucket, plus every page under 60% of its own bucket with at least 50 impressions); the deploy-window block (daily averages for 14 days before the most recent content deploy and 14 days starting 7 days after it, change column n/a until both sides are full); the target block. Below the marker sits what the agent reads for attribution: the leads block (page-two queries, query cannibalization, locale mismatch), the by-language, by-device and by-country tables, the triggered threshold lists, the full page table, the query table, the page x query x country table, the search appearance table and the branded classification table. The full tables exist so the agent can attribute impressions to a page, a query and a country without guessing; that is why it needs no GSC access of its own.
 
-The target block is context. It decides nothing: a progress figure of 2% does not authorize a bigger edit, and a fast-growing last-3-day rate does not license a claim of improvement, because section 6 and the attribution rule still apply.
+The issue body prints everything above the marker as plain text and puts everything below it inside one collapsed `<details>` block. A reviewer sees about 3.5 KB and the agent receives the whole file. The summary block has to stay readable without expanding anything: it repeats the target progress, the hit counts and the next readable date, so a reviewer can tell whether this round will edit anything without opening a single table.
+
+The target block is context. It decides nothing: a progress figure of 2% does not authorize a bigger edit, and a large change in the deploy-window block does not license a claim of improvement, because section 6 and the attribution rule still apply.
+
+The baseline block is the baseline. The first row of the section 2.1 table reads it, and every page it lists is edited against its own bucket. The deploy-window block answers "did the last deploy move the site" for a human reading the issue: pre side 14 days ending the day before the boundary, post side 14 days opening 7 days after it, change column n/a until both sides are full. The loop never edits on it. Fourteen days per side is the smallest window whose minimum detectable CTR difference sits below the gap to target at the site's current volume; a 3-day side detects roughly twice the gap and reports noise as movement.
 
 The leads block is output. Carry it into the pull request body under a `Leads` heading, unchanged, even when the round makes no edits. A round with zero edits and three leads is a successful round; a round that drops the leads to look productive is not.
 
