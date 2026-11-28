@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: "Get started with automatic time tracking in three steps. Install the extension, browse as usual and check your per-website time in the popup dashboard."
+title: "Set Up Website Time Tracking in Chrome"
+description: Install the extension, browse normally and see time per website in three steps. Setup works for Chrome, Edge and Firefox.
 ---
 
 # {{$frontmatter.title}}

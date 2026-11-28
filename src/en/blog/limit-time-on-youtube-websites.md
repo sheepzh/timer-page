@@ -1,6 +1,6 @@
 ---
-title: How to Limit Time on Websites in Chrome (YouTube, Any Site)
-description: "Limit time on any website in Chrome, Edge and Firefox: YouTube, Reddit, news or social media. Free and open-source, with per-visit caps and blocked hours."
+title: "Limit Website Time in Chrome: YouTube, Reddit and Any Site"
+description: "Set daily, per-visit or blocked-period limits for YouTube and any website in Chrome, Edge or Firefox with a free open-source extension."
 ---
 
 # How to Limit Time on Websites in Chrome (YouTube, Any Site)

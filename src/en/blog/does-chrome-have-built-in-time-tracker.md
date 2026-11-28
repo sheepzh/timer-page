@@ -1,6 +1,6 @@
 ---
-title: "Chrome Has No Built-in Time Tracker: Use These Extensions Instead"
-description: Chrome has no built-in per-website time tracking. What it does offer, and how to add automatic, local-only tracking with a free open-source extension.
+title: "Does Chrome Have a Built-in Time Tracker? What to Use Instead"
+description: Chrome does not track time per website. Learn what Chrome and the OS report, then add automatic local-only tracking with a free extension.
 faq:
     - q: Does this slow the browser down?
       a: No. The extension is lightweight (around 1 MB) and only records which tab is focused; it does not inspect page content.

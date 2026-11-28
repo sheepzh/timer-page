@@ -1,6 +1,6 @@
 ---
-title: "Webtime Tracker Alternatives: Free, Cross-Browser, Import Your Data"
-description: Free Webtime Tracker alternatives for Chrome, Edge and Firefox. Import your history from Webtime Tracker, Web Activity Time Tracker or History Trends.
+title: "Webtime Tracker Alternatives with Data Import"
+description: Compare free cross-browser trackers and move your history from Webtime Tracker or Web Activity Time Tracker into a Chrome, Edge or Firefox extension.
 ---
 
 # Webtime Tracker Alternatives: Free, Cross-Browser, Import Your Data

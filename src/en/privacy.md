@@ -1,6 +1,6 @@
 ---
-title: Privacy statement
-description: "This time tracker collects no personal data. Everything stays in your browser's local storage, and nothing is sent to any server."
+title: "Browser Time Tracker Privacy: Local Data, No Servers"
+description: See what browsing data this tracker stores locally and which personal data is collected. Your browsing history is not sent to the extension servers.
 ---
 
 # {{$frontmatter.title}}
