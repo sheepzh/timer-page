@@ -1,6 +1,6 @@
 ---
-title: "Webtime Tracker Alternativen: kostenlos, Firefox, Daten-Import"
-description: Kostenlose Webtime Tracker Alternativen für Chrome, Edge und Firefox. Importiere deine Daten aus Webtime Tracker, Web Activity Time Tracker oder History Trends.
+title: "Webtime Tracker Alternativen mit Datenimport"
+description: Vergleiche kostenlose Tracker für Chrome, Edge und Firefox und importiere deine Daten aus Webtime Tracker, Web Activity Time Tracker oder History Trends.
 ---
 
 # Webtime Tracker Alternativen: kostenlos, Firefox, Daten-Import
